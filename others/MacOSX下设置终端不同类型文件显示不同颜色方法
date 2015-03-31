@@ -1,0 +1,50 @@
+#前言
+Mac OS X 的ls默认是没有颜色区分的，不同类型的文件都是一种颜色，因此很难区分不同文件类型的文件。
+#设置ls颜色
+- 1 打开~目录下的.bash_profile（如果没有此文件先新建一个）
+~~~shell
+$ vi ~/.bash_profile
+~~~
+
+- 2 在.bash_profile里添加下面两个语句：
+~~~shell
+export CLICOLOR=1
+export LSCOLORS=1212121212121212121212
+~~~
+
+- 3 LSCOLORS 具体设置：
+\- LSCOLORS 中的1对应前景色，2对应背景色。
+\- 实际应用中，将1和2改成下面的字母就可以对应不同的颜色。
+\- LSCOLORS共有11组”12”设置，每组12对应文件类型为
++	1.   directory
++	2.   symbolic link
++	3.   socket
++	4.   pipe
++	5.   executable (可执行文件，x权限)
++	6.   block special
++	7.   character special
++	8.   executable with setuid bit set (setuid=Set User ID，属主身份)
++	9.   executable without setgid bit set
++	10.  directory writable to others, with sticky bit
++	11.  directory writable to others, without sticky bit
+
+\- 字母代表的颜色如下：
++	a     black
++	b     red
++	c     green
++	d     brown
++	e     blue
++	f     magenta
++	g     cyan
++	h     light grey
++	A     bold black, usually shows up as dark grey
++	B     bold red
++	C     bold green
++	D     bold brown, usually shows up as yellow
++	E     bold blue
++	F     bold magenta
++	G     bold cyan
++	H     bold light grey; looks like bright white
++	x     default foreground or background (透明)
+
+- 最后我的设置为：export LSCOLORS=bxfxhxhxgxhxhxgxgxbxbx 
