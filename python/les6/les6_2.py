@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 
 try:
 	with open('james.txt') as ja_file, open('julie.txt') as ju_file, open('mikey.txt') as mi_file, open('sarah.txt') as sa_file:

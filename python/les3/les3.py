@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 import nester 
 
 movies = ["The Holy Grail", 1975, "Terry Jones & Terry Gilliam", 91,

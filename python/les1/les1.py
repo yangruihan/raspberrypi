@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 
 movies = ["The Holy Grail",
 		  "The Life of Brian",

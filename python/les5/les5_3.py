@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 import pickle
 
 with open('mydata.pickle', 'wb') as mysavedata:
