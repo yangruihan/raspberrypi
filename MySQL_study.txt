@@ -1,0 +1,21 @@
+#类型：
+CHAR(n)             长度为n的定长字符串
+VARCHAR(n)          最大长度为n的变长字符串
+INT                 长整数（也可以写作INTEGER）
+SMALLINT            短整数
+NUMERIC(p,d)        定点数，由p位数字（不包括符号、小数点）组成，小数点后面有d位数字
+REAL                取决于机器精度的浮点数
+Double Precision    取决于机器精度的双精度浮点数
+FLOAT(n)            浮点数，精度至少为n位数字
+DATE                日期，包含年、月、日，格式YYYY-MM-DD
+TIME                时间，包含一日的时、分、秒，格式为HH:MM:SS
+
+#常见约束与用法：
+(1)DEFAULT <常量表达式>
+(2)NULL/NOT NULL
+(3)PRIMARY KEY(<列名>,...)
+(4)UNIQUE
+(5)FOREIGN KEY(<列名>,...) REFERENCES <父表名>(<主码列名>,...)
+(6)CHECK (<逻辑表达式>)
+
+
