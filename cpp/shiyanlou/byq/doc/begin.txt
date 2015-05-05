@@ -1,0 +1,36 @@
+       DISSP  MACRO                 ;????
+              PUSH      AX
+              PUSH      DX
+              MOV       AH,02H
+              MOV       DL,20H
+              INT       21H
+              POP       DX
+              POP       AX
+              ENDM
+     DISHCHH  MACRO                 ;??????
+              PUSH      AX
+              PUSH      DX
+              MOV       AH,02H
+              MOV       DL,0DH
+              INT       21H
+              MOV       AH,02H
+              MOV       DL,0AH
+              INT       21H
+              POP       DX
+              POP       AX
+              ENDM
+   DISSTRING  MACRO     STRING      ;?????
+              PUSH      AX
+              PUSH      DX
+              MOV       AH,09H
+              MOV       DX,OFFSET STRING
+              INT       21H
+              POP       DX
+              POP       AX
+              ENDM
+      STACKS  SEGMENT   STACK
+              DW        128 DUP(?)
+      STACKS  ENDS
+       DATAS  SEGMENT
+
+

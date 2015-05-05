@@ -1,0 +1,71 @@
+TN -> int  
+num -> 5  
+P -> TN a [ num ] ;  
+S -> P  
+TN -> int  
+num -> 0  
+F -> num  
+T -> F  
+E -> T  
+P -> TN b = E ;  
+S -> S P  
+TN -> int  
+num -> 0  
+F -> num  
+T -> F  
+E -> T  
+P -> TN c = E ;  
+S -> S P  
+P -> write " please input five numbers: " ;  
+S -> S P  
+P -> write endl ;  
+S -> S P  
+NA -> c  
+F -> NA  
+T -> F  
+E -> T  
+ROP -> <  
+num -> 5  
+F -> num  
+T -> F  
+E -> T  
+B -> E ROP E  
+array -> a [ c ]  
+NA -> array  
+P -> read NA ;  
+S -> P  
+NA -> b  
+NA -> b  
+F -> NA  
+T -> F  
+E -> T  
+array -> a [ c ]  
+NA -> array  
+F -> NA  
+T -> F  
+E -> E + T  
+P -> NA = E ;  
+S -> S P  
+NA -> c  
+NA -> c  
+F -> NA  
+T -> F  
+E -> T  
+num -> 1  
+F -> num  
+T -> F  
+E -> E + T  
+P -> NA = E ;  
+S -> S P  
+P -> while ( B ) { S }  
+S -> S P  
+P -> write " the sum of the numbers is: " ;  
+S -> S P  
+P -> write endl ;  
+S -> S P  
+NA -> b  
+P -> write NA ;  
+S -> S P  
+P -> write endl ;  
+S -> S P  
+Pro -> main ( ) { S }  

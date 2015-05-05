@@ -1,0 +1,88 @@
+ MOV       AX,4C00H    ;????
+              INT       21H
+              
+      GETNUM  PROC      NEAR
+              PUSH      BX
+              PUSH      CX
+              MOV       BX,0        ;BX???10????12???0
+          L:  CALL      GETHEXCHAR  ;??1?10???=>AL
+              CMP       AL,0DH
+              JE        T1
+              CMP       AL,20H
+              JE        T2
+              MOV       AH,0
+              PUSH      AX
+              MOV       AX,BX
+              MOV       BX,10
+              MUL       BX
+              MOV       BX,AX
+              POP       AX
+              ADD       BX,AX
+              JMP       L
+         T1:  DISHCHH
+              JMP       OVER
+         T2:  DISSP
+       OVER:  MOV       AX,BX       ;????AX
+              POP       CX
+              POP       BX
+              RET
+      GETNUM  ENDP
+   
+   
+  GETHEXCHAR  PROC      NEAR
+        CHL:  MOV       AH,1
+              INT       21H         ;??1???
+              CMP       AL,0DH
+              JE        OVER2
+              CMP       AL,20H
+              JE        OVER2
+              CMP       AL,'0'      ;<'0'???
+              JB        ERROR
+              CMP       AL,'9'      ;>'9'
+              JA        ERROR
+              SUB       AL,30H      ;?'0'-'9'??????0-9
+              JMP       OVER2
+      ERROR:  MOV       AH,2        ;??0-9?????????????
+              MOV       DL,8
+              INT       21H
+              JMP       CHL         ;????
+      OVER2:
+              RET
+  GETHEXCHAR  ENDP
+      
+      PUTNUM  PROC      NEAR        ;????1?10???(AL)
+              PUSH      BX
+              PUSH      CX
+              PUSH      DX
+              PUSH      AX
+              MOV       CX,0
+         L1:
+              MOV       BX,10
+              MOV       DX,0
+              DIV       BX
+              PUSH      DX
+              INC       CX
+              CMP       AX,0
+              JNZ       L1
+         L2:  POP       AX
+              MOV       AH,0
+              CALL      PUTHEXCHAR  ;??1?10????
+              LOOP      L2
+              POP       AX
+              POP       DX
+              POP       CX
+              POP       BX
+              RET
+      PUTNUM  ENDP
+
+  PUTHEXCHAR  PROC      NEAR        ;????1?10?????AL?
+              ADD       AL,30H
+              MOV       DL,AL
+              MOV       AH,2
+              INT       21H
+              RET
+  PUTHEXCHAR  ENDP
+              
+       CODES  ENDS
+              END       START
+

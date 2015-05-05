@@ -1,0 +1,7 @@
+DATAS  ENDS
+       CODES  SEGMENT
+              ASSUME    CS:CODES,DS:DATAS
+      START:  MOV       AX,DATAS
+              MOV       DS,AX
+
+

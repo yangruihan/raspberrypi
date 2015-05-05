@@ -1,0 +1,26 @@
+-1	Wenfa -> Pro @
+0	Pro -> main ( ) { S } | FUNC Pro @
+
+3	TN -> char | int | double @
+4	array -> id [ inum ] | id [ id ] @
+6	num -> inum | dnum @
+5	NA -> id | array @
+
+1	S -> P | S P  @
+
+15	P -> FUN | TN id ; | TN id [ num ] ; | TN id = ' c ' ; | TN id = E ; | NA = E ; |
+ 	NA = ' c ' ; | while ( B ) { S } | read NA ; | write NA ; | 
+	write " str " ; | write endl ; | if ( B ) { S } | if ( B ) { S } else { S } @
+
+7	E -> E + T | E - T | T @
+9	T -> T * F | T / F | F @
+10	F -> ( E ) | NA | num @
+
+8	B -> E ROP E @
+11	ROP -> > | < | >= | <= | == | != @
+
+2	FUNC -> func id ( FN ) { S } @
+12	FN -> TN id | TN id , FN @
+14	FUN -> id ( FN2 ) ; @
+13	FN2 -> id | id , FN2 @
+

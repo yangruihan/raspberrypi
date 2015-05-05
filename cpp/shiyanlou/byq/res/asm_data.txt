@@ -1,0 +1,5 @@
+a   dw  5 dup(?)
+b   dw   ?
+c   dw   ?
+string0   db  'please input five numbers:' ,'$'
+string1   db  'the sum of the numbers is:' ,'$'

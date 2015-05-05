@@ -1,0 +1,39 @@
+     mov b,0
+     mov c,0
+     disstring string0
+     dishchh
+LC2:
+     cmp c,5
+     jb LC0
+     jmp LC1
+LC0:
+     mov ax,c
+     push bx
+     mov bx,2
+     mul bx
+     pop bx
+     mov bx,offset a
+     mov si,ax
+     call getnum
+     mov word ptr [bx+si],ax
+     mov ax,c
+     push bx
+     mov bx,2
+     mul bx
+     pop bx
+     mov si,ax
+     mov bx, word ptr [a+si]
+     push dx
+     mov dx,bx
+     mov bx,b
+     add bx,dx
+     pop dx
+     mov b,bx
+     inc c
+     jmp LC2
+LC1:
+     disstring string1
+     dishchh
+     mov ax,b
+     call putnum
+     dishchh
