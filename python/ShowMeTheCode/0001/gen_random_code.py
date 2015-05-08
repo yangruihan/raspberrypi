@@ -12,6 +12,7 @@ def gen_rand_code(num, len):
 			file.write(''.join(s) + '\n')
 
 if __name__ == '__main__':
-	#number = raw_input('Write the number: ')
-	#length = raw_input('Write the length: ')
-	gen_rand_code(200, 8)
+	number = raw_input('Write the number: ')
+	length = raw_input('Write the length: ')
+	#gen_rand_code(200, 8)
+	gen_rand_code(int(number), int(length))

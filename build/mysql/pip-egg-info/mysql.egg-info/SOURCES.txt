@@ -1,0 +1,6 @@
+setup.cfg
+pip-egg-info/mysql.egg-info/PKG-INFO
+pip-egg-info/mysql.egg-info/SOURCES.txt
+pip-egg-info/mysql.egg-info/dependency_links.txt
+pip-egg-info/mysql.egg-info/requires.txt
+pip-egg-info/mysql.egg-info/top_level.txt
