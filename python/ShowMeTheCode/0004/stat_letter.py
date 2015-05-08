@@ -14,7 +14,7 @@ def stat_letter(filename):
 			for s1 in s:
 				if s1 in res:
 					res[s1] += 1
-				else:
+				elif s1 in string.letters:
 					res[s1] = 1
 
 	with open('result.txt', 'wb') as outputfile:
