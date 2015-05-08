@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
-#生成的 200 个激活码（或者优惠券）保存到 MySQL 关系型数据库中
 
 import mysql.connector
 import os
@@ -9,7 +8,7 @@ def store_mysql(filename):
 	conn = mysql.connector.connect(user = 'root', password = 'root', database = 'showmethecode')
 	cursor = conn.cursor()
 	
-	#ÅÐ¶Ï±íÊÇ·ñŽæÔÚ
+	#�жϱ��Ƿ����
 	cursor.execute("show tables in showmethecode;")
 	tables = cursor.fetchall()
 	findtables = False
