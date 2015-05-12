@@ -30,8 +30,8 @@ def ygm(font_size = 20, count_min = 4, count_max = 10,code_height = 30,
                    random.randrange(0, 255),
                    random.randrange(0, 255))]
 
-    img_width = (font_size + 1) * code_count
-    img_height = code_height + font_size
+    img_width = (font_size + 5) * code_count
+    img_height = code_height + font_size + 15
     verify = ''
     im = Image.new('RGB', (img_width, img_height), background)
     draw = ImageDraw.Draw(im)
@@ -54,11 +54,12 @@ def ygm(font_size = 20, count_min = 4, count_max = 10,code_height = 30,
     return YZMInfo(img = im, code = verify.upper())
         
 if __name__ == '__main__':
-    info = ygm(font_size = 16,
-               code_height = 10,
-               string = string.letters + string.digits + '#@%&$')
-    info.img.save('test.git')
-    print info.code
+	for i in range(100):
+		info = ygm(font_size = 16,
+				   code_height = 10,
+				   string = string.letters + string.digits)
+		info.img.save('test' + str(i) + '.gif')
+		print info.code
 
 
 
