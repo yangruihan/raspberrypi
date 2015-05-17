@@ -1,0 +1,72 @@
+#Pygame使用笔记：
+##使用Pygame：
+模块名					功能
+pygame.cdrom			访问光驱
+pygame.cursors			加载光标
+pygame.display			访问显示设备
+pygame.draw				绘制形状、线和点
+pygame.event			管理事件
+pygame.font				使用字体
+pygame.image			加载和存储图片
+pygame.joystick			使用游戏手柄或者类似的东西
+pygame.key				读取键盘按键
+pygame.mixer			声音
+pygame.mouse			鼠标
+pygame.movie			播放视频
+pygame.music			播放音频
+pygame.overlay			访问高级视频叠加
+pygame.rect				管理矩形区域
+pygame.sndarray			操作声音数据
+pygame.sprite			操作移动图像
+pygame.surface			管理图像和屏幕
+pygame.surfarray		管理点阵图像数据
+pygame.time				管理时间和帧信息
+pygame.transform		缩放和移动图像
+
+-----
+
+##显示一个窗口 pygame.display.set_mode()
+- set_mode会返回一个Surface对象，代表了在桌面上出现的那个窗口，三个参数第一个为元祖，代表分 辨率（必须）；第二个是一个标志位，具体意思见下表，如果不用什么特性，就指定0；第三个为色深。
+标志位				功能
+FULLSCREEN			创建一个全屏欻给你口
+DOUBLEBUF			创建一个“双缓冲窗口”，建议在HWSURFACE或者OPENGL时使用
+HWSURFACE			创建一个硬件加速的窗口，必须和FULLSCREEN同时使用
+OPENGL				创建一个OPENGL渲染的窗口
+RESIZABLE			创建一个可以改变大小的窗口
+NOFRAME				创建一个没有边框的窗口
+
+-----
+
+##pygame 常用事件集
+事件			产生途径			参数
+QUIT			用户按下关闭按钮	none
+ATIVEEVENT		pygame被激活或隐藏	gain, state
+KEYDOWN			键盘被按下			unicode, key, mod
+KEYUP			键盘被放开			key, mod
+MOUSEMOTION		鼠标移动			pos, rel, buttons
+MOUSEBUTTONDOWN	鼠标按下			pos, button
+MOUSEBUTTONUP	鼠标放开			pos, button
+JOYAXISMOTION	游戏手柄移动		joy, axis, value
+JOYBALLMOTION	游戏球移动			joy, axis, value
+JOYHATMOTION	游戏手柄移动		joy, axis, value
+JOYBUTTONDOWN	游戏手柄按下		joy, button
+JOYBUTTONUP		游戏手柄放开		joy, button
+VIDEORESIZE		pygame窗口缩放		size, w, h
+VIDEOEXPOSE		pygame窗口部分公开	none
+USEREVENT		触发了一个用户事件	code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
