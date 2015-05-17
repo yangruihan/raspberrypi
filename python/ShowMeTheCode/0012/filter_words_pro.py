@@ -3,6 +3,7 @@
 
 import re
 
+#从文件读取信息，以列表形式返回
 def read_file(filename):
     l = []
     with open(filename,'r') as fp:
@@ -17,9 +18,9 @@ def gen_pattern(l):
         pattern += string + '|'
     return pattern[:-1]
 
-#输入检测后输出
 def input_replace(pattern):
     sentence = raw_input('Please enter a sentence:')
+    print re.sub(pattern,'**',sentence)
 
 def main():
     filename = 'filtered_words.txt'
