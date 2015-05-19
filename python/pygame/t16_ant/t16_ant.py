@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+#-*- coding:utf-8 -*-
+
 SCREEN_SIZE = (640, 480)
 NEST_POSITION = (320, 240)
-ANT_COUNT = 20
+ANT_COUNT = 30
 NEST_SIZE = 100.
 
 import pygame
@@ -127,12 +130,14 @@ class Spider(GameEntity):
 		if self.health <= 0:
 			self.speed = 0.
 			self.image = self.dead_image
-		self.speed = 140.
+		if self.speed < 140:
+			self.speed = 140.
 
 	def render(self, surface):
 		GameEntity.render(self, surface)
 		x, y = self.location
 		w, h = self.image.get_size()
+		# 绘制血量
 		bar_x = x - 12
 		bar_y = y + h/2
 		surface.fill( (255, 0, 0), (bar_x, bar_y, 25, 4))
@@ -233,6 +238,7 @@ class AntStateDelivering(State):
 
 	def check_conditions(self):
 		if Vector2(*NEST_POSITION).get_distance_to(self.ant.location) < NEST_SIZE:
+			# 为了使蚂蚁放的物体位置不同
 			if (randint(1, 10) == 1):
 				self.ant.drop(self.ant.world.background)
 				return "exploring"
