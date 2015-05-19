@@ -102,7 +102,16 @@ aalines			绘制一系列平滑的线
 - 用法：同上
 - 这两个方法就是在画线的时候使用抗锯齿效果。
 
+-----
 
+##pygame.key
+名称							作用
+pygame.key.get_pressed()		返回一个元组，元组的索引就是键值，对应的值就是其是否按下
+pygame.key.focused				返回当前的pygame窗口是否激活
+pygame.key.get_mods				按下的组合键(Alt, Ctrl, Shift)
+pygame.key.set_mods				模拟按下组合键效果(KMOD_ALT, KMOD_CTRL, KMOD_SHIFT)
+pygame.key.repeat				无参数调用设置pygame不产生重复按键事件，二参数(delay, interval)调用设置重复事件发生的时间
+pygame.key.name					接受键值返回键名
 
 
 
