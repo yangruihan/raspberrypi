@@ -113,6 +113,18 @@ pygame.key.set_mods				模拟按下组合键效果(KMOD_ALT, KMOD_CTRL, KMOD_SHI
 pygame.key.repeat				无参数调用设置pygame不产生重复按键事件，二参数(delay, interval)调用设置重复事件发生的时间
 pygame.key.name					接受键值返回键名
 
+-----
+
+##pygame.mouse
+名称							作用
+pygame.mouse.get_pressed		返回按键按下情况，返回的是一元组，分别为(左键, 中键, 右键)，如按下则为True
+pygame.mouse.get_rel			返回相对偏移量，(x方向, y方向)的一元组
+pygame.mouse.get_pos			返回当前鼠标位置(x, y)
+pygame.mouse.set_pos			显而易见，设置鼠标位置
+pygame.mouse.set_visible		设置鼠标光标是否可见
+pygame.mouse.get_focused		如果鼠标在pygame窗口内有效，返回True
+pygame.mouse.set_cursor			设置鼠标的默认光标式样
+pygame.mouse.get_cursor			得到鼠标的光标式样
 
 
 
