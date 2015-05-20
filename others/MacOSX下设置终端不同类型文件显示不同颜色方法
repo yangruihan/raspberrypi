@@ -1,50 +1,57 @@
-#Ç°ÑÔ
-Mac OS X µÄlsÄ¬ÈÏÊÇÃ»ÓĞÑÕÉ«Çø·ÖµÄ£¬²»Í¬ÀàĞÍµÄÎÄ¼ş¶¼ÊÇÒ»ÖÖÑÕÉ«£¬Òò´ËºÜÄÑÇø·Ö²»Í¬ÎÄ¼şÀàĞÍµÄÎÄ¼ş¡£
-#ÉèÖÃlsÑÕÉ«
-- 1 ´ò¿ª~Ä¿Â¼ÏÂµÄ.bash_profile£¨Èç¹ûÃ»ÓĞ´ËÎÄ¼şÏÈĞÂ½¨Ò»¸ö£©
+#å‰è¨€
+- Mac OSXçš„lsæ˜¯æ²¡æœ‰é¢œè‰²çš„ï¼Œä¸‹é¢æ˜¯è®¾ç½®lsé¢œè‰²çš„æ–¹æ³•ã€‚
+- æ­¤æ–¹æ³•åœ¨Mac OSXä¸­è¯•éªŒè¿‡ï¼Œä½†ä¸æ¸…æ¥šlinuxæ˜¯å¦ä¹Ÿå¯è¡Œã€‚
+#è®¾ç½®é¢œè‰²
+- 1 æ‰“å¼€~ç›®å½•ä¸‹çš„.bash_profileï¼ˆæ²¡æœ‰æ­¤æ–‡ä»¶çš„è¯æ–°å»ºä¸€ä¸ªï¼‰
 ~~~shell
 $ vi ~/.bash_profile
 ~~~
 
-- 2 ÔÚ.bash_profileÀïÌí¼ÓÏÂÃæÁ½¸öÓï¾ä£º
+- 2 åœ¨.bash_profileé‡Œæ·»åŠ ä¸‹é¢ä¸¤ä¸ªè¯­å¥ï¼š
 ~~~shell
 export CLICOLOR=1
 export LSCOLORS=1212121212121212121212
 ~~~
 
-- 3 LSCOLORS ¾ßÌåÉèÖÃ£º
-\- LSCOLORS ÖĞµÄ1¶ÔÓ¦Ç°¾°É«£¬2¶ÔÓ¦±³¾°É«¡£
-\- Êµ¼ÊÓ¦ÓÃÖĞ£¬½«1ºÍ2¸Ä³ÉÏÂÃæµÄ×ÖÄ¸¾Í¿ÉÒÔ¶ÔÓ¦²»Í¬µÄÑÕÉ«¡£
-\- LSCOLORS¹²ÓĞ11×é¡±12¡±ÉèÖÃ£¬Ã¿×é12¶ÔÓ¦ÎÄ¼şÀàĞÍÎª
-+	1.   directory
-+	2.   symbolic link
-+	3.   socket
-+	4.   pipe
-+	5.   executable (¿ÉÖ´ĞĞÎÄ¼ş£¬xÈ¨ÏŞ)
-+	6.   block special
-+	7.   character special
-+	8.   executable with setuid bit set (setuid=Set User ID£¬ÊôÖ÷Éí·İ)
-+	9.   executable without setgid bit set
-+	10.  directory writable to others, with sticky bit
-+	11.  directory writable to others, without sticky bit
+- 3 LSCOLORSçš„å…·ä½“è®¾ç½®ï¼š
+\- LSCOLORSçš„1å¯¹åº”å‰æ™¯è‰²ï¼Œ2å¯¹åº”èƒŒæ™¯è‰²ã€‚
+\- å®é™…åº”ç”¨ä¸­ï¼Œå°†1å’Œ2æ”¹æˆä¸‹é¢çš„å­—æ¯â€”â€”å¯¹åº”ä¸åŒé¢œè‰²ã€‚
 
-\- ×ÖÄ¸´ú±íµÄÑÕÉ«ÈçÏÂ£º
-+	a     black
-+	b     red
-+	c     green
-+	d     brown
-+	e     blue
-+	f     magenta
-+	g     cyan
-+	h     light grey
-+	A     bold black, usually shows up as dark grey
-+	B     bold red
-+	C     bold green
-+	D     bold brown, usually shows up as yellow
-+	E     bold blue
-+	F     bold magenta
-+	G     bold cyan
-+	H     bold light grey; looks like bright white
-+	x     default foreground or background (Í¸Ã÷)
+    \- LSCOLORSå…±æœ‰11ç»„â€12â€è®¾ç½®ï¼Œæ¯ç»„12å¯¹åº”æ–‡ä»¶ç±»å‹ä¸º
 
-- ×îºóÎÒµÄÉèÖÃÎª£ºexport LSCOLORS=bxfxhxhxgxhxhxgxgxbxbx 
+        1.   directory
+        2.   symbolic link
+        3.   socket
+        4.   pipe
+        5.   executable (å¯æ‰§è¡Œæ–‡ä»¶ï¼Œxæƒé™)
+        6.   block special
+        7.   character special
+        8.   executable with setuid bit set (setuid=Set User IDï¼Œå±ä¸»èº«ä»½)
+        9.   executable without setgid bit set
+        10.  directory writable to others, with sticky bit
+        11.  directory writable to others, without sticky bit
+
+    \- å­—æ¯ä»£è¡¨çš„é¢œè‰²å¦‚ä¸‹ï¼š
+
+        a     black
+        b     red
+        c     green
+        d     brown
+        e     blue
+        f     magenta
+        g     cyan
+        h     light grey
+        A     bold black, usually shows up as dark grey
+        B     bold red
+        C     bold green
+        D     bold brown, usually shows up as yellow
+        E     bold blue
+        F     bold magenta
+        G     bold cyan
+        H     bold light grey; looks like bright white
+        x     default foreground or background (é€æ˜)
+
+- æœ€åï¼Œæˆ‘ç”¨çš„é¢œè‰²è®¾ç½®ä¸ºï¼š
+~~~shell
+export LSCOLORS=bxfxhxhxgxhxhxgxgxbxbx 
+~~~
