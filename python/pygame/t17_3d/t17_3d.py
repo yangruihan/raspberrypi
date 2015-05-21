@@ -14,10 +14,11 @@ class Star(object):
 
 def run():
     pygame.init()
+    # è·å¾—ä¸€ä¸ªçª—å£
     screen = pygame.display.set_mode((640, 480))
     
     stars = []
-    #ÔÚµÚÒ»Ö¡£¬»­ÉÏÒ»Ğ©ĞÇĞÇ
+    #åœ¨ç¬¬ä¸€å¸§ï¼Œç”»ä¸Šä¸€äº›æ˜Ÿæ˜Ÿ
     for n in xrange(200):
         x = float(randint(0, 639))
         y = float(randint(0, 479))
@@ -32,9 +33,8 @@ def run():
         for event in pygame.event.get():
             if event.type == QUIT:
                 return
-            if event.type == KEYDOWN:
-                return
 
+        # å¢åŠ ä¸€é¢—æ–°çš„æ˜Ÿæ˜Ÿ
         y = float(randint(0, 479))
         speed = float(randint(10, 300))
         star = Star(640., y, speed)
@@ -45,9 +45,9 @@ def run():
 
         screen.fill((0, 0, 0))
 
-        # »æÖÆËùÓĞµÄĞÇĞÇ
         for star in stars:
             new_x = star.x - time_passed_seconds * star.speed
+            # ä¸ºäº†é€ æˆç§»åŠ¨ç•™ä¸‹çš„æ®‹å½±æ•ˆæœï¼Œç”»çº¿
             pygame.draw.aaline(screen, white, (new_x, star.y), (star.x+1., star.y))
             star.x = new_x
 
