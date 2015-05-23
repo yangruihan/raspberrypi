@@ -106,25 +106,70 @@ aalines			绘制一系列平滑的线
 
 ##pygame.key
 名称							作用
-pygame.key.get_pressed()		返回一个元组，元组的索引就是键值，对应的值就是其是否按下
-pygame.key.focused				返回当前的pygame窗口是否激活
-pygame.key.get_mods				按下的组合键(Alt, Ctrl, Shift)
-pygame.key.set_mods				模拟按下组合键效果(KMOD_ALT, KMOD_CTRL, KMOD_SHIFT)
-pygame.key.repeat				无参数调用设置pygame不产生重复按键事件，二参数(delay, interval)调用设置重复事件发生的时间
-pygame.key.name					接受键值返回键名
+pygame.key.get_pressed()	返回一个元组，元组的索引就是键值，对应的值就是其是否按下
+pygame.key.focused			返回当前的pygame窗口是否激活
+pygame.key.get_mods			按下的组合键(Alt, Ctrl, Shift)
+pygame.key.set_mods			模拟按下组合键效果(KMOD_ALT, KMOD_CTRL, KMOD_SHIFT)
+pygame.key.repeat			无参数调用设置pygame不产生重复按键事件，二参数(delay, interval)调用设置重复事件发生的时间
+pygame.key.name				接受键值返回键名
 
 -----
 
 ##pygame.mouse
 名称							作用
-pygame.mouse.get_pressed		返回按键按下情况，返回的是一元组，分别为(左键, 中键, 右键)，如按下则为True
-pygame.mouse.get_rel			返回相对偏移量，(x方向, y方向)的一元组
-pygame.mouse.get_pos			返回当前鼠标位置(x, y)
-pygame.mouse.set_pos			显而易见，设置鼠标位置
-pygame.mouse.set_visible		设置鼠标光标是否可见
-pygame.mouse.get_focused		如果鼠标在pygame窗口内有效，返回True
-pygame.mouse.set_cursor			设置鼠标的默认光标式样
-pygame.mouse.get_cursor			得到鼠标的光标式样
+pygame.mouse.get_pressed	返回按键按下情况，返回的是一元组，分别为(左键, 中键, 右键)，如按下则为True
+pygame.mouse.get_rel		返回相对偏移量，(x方向, y方向)的一元组
+pygame.mouse.get_pos		返回当前鼠标位置(x, y)
+pygame.mouse.set_pos		显而易见，设置鼠标位置
+pygame.mouse.set_visible	设置鼠标光标是否可见
+pygame.mouse.get_focused	如果鼠标在pygame窗口内有效，返回True
+pygame.mouse.set_cursor		设置鼠标的默认光标式样
+pygame.mouse.get_cursor		得到鼠标的光标式样
+
+-----
+
+##pygame 音效和音乐方法总结
+###Sound对象
+方法名						作用
+fadeout                   	淡出声音，可接受一个数字（毫秒）作为淡出时间
+get_length					获得声音文件长度，以秒计
+get_num_channels			声音要播放多少次
+get_volume					获取音量(0.0~1.0)
+play 						开始播放，返回一个Channel对象，失败则返回None
+set_volume					设置音量大小
+stop 						立刻停止播放
+
+###Channels对象
+方法名						作用
+fadeout						同上
+get_busy					如果正在播放，返回True
+get_endevent				获取播放完毕时要做的event，没有则返回Node
+get_queue					获取队列中的声音，没有则返回None
+get_volume					同上
+pause						暂停播放
+play 						同上
+queue 						将一个Sound对象加入队列，在当前声音播放完毕后播放
+set_endevent				设置播放完毕时要做的event
+stop 						同上
+unpause						继续播放
+
+###Music对象
+方法名						作用
+fadeout						同上
+get_endevent				同上
+get_volume					同上
+load						加载一个音乐文件
+pause						同上
+play 						同上
+rewind						从头开始播放
+set_endevent				同上
+set_volume					同上
+stop 						同上
+unpause 					同上
+get_pos 					获得当前播放的位置，毫秒计
+
+
+
 
 
 
