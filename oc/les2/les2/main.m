@@ -10,8 +10,21 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        int i = 0;
+    a:
+        i++;
+        NSLog(@"i的值为:%d", i);
+        if (i % 2 == 0) {
+            goto b;
+        } else {
+            goto a;
+        }
+        
+    b:
+        NSLog(@"i是一个偶数");
+        if (i <= 10) {
+            goto a;
+        }
     }
     return 0;
 }
