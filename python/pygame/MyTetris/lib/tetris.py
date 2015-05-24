@@ -9,12 +9,14 @@ import util
 from sound import play_sound
 from shape import Tile, Shape
 
+
 class Tetris(object):
     W = 12
     H = 20
-    TILEW = 20              # the pixel width/height of a tile
-    START = (100, 40)       # the playboard lefttop on background
-    SPACE = 1000            # shape will fall after xxx ms (leve 1)
+    TILEW = 20  # the pixel width/height of a tile
+    START = (100, 40)  # the playboard lefttop on background
+    SPACE = 1000  # shape will fall after xxx ms (leve 1)
+
     def __init__(self, screen):
         self.stat = 'game'
         self.WIDTH = self.TILEW * self.W
@@ -25,14 +27,15 @@ class Tetris(object):
         # same as screen cood
         self.board = []
         for i in xrange(self.H):
-            line = [ None ] * self.W
+            line = [None] * self.W
             self.board.append(line)
         # will display
         self.level = 1
         self.killed = 0
         self.score = 0
         # after this time, shape falls
-        self.time = self.SPACE * 0.8 ** (self.level - 1)
+        #self.time = self.SPACE * 0.8 ** (self.level - 1)
+        self.time = self.SPACE * 0.5 ** (self.level - 1)
         # save the elapsed time after last fail
         self.elapsed = 0
         # used for judge pressed firstly or for a long time
@@ -61,8 +64,8 @@ class Tetris(object):
                 self.stat = 'quit'
 
         if self.pause:
-             self.draw()
-             return self.stat
+            self.draw()
+            return self.stat
         if self.pressing:
             pressed = pygame.key.get_pressed()
             self.move(pressed[K_UP], pressed[K_DOWN],
@@ -70,7 +73,7 @@ class Tetris(object):
         self.elapsed += elapse
         if self.elapsed >= self.time:
             self.next()
-            self.elapsed = self.elapsed - self.time
+            self.elapsed -= self.time
             self.draw()
         return self.stat
 
@@ -80,10 +83,14 @@ class Tetris(object):
         # pressed for the first time
         # pressed for a long time
         if self.pressing == 1 or self.pressing > 10:
-            if u:   self.shape.rotate()
-            elif d: self.next()     # self.shape.move(0, 1) is bad
-            elif l: self.shape.move(-1, 0)
-            elif r: self.shape.move(1, 0)
+            if u:
+                self.shape.rotate()
+            elif d:
+                self.next()  # self.shape.move(0, 1) is bad
+            elif l:
+                self.shape.move(-1, 0)
+            elif r:
+                self.shape.move(1, 0)
             self.draw()
         self.pressing += 1
 
@@ -97,13 +104,13 @@ class Tetris(object):
                 sum += 1 if t else 0
             if sum == self.W:
                 filled.append(i)
-            elif sum == 0
+            elif sum == 0:
                 break;
         if i == 0 and sum != 0:
             self.game_over()
-        self.create_board_image() # used for killing animation
+        self.create_board_image()  # used for killing animation
         self.kill_line(filled)
-        self.create_board_image() # used for update
+        self.create_board_image()  # used for update
 
     def kill_line(self, filled=[]):
         if len(filled) == 0:
@@ -120,8 +127,8 @@ class Tetris(object):
             self.screen.blit(self.board_image, self.START)
             for line in filled:
                 self.screen.blit(mask, (
-                        self.START[0],
-                        self.START[1] + line * self.TILEW))
+                    self.START[0],
+                    self.START[1] + line * self.TILEW))
                 pygame.display.update()
             pygame.time.wait(80)
         # remove filled lines
@@ -140,5 +147,176 @@ class Tetris(object):
         for x in xrange(self.shape.SHAPEW):
             for y in xrange(self.shape.SHAPEH):
                 if self.shape.shape[y][x]:
-                    self.board[self.shape.y+y][self.shape.x+x] = Tile(
+                    self.board[self.shape.y + y][self.shape.x + x] = Tile(
+                        self.shape.color)
+
+    def create_board_image(self):
+        self.board_image.fill((0, 0, 0))
+        for x in xrange(self.H):
+            for y in xrange(self.W):
+                if self.board[x][y]:
+                    rect = pygame.Rect(y * self.TILEW, x * self.TILEW, self.TILEW, self.TILEW)
+                    self.board_image.fill(self.board[x][y].color, rect)
+                    pygame.draw.rect(self.board_image, (200, 200, 200, 100), rect, 1)
+
+    def next(self):
+        if self.shape.at_bottom():
+            play_sound('drop')
+            self.check_line()
+            self.shape.new()
+            self.display_info()
+        else:
+            self.shape.move(0, 1)
+
+    def draw(self):
+        self.screen.blit(self.board_image, self.START)
+        self.shape.draw(self.screen)
+        if self.pause:
+            util.myprint(self.screen, 'PAUSE', (self.START[0] + 50, self.START[1] + 200), 'm')
+
+    def display_info(self):
+        self._display_next()
+        self._display_score()
+
+    def _display_score(self):
+        try:
+            self._score_board
+        except AttributeError:
+            self._score_board = (
+                self.START[0] + self.WIDTH + 30,
+                self.START[1] + 100,
+                200, 260
+            )
+            self._score_level = (
+                self._score_board[0] + 10,
+                self._score_board[1] + 10
+            )
+            self._score_level_v = (
+                self._score_board[0] + 30,
+                self._score_board[1] + 50
+            )
+            self._score_killed = (
+                self._score_board[0] + 10,
+                self._score_board[1] + 90
+            )
+            self._score_killed_v = (
+                self._score_board[0] + 30,
+                self._score_board[1] + 130
+            )
+            self._score_score = (
+                self._score_board[0] + 10,
+                self._score_board[1] + 170
+            )
+            self._score_score_v = (
+                self._score_board[0] + 30,
+                self._score_board[1] + 210
+            )
+
+        self.screen.fill((0, 0, 0), self._score_board)
+        util.myprint(self.screen, 'LEVEL', self._score_level, 'm')
+        util.myprint(self.screen, self.level, self._score_level_v, 'm')
+        util.myprint(self.screen, 'LINES', self._score_killed, 'm')
+        util.myprint(self.screen, self.killed, self._score_killed_v, 'm')
+        util.myprint(self.screen, 'SCORE', self._score_score, 'm')
+        util.myprint(self.screen, self.score, self._score_score_v, 'm')
+
+    def _display_next(self):
+        try:
+            self._next_board
+        except AttributeError:
+            self._next_board = (
+                self.START[0] + self.WIDTH + 30,
+                self.START[1],
+                200, 80
+            )
+            self._next_board_v = (
+                self.START[0] + self.WIDTH + 30 + 100 - self.TILEW * 2,
+                self.START[1] + 40 - self.TILEW * 2
+            )
+
+        self.screen.fill((0, 0, 0), self._next_board)
+        self.screen.blit(self.shape.image_next, self._next_board_v)
+
+    def game_over(self):
+        self.stat = 'menu'
+
+
+class Tetris1(Tetris):
+    """ Mode1, any block will be killed soon """
+
+    def check_line(self):
+        self.add_to_board()
+        filled = []
+        for i in xrange(self.H - 1, -1, -1):
+            line = self.board[i]
+            sum = 0
+            for t in line:
+                sum += 1 if t else 0
+            if sum != 0:
+                filled.append(i)
+            elif sum == 0:
+                break
+        if i == 0 and sum != 0:
+            self.game_over()
+        self.create_board_image()  # used for killing animation
+        self.kill_line(filled)
+        self.create_board_image()  # used for update
+
+
+class Tetris2(Tetris):
+    """ Mode2, only long-long stick falls """
+
+    def __init__(self, screen):
+        super(Tetris2, self).__init__(screen)
+        from shape import Shape2
+
+        self.shape = Shape2(self.START,
+                            (self.WIDTH, self.HEIGHT), (self.W, self.H))
+        self.shape.set_board(self.board)
+
+
+class Tetris3(Tetris):
+    """ Mode3, tile will be very small """
+    W = 60
+    H = 100
+    TILEW = 4
+
+
+class Tetris4(Tetris):
+    def __init__(self, screen):
+        super(Tetris4, self).__init__(screen)
+        from shape import Shape4
+
+        self.shape = Shape4(self.START,
+                            (self.WIDTH, self.HEIGHT), (self.W, self.H))
+        self.shape.set_board(self.board)
+
+    def add_to_board(self):
+        for x in xrange(self.shape.SHAPEW):
+            for y in xrange(self.shape.SHAPEH):
+                if self.shape.shape[y][x]:
+                    if self.shape.color == (0, 0, 0):
+                        self.board[self.shape.y + y][self.shape.x + x] = Tile(
+                            self.shape.color,
+                            self.shape.get_part_image(y, x))
+                    else:
+                        self.board[self.shape.y + y][self.shape.x + x] = Tile(
                             self.shape.color)
+
+    def create_board_image(self):
+        self.board_image.fill((0, 0, 0))
+        for x in xrange(self.H):
+            for y in xrange(self.W):
+                if self.board[x][y]:
+                    rect = pygame.Rect(y * self.TILEW, x * self.TILEW,
+                                       self.TILEW, self.TILEW)
+                    if self.board[x][y].color == (0, 0, 0):
+                        self.board_image.blit(self.board[x][y].image, rect)
+                    else:
+                        self.board_image.fill(self.board[x][y].color, rect)
+                    pygame.draw.rect(self.board_image,
+                                     (200, 200, 200, 100), rect, 1)
+
+
+class Tetris5(Tetris):
+    pass
