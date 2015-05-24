@@ -13,7 +13,7 @@ class Main(object):
         return self.tetris.update(elapse)
 
     def start(self, kind):
-        if kind == 6:
+        if kind == 8:
             self.tetris = tetris.Tetris(self.screen)
         else:
             self.tetris = eval("tetris.Tetris" + str(kind) + "(self.screen)")

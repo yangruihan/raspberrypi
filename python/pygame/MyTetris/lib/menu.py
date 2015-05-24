@@ -17,6 +17,8 @@ class Menu(object):
         'LEVEL 4',
         'LEVEL 5',
         'LEVEL 6',
+        'LEVEL 7',
+        'NORMAL',
         'QUIT'
     ]
 
@@ -43,7 +45,7 @@ class Menu(object):
     def draw(self):
         for idx in xrange(len(self.OPTS)):
             if idx == self.current:
-                myprint(self.screen, self.OPTS[idx], (200, 50 * idx + 50))
+                myprint(self.screen, self.OPTS[idx], (250, 50 * idx + 25))
             else:
-                myprint(self.screen, self.OPTS[idx], (200, 50 * idx + 50),
+                myprint(self.screen, self.OPTS[idx], (250, 50 * idx + 25),
                         color=(160, 160, 160))

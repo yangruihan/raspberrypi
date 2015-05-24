@@ -8,6 +8,7 @@ from pygame.locals import *
 import util
 from sound import play_sound
 from shape import Tile, Shape
+from random import randint
 
 
 class Tetris(object):
@@ -34,7 +35,7 @@ class Tetris(object):
         self.killed = 0
         self.score = 0
         # after this time, shape falls
-        #self.time = self.SPACE * 0.8 ** (self.level - 1)
+        # self.time = self.SPACE * 0.8 ** (self.level - 1)
         self.time = self.SPACE * 0.5 ** (self.level - 1)
         # save the elapsed time after last fail
         self.elapsed = 0
@@ -319,4 +320,78 @@ class Tetris4(Tetris):
 
 
 class Tetris5(Tetris):
-    pass
+    def add_to_board(self):
+        for x in xrange(self.shape.SHAPEW):
+            for y in xrange(self.shape.SHAPEH):
+                if self.shape.shape[y][x]:
+                    self.board[self.shape.y + y][self.shape.x + x] = Tile(
+                        self.shape.color)
+        self.left_move_board()
+
+    def left_move_board(self):
+        for x in xrange(self.H):
+            temp = self.board[x][0]
+            for y in xrange(self.W):
+                if y + 1 < self.W:
+                    self.board[x][y] = self.board[x][y + 1]
+                else:
+                    self.board[x][y] = temp
+
+class Tetris6(Tetris):
+    def add_to_board(self):
+        for x in xrange(self.shape.SHAPEW):
+            for y in xrange(self.shape.SHAPEH):
+                if self.shape.shape[y][x]:
+                    self.board[self.shape.y + y][self.shape.x + x] = Tile(
+                        self.shape.color)
+        self.right_move_board()
+
+    def right_move_board(self):
+        for x in xrange(self.H):
+            temp = self.board[x][self.W - 1]
+            for y in xrange(self.W - 1, -1, -1):
+                if y > 0:
+                    self.board[x][y] = self.board[x][y - 1]
+                else:
+                    self.board[x][y] = temp
+
+class Tetris7(Tetris):
+    def __init__(self, screen):
+        self.change_time = randint(1, 5)
+        self.change = False # False: right move | True: left move
+        Tetris.__init__(self, screen)
+
+    def add_to_board(self):
+        for x in xrange(self.shape.SHAPEW):
+            for y in xrange(self.shape.SHAPEH):
+                if self.shape.shape[y][x]:
+                    self.board[self.shape.y + y][self.shape.x + x] = Tile(
+                        self.shape.color)
+        self.change_time -= 1
+        if self.change_time == 0:
+            self.change_time = randint(1, 5)
+            self.change = not self.change
+
+        if self.change:
+            self.left_move_board()
+        else:
+            self.right_move_board()
+
+    def right_move_board(self):
+        for x in xrange(self.H):
+            temp = self.board[x][self.W - 1]
+            for y in xrange(self.W - 1, -1, -1):
+                if y > 0:
+                    self.board[x][y] = self.board[x][y - 1]
+                else:
+                    self.board[x][y] = temp
+
+    def left_move_board(self):
+        for x in xrange(self.H):
+            temp = self.board[x][0]
+            for y in xrange(self.W):
+                if y + 1 < self.W:
+                    self.board[x][y] = self.board[x][y + 1]
+                else:
+                    self.board[x][y] = temp
+
