@@ -3,6 +3,7 @@ package com.yrh.threewin;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -27,22 +28,27 @@ public class GameView extends View {
 
 	/*---------------------------------------------------------------*/
 
-	private int numberX = 8; // x 轴上方块个数，默认为8
-	private int numberY = 8; // y 轴上方块个数，默认为8
+	private int numberX = 7; // x 轴上方块个数，默认为8
+	private int numberY = 7; // y 轴上方块个数，默认为8
 	private int kindOfObj = 6; // 方块的种类个数，默认为6
 	private float diaWidth = 0f; // 每一个方块的宽度
 	private float diaHeight = 0f; // 每一个方块的高度
 	private float lineWidth = 8f; // 分割线的宽度
 	private int moveX; // 水平移动的方向
 	private int moveY; // 垂直移动的方向
-	private GameLogic game = new GameLogic(numberX, numberY, kindOfObj,
-			GameLogic.MAP_1, this); // 游戏逻辑类
+	private int[][] map = GameLogic.MAP_7x7;
+	private GameLogic game = new GameLogic(numberX, numberY, kindOfObj, map,
+			this); // 游戏逻辑类
 
 	// 复写 onDraw 方法绘制游戏画面
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
+
+		Paint backgroundPaint = new Paint();
+		backgroundPaint.setColor(getResources().getColor(R.color.lineColor));
+		canvas.drawRect(0, 0, getWidth(), getHeight(), backgroundPaint);
 
 		diaWidth = getWidth() / numberX; // 得到每块方块的宽度
 		diaHeight = getHeight() / numberY; // 得到每块方块的高度
@@ -52,8 +58,11 @@ public class GameView extends View {
 		for (int i = 0; i < numberX; i++) {
 			for (int j = 0; j < numberY; j++) {
 				diaPaint.setColor(game.getDiaAt(i, j).getColor());
-				canvas.drawRect(i * diaWidth, j * diaHeight,
-						(i + 1) * diaWidth, (j + 1) * diaHeight, diaPaint);
+				// canvas.drawRect(i * diaWidth, j * diaHeight,
+				// (i + 1) * diaWidth, (j + 1) * diaHeight, diaPaint);
+				canvas.drawRoundRect(new RectF(i * diaWidth, j * diaHeight,
+						(i + 1) * diaWidth, (j + 1) * diaHeight), 30f, 40f,
+						diaPaint);
 			}
 		}
 
@@ -152,7 +161,38 @@ public class GameView extends View {
 		this.invalidate();
 	}
 
+	// 设置游戏难度等
+	public void setGame(int numberX, int numberY, int kindOfObj, int[][] input_map) {
+		this.numberX = numberX;
+		this.numberY = numberY;
+		this.kindOfObj = kindOfObj;
+		this.map = input_map;
+		this.game = new GameLogic(this.numberX, this.numberY, this.kindOfObj, this.map, this);
+		// 刷新画面
+		invalidate();
+	}
+
 	/* Get Set 方法 */
+	public GameLogic getGame() {
+		return game;
+	}
+
+	public int getKindOfObj() {
+		return kindOfObj;
+	}
+
+	public void setKindOfObj(int kindOfObj) {
+		this.kindOfObj = kindOfObj;
+	}
+
+	public int[][] getMap() {
+		return map;
+	}
+
+	public void setMap(int[][] map) {
+		this.map = map;
+	}
+
 	public int getNumberX() {
 		return numberX;
 	}

@@ -4,14 +4,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import android.util.Log;
 
 public class GameLogic {
 
-	public final static int[][] MAP_1 = { { 1, 1, 1, 1, 1, 1, 1, 1 },
+	public final static int[][] MAP_7x7 = { { 1, 1, 1, 1, 1, 1, 1 },
+			{ 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 },
+			{ 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 },
+			{ 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, }; // 地图，
+																	// 1表示可消除方块，0表示墙壁，7*7
+	public final static int[][] MAP_8x8 = { { 1, 1, 1, 1, 1, 1, 1, 1 },
 			{ 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1 },
 			{ 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1 },
 			{ 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1 },
-			{ 1, 1, 1, 1, 1, 1, 1, 1 } }; // 地图， 1表示可消除方块，0表示墙壁
+			{ 1, 1, 1, 1, 1, 1, 1, 1 } };
 
 	private GameView gameView;
 	private int numberX; // x 轴上方块个数， 默认为8
@@ -20,7 +26,8 @@ public class GameLogic {
 	private Diamond[][] map; // 用来存放方块的地图
 	private HashMap<Integer, Integer> removeList = new HashMap<Integer, Integer>(); // 用来存放即将被消除的方块
 
-	public GameLogic(int numberX, int numberY, int kindOfObj, int[][] input_map, GameView gameView) {
+	public GameLogic(int numberX, int numberY, int kindOfObj,
+			int[][] input_map, GameView gameView) {
 		this.numberX = numberX;
 		this.numberY = numberY;
 		this.kindOfObj = kindOfObj;
@@ -30,6 +37,9 @@ public class GameLogic {
 		}
 		// 初始化
 		init(numberX, numberY, kindOfObj, input_map);
+
+		/*-------*/
+		debugPrint();
 	}
 
 	// 初始化函数
@@ -128,12 +138,30 @@ public class GameLogic {
 			return false;
 		}
 
+		/*-------*/
+		System.out.println("before remove");
+		debugPrint();
+
 		// 消除
 		remove();
+
+		/*-------*/
+		System.out.println("after remove");
+		debugPrint();
+
 		// 下移
 		downMove();
+
+		/*-------*/
+		System.out.println("after down_move");
+		debugPrint();
+
 		// 补充
 		add();
+
+		/*-------*/
+		System.out.println("after add");
+		debugPrint();
 
 		return true;
 	}
@@ -157,20 +185,29 @@ public class GameLogic {
 					upMoveNull(i, j);
 				}
 			}
-			
+
 		}
 	}
-	
+
 	private void upMoveNull(int x, int y) {
-		int loc  = y;
+		int loc = y;
 		while (y - 1 >= 0) {
+			// 当 y 已经到最上面时退出
+			if (y < 0) {
+				return;
+			}
 			if (map[x][y - 1] == null) {
 				loc = y;
-				y--;
+				while (y - 1 >= 0 && map[x][y - 1] == null) {
+					y--;
+				}
 				continue;
 			} else if (map[x][y - 1].getKind() == Diamond.KIND_WALL) {
 				loc = y;
-				y--;
+				while (y - 1 >= 0
+						&& map[x][y - 1].getKind() == Diamond.KIND_WALL) {
+					y--;
+				}
 				continue;
 			}
 			Diamond temp = map[x][y - 1];
@@ -212,6 +249,20 @@ public class GameLogic {
 				removeList.put(x + (y - 1) * numberY, 1);
 				removeList.put(x + (y + 1) * numberX, 1);
 			}
+		}
+	}
+
+	/* 调试工具 */
+	private void debugPrint() {
+		for (int i = 0; i < numberY; i++) {
+			for (int j = 0; j < numberX; j++) {
+				if (map[j][i] != null) {
+					System.out.print(map[j][i].getId() + " ");
+				} else {
+					System.out.print("n ");
+				}
+			}
+			System.out.println();
 		}
 	}
 
