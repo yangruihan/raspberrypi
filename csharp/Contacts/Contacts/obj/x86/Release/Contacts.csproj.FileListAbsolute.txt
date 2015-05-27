@@ -1,0 +1,13 @@
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\bin\Release\ContactDB.sdf
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\bin\Release\Contacts.exe.config
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\bin\Release\Contacts.exe.manifest
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\bin\Release\Contacts.application
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\bin\Release\Contacts.exe
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\bin\Release\Contacts.pdb
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.Form1.resources
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.Properties.Resources.resources
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.csproj.GenerateResource.Cache
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.exe.manifest
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.application
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.exe
+H:\Users\Yrh\Desktop\C#_ws\Contacts\Contacts\obj\x86\Release\Contacts.pdb

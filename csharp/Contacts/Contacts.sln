@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "Contacts\Contacts.csproj", "{73A77892-250A-4E85-A1A1-C1463E60FCD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73A77892-250A-4E85-A1A1-C1463E60FCD5}.Debug|x86.ActiveCfg = Debug|x86
+		{73A77892-250A-4E85-A1A1-C1463E60FCD5}.Debug|x86.Build.0 = Debug|x86
+		{73A77892-250A-4E85-A1A1-C1463E60FCD5}.Release|x86.ActiveCfg = Release|x86
+		{73A77892-250A-4E85-A1A1-C1463E60FCD5}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
