@@ -4,5 +4,6 @@
     <string name="app_name">计算器</string>
     <string name="science_calculator">科学计算器</string>
     <string name="about">关于</string>
+    <string name="history">历史记录</string>
 
 </resources>

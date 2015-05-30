@@ -2,17 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.yrh.calculator.MainActivity" >
 
-    <item
+    <!--
+         <item
         android:id="@+id/science_calculator"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/science_calculator"/>
+    -->
     
+    <item
+        android:id="@+id/history"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/history"/>
+
     <item
         android:id="@+id/about"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/about"/>
-    
 
 </menu>

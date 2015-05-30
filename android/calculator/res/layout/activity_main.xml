@@ -5,28 +5,29 @@
     android:orientation="vertical"
     tools:context="com.yrh.calculator.MainActivity" >
 
-    <EditText
-        android:id="@+id/et_input"
+    <TextView
+        android:id="@+id/tv_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
         android:gravity="end|bottom"
-        android:textSize="30sp" >
+        android:cursorVisible="true"
+        android:maxLines="2"
+        android:textSize="25sp" >
 
-        <requestFocus />
-    </EditText>
+    </TextView>
 
     <TextView
-        android:id="@+id/tv_show"
+        android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:enabled="false"
-        android:textColor="@color/Green"
         android:gravity="end|bottom"
-        android:textSize="30sp" />
+        android:maxLines="2"
+        android:textColor="@color/Green"
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -180,7 +181,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/brn_brac"
+            android:id="@+id/btn_brac"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"

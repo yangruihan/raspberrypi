@@ -30,7 +30,6 @@ public final class R {
     }
     public static final class id {
         public static final int about=0x7f090017;
-        public static final int brn_brac=0x7f090011;
         public static final int btn_0=0x7f090012;
         public static final int btn_1=0x7f09000e;
         public static final int btn_2=0x7f09000f;
@@ -41,6 +40,7 @@ public final class R {
         public static final int btn_7=0x7f090006;
         public static final int btn_8=0x7f090007;
         public static final int btn_9=0x7f090008;
+        public static final int btn_brac=0x7f090011;
         public static final int btn_clear=0x7f090002;
         public static final int btn_dec=0x7f090009;
         public static final int btn_del=0x7f090005;
@@ -50,9 +50,9 @@ public final class R {
         public static final int btn_mul=0x7f090004;
         public static final int btn_plus_minus=0x7f090014;
         public static final int btn_point=0x7f090013;
-        public static final int et_input=0x7f090000;
-        public static final int science_calculator=0x7f090016;
-        public static final int tv_show=0x7f090001;
+        public static final int history=0x7f090016;
+        public static final int tv_input=0x7f090000;
+        public static final int tv_result=0x7f090001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -63,6 +63,7 @@ public final class R {
     public static final class string {
         public static final int about=0x7f060002;
         public static final int app_name=0x7f060000;
+        public static final int history=0x7f060003;
         public static final int science_calculator=0x7f060001;
     }
     public static final class style {
