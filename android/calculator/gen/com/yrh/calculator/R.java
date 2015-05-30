@@ -29,33 +29,36 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int about=0x7f090017;
-        public static final int btn_0=0x7f090012;
-        public static final int btn_1=0x7f09000e;
-        public static final int btn_2=0x7f09000f;
-        public static final int btn_3=0x7f090010;
-        public static final int btn_4=0x7f09000a;
-        public static final int btn_5=0x7f09000b;
-        public static final int btn_6=0x7f09000c;
-        public static final int btn_7=0x7f090006;
-        public static final int btn_8=0x7f090007;
-        public static final int btn_9=0x7f090008;
-        public static final int btn_brac=0x7f090011;
-        public static final int btn_clear=0x7f090002;
-        public static final int btn_dec=0x7f090009;
-        public static final int btn_del=0x7f090005;
-        public static final int btn_div=0x7f090003;
-        public static final int btn_equ=0x7f090015;
-        public static final int btn_inc=0x7f09000d;
-        public static final int btn_mul=0x7f090004;
-        public static final int btn_plus_minus=0x7f090014;
-        public static final int btn_point=0x7f090013;
-        public static final int history=0x7f090016;
-        public static final int tv_input=0x7f090000;
-        public static final int tv_result=0x7f090001;
+        public static final int about=0x7f090019;
+        public static final int btn_0=0x7f090014;
+        public static final int btn_1=0x7f090010;
+        public static final int btn_2=0x7f090011;
+        public static final int btn_3=0x7f090012;
+        public static final int btn_4=0x7f09000c;
+        public static final int btn_5=0x7f09000d;
+        public static final int btn_6=0x7f09000e;
+        public static final int btn_7=0x7f090008;
+        public static final int btn_8=0x7f090009;
+        public static final int btn_9=0x7f09000a;
+        public static final int btn_back=0x7f090001;
+        public static final int btn_brac=0x7f090013;
+        public static final int btn_clear=0x7f090000;
+        public static final int btn_dec=0x7f09000b;
+        public static final int btn_del=0x7f090007;
+        public static final int btn_div=0x7f090005;
+        public static final int btn_equ=0x7f090017;
+        public static final int btn_inc=0x7f09000f;
+        public static final int btn_mul=0x7f090006;
+        public static final int btn_plus_minus=0x7f090016;
+        public static final int btn_point=0x7f090015;
+        public static final int history=0x7f090018;
+        public static final int lv_history=0x7f090002;
+        public static final int tv_input=0x7f090003;
+        public static final int tv_result=0x7f090004;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_history=0x7f030000;
+        public static final int activity_main=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f080000;

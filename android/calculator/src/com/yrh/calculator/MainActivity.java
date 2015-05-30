@@ -1,8 +1,10 @@
 package com.yrh.calculator;
 
 import java.util.ArrayList;
-
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.yrh.tool.Util;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -97,7 +98,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
 		if (id == R.id.history) {
-			return true;
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, HistoryActivity.class);
+			startActivity(intent);
+		}
+		if (id == R.id.about) {
+			creatAboutDialog();
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -322,7 +328,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.btn_brac: // 括号按钮
 			// 初始化结果栏
 			init_tv_result();
-			if (numberOfBrac > 0 && !Util.lastIsOpt(calStr)
+			if (list.size() == 0 && calStr.equals("")) {
+				numberOfBrac++;
+				list.add("(");
+			} else if (numberOfBrac > 0 && !Util.lastIsOpt(calStr)
 					&& !list.get(list.size() - 1).equals("(")) {
 				numberOfBrac--;
 				list.add(calStr);
@@ -334,9 +343,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				list.add(calStr);
 				list.add("(");
 				calStr = "";
-			} else if (list.size() == 0 && calStr.equals("")) {
-				numberOfBrac++;
-				list.add("(");
 			} else {
 				return;
 			}
@@ -375,22 +381,51 @@ public class MainActivity extends Activity implements OnClickListener {
 			if (resStr.equals("Infinity")) {
 				tv_result.setText("被除数不能为0");
 			} else if (!resStr.equals("")) {
-				tv_result.setText(Util.getFormatNumber(resStr));
+				tv_result.setText("=" + Util.getFormatNumber(resStr));
 				// 记录历史记录
-				historyList.add("原式：" + Util.getFormatNumber(list) + " 结果：" + Util.getFormatNumber(resStr));
+				historyList.add(Util.getFormatNumber(list) + "="
+						+ Util.getFormatNumber(resStr));
 			}
 
 			calStr = "";
 			list.clear();
+			numberOfBrac = 0;
 			break;
 		default:
 			break;
 		}
 	}
 
+	/**
+	 * 初始化显示结果
+	 */
 	private void init_tv_result() {
 		if (!tv_result.getText().equals("")) {
 			tv_result.setText("");
 		}
+	}
+
+	/**
+	 * 清空历史记录
+	 */
+	public static void cleanHistory() {
+		historyList.clear();
+	}
+
+	/**
+	 * 创建一个关于的对话框
+	 */
+	private void creatAboutDialog() {
+		AlertDialog aboutDialog = new AlertDialog.Builder(MainActivity.this)
+				.setTitle("关于").setMessage("作者：YRH\n版本：v1.0")
+				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+
+				}).create();
+		// 将关于的对话框显示出来
+		aboutDialog.show();
 	}
 }
