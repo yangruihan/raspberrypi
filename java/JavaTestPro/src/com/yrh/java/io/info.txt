@@ -26,4 +26,22 @@ IO流（输入流、输出流）
 		out.write(byte[] buf); 将buf字节数组都写入到流
 		out.write(byte[] buf, int start, int size);
 	5)FileInputStream(extends InputStream) --> 具体实现了在文件上读取数据
-(2)字符流：
+	6)FileOutputStream(extends OutputStream) --> 具体实现了向文件中写出 byte数据 的方法
+	7)DataOutputStream/DataInputStream:
+		对“流”功能的扩展，可以更加方便地读取int，long，字符等数据类型
+		1)DataOutputStream
+			writeInt/writeByte/writeBoolean/writeChar/writeUTF等
+	8)BufferedInputStream/BufferedOutputStream:
+		这两个流类为 IO 提供了带缓冲区的操作，一般打开文件进行写入或读取操作时，都会加上缓冲，这种流模式，提高了 IO 的性能
+(2)字符流 --> 大部分操作的是文本文件
+	1)编码问题
+	2)认识文本和文本文件：
+		java的文本指的是 char（16位无符号整数），是字符的 unicode 编码
+		文件是 byte byte byte ... 的数据序列
+		文本文件是文本（char）序列按照某种编码方案（utf-8/utf-16be/gbk）序列化为 byte 的存储结果
+	3)字符流（Reader/Writer）：
+		字符的处理：一次处理一个字符
+		而字符的底层任然是基本的字节序列
+	4)字符流的基本实现：
+		InputStreamReader 完成 byte 流 解析为 char流，按照编码解析
+		OutputStreamWriter 提供 char流 到 byte流，按照编码处理

@@ -3,10 +3,9 @@ package com.yrh.java.io;
 import java.io.File;
 
 public class FileTest {
-	
+
 	/*
-	 * java.io.Fileç±»ç”¨äºè¡¨ç¤ºæ–‡ä»¶ï¼ˆç›®å½•ï¼‰
-	 * Fileç±»åªèƒ½ç”¨äºè¡¨ç¤ºæ–‡ä»¶ï¼ˆç›®å½•ï¼‰çš„ä¿¡æ¯ï¼ˆåç§°ï¼Œå¤§å°ç­‰ï¼‰ï¼Œä¸èƒ½ç”¨äºæ–‡ä»¶å†…å®¹çš„è®¿é—®
+	 * java.io.FileÀàÓÃÓÚ±íÊ¾ÎÄ¼ş£¨Ä¿Â¼£© FileÀàÖ»ÄÜÓÃÓÚ±íÊ¾ÎÄ¼ş£¨Ä¿Â¼£©µÄĞÅÏ¢£¨Ãû³Æ£¬´óĞ¡µÈ£©£¬²»ÄÜÓÃÓÚÎÄ¼şÄÚÈİµÄ·ÃÎÊ
 	 */
 
 	public static void main(String[] args) {
@@ -22,4 +21,3 @@ public class FileTest {
 	}
 
 }
-

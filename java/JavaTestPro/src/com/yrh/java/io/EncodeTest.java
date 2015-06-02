@@ -5,41 +5,36 @@ import java.io.UnsupportedEncodingException;
 public class EncodeTest {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		// TODO Auto-generated method stub
-		
-		String s = "ä½ å¥½abc";
-		
+
+		String s = "ÄãºÃabc";
+
 		/*
-		 * ç»“æœä¸ºï¼šc4 e3 ba c3 61 62 63
-		 *         ä½     å¥½   a  b  c
-		 * ç»“è®ºï¼šGBKä¸­æ±‰å­—ä¸€ä¸ªå 2ä¸ªå­—èŠ‚ï¼Œå­—æ¯ä¸€ä¸ªå 1ä¸ªå­—èŠ‚
+		 * ½á¹ûÎª£ºc4 e3 ba c3 61 62 63 Äã ºÃ a b c ½áÂÛ£ºGBKÖĞºº×ÖÒ»¸öÕ¼2¸ö×Ö½Ú£¬×ÖÄ¸Ò»¸öÕ¼1¸ö×Ö½Ú
 		 */
 		byte[] bytes = s.getBytes("GBK");
-		for (byte b: bytes) {
+		for (byte b : bytes) {
 			System.out.print(Integer.toHexString(b & 0xff) + " ");
 		}
-		
+
 		System.out.println();
-		
+
 		/*
-		 * ç»“æœä¸ºï¼še4 bd a0 e5 a5 bd 61 62 63
-		 *          ä½         å¥½    a  b  c
-		 * ç»“è®ºï¼šutf-8ä¸­æ¯ä¸€ä¸ªæ±‰å­—å 3ä¸ªå­—èŠ‚ï¼Œæ¯ä¸€ä¸ªå­—æ¯å ä¸€ä¸ªå­—èŠ‚
+		 * ½á¹ûÎª£ºe4 bd a0 e5 a5 bd 61 62 63 Äã ºÃ a b c
+		 * ½áÂÛ£ºutf-8ÖĞÃ¿Ò»¸öºº×ÖÕ¼3¸ö×Ö½Ú£¬Ã¿Ò»¸ö×ÖÄ¸Õ¼Ò»¸ö×Ö½Ú
 		 */
 		byte[] bytes1 = s.getBytes("utf-8");
-		for (byte b: bytes1) {
+		for (byte b : bytes1) {
 			System.out.print(Integer.toHexString(b & 0xff) + " ");
 		}
-		
+
 		System.out.println();
-		
+
 		/*
-		 * ç»“æœä¸ºï¼š4f 60 59 7d 0 61 0 62 0 63
-		 *         ä½     å¥½    a    b    c
-		 * ç»“è®ºï¼šutf-16beï¼ˆjavaä¸­Stringé‡‡ç”¨çš„é»˜è®¤ç¼–ç æ–¹å¼ï¼‰ï¼Œæ‰€æœ‰å‡å 2ä¸ªå­—èŠ‚
+		 * ½á¹ûÎª£º4f 60 59 7d 0 61 0 62 0 63 Äã ºÃ a b c
+		 * ½áÂÛ£ºutf-16be£¨javaÖĞString²ÉÓÃµÄÄ¬ÈÏ±àÂë·½Ê½£©£¬ËùÓĞ¾ùÕ¼2¸ö×Ö½Ú
 		 */
 		byte[] bytes2 = s.getBytes("utf-16be");
-		for (byte b: bytes2) {
+		for (byte b : bytes2) {
 			System.out.print(Integer.toHexString(b & 0xff) + " ");
 		}
 
