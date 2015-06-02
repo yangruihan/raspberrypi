@@ -1,0 +1,29 @@
+RandomAccessFile java提供的对文件内容的访问，既可以读文件，也可以写文件。
+RandomAccessFile支持随机访问文件，可以访问文件的任意位置
+
+(1)打开文件：
+有两种模式：“rw”（读写），“r”（只读）
+RandomAccessFile raf = new RandomAccessFile(file, "rw");
+文件指针，打开文件时指针在开头 pointer = 0;
+(2)写文件
+raf.write(int) ---> 只写一个字节（后8位），同时指针指向下一个位置，准备再次写入
+(3)读方法
+int b = raf.read() ---> 都一个字节
+(4)文件读写完成以后一定要关闭
+
+IO流（输入流、输出流）
+(1)字节流：
+	1)InputStream、OutputStream：
+		InputStream抽象了应用程序读取数据的方式
+		OutputStream抽象了应用程序写出数据的方式
+	2)EOF == End or 读到-1读到结尾
+	3)输入流基本方法：
+		int b = in.read(); 读取一个字节无符号填充到int的低八位，-1是EOF
+		in.read(byte[] buf);
+		in.read(byte[] buf, int start, int size);
+	4)输出流基本方法：
+		out.write(int b); 写出一个byte到流（b的低八位）
+		out.write(byte[] buf); 将buf字节数组都写入到流
+		out.write(byte[] buf, int start, int size);
+	5)FileInputStream(extends InputStream) --> 具体实现了在文件上读取数据
+(2)字符流：
