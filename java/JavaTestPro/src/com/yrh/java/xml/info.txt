@@ -11,7 +11,11 @@ JAVA 中的 XML：
 			2)遍历 NodeList 实例，通过其 item() 方法获得某一具体节点 Node 实例
 			3)在通过 Node 实例的 getAttributes() 方法获得该实例的所有属性，一个 NamedNodeMap 实例
 			4)通过遍历 NamedNodeMap 获得该节点的每一个属性
-		SAX
+		SAX：
+			步骤：
+			1)通过 SAXParserFactory 的静态 newInstance() 方法获取 SAXParserFactory 实例
+			2)通过 SAXParserFactory 实例的 newSAXParser() 方法获取 SAXParser 实例
+			3)创建一个类继承与 DefaultHandler 类，并覆写其中的方法
 		DOM4J
 		JDOM
 
