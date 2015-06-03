@@ -16,6 +16,9 @@ import org.xml.sax.SAXException;
 
 public class DomTest {
 
+	/**
+	 * 用于测试 dom 方法下的 xml 文件解析
+	 */
 	public static void main(String[] args) throws ParserConfigurationException,
 			SAXException, IOException {
 		// 生成一个 DocumentBuilderFactory 实例

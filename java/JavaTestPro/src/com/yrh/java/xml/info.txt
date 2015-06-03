@@ -3,10 +3,14 @@ JAVA 中的 XML：
 	(1)四种解析方式：
 		DOM：
 			准备工作：
-			1)创建一个 DocumentBuilderFactory 对象
-			2)创建一个 DocumentBuilder 对象
-			3)使用 DocumentBuilder 对象的 parse 方法进行加载，获取一个 Document 对象
-			
+			1)创建一个 DocumentBuilderFactory 实例
+			2)创建一个 DocumentBuilder 实例
+			3)使用 DocumentBuilder 实例的 parse() 方法进行加载，获取一个 Document 实例
+			解析过程：
+			1)通过 Document 实例的 getElementsByTagName() 方法获取一个节点集合 NodeList 实例
+			2)遍历 NodeList 实例，通过其 item() 方法获得某一具体节点 Node 实例
+			3)在通过 Node 实例的 getAttributes() 方法获得该实例的所有属性，一个 NamedNodeMap 实例
+			4)通过遍历 NamedNodeMap 获得该节点的每一个属性
 		SAX
 		DOM4J
 		JDOM
