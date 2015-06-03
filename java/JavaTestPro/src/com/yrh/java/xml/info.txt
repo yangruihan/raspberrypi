@@ -1,0 +1,13 @@
+JAVA 中的 XML：
+1. 解析 XML
+	(1)四种解析方式：
+		DOM：
+			准备工作：
+			1)创建一个 DocumentBuilderFactory 对象
+			2)创建一个 DocumentBuilder 对象
+			3)使用 DocumentBuilder 对象的 parse 方法进行加载，获取一个 Document 对象
+			
+		SAX
+		DOM4J
+		JDOM
+
