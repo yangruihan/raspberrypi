@@ -15,7 +15,13 @@ JAVA 中的 XML：
 			步骤：
 			1)通过 SAXParserFactory 的静态 newInstance() 方法获取 SAXParserFactory 实例
 			2)通过 SAXParserFactory 实例的 newSAXParser() 方法获取 SAXParser 实例
-			3)创建一个类继承与 DefaultHandler 类，并覆写其中的方法
-		DOM4J
-		JDOM
+			3)创建一个类继承与 DefaultHandler 类，并覆写其中的方法进行解释
+		DOM4J：
+		JDOM：
+			步骤：
+			1)创建一个 SAXBuilder 对象实例
+			2)使用 SAXBuilder 实例的 build() 方法，返回一个 Document 实例(jdom2 包下的 Document 类)
+			3)通过 Document 的 getRootElement() 获得根节点的 Element 实例
+			4)通过 根节点 的 getChildren() 方法获得子节点集合
+			
 
