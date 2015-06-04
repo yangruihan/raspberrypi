@@ -1,27 +1,33 @@
-JAVA ÖĞµÄ XML£º
-1. ½âÎö XML
-	(1)ËÄÖÖ½âÎö·½Ê½£º
-		DOM£º
-			×¼±¸¹¤×÷£º
-			1)´´½¨Ò»¸ö DocumentBuilderFactory ÊµÀı
-			2)´´½¨Ò»¸ö DocumentBuilder ÊµÀı
-			3)Ê¹ÓÃ DocumentBuilder ÊµÀıµÄ parse() ·½·¨½øĞĞ¼ÓÔØ£¬»ñÈ¡Ò»¸ö Document ÊµÀı
-			½âÎö¹ı³Ì£º
-			1)Í¨¹ı Document ÊµÀıµÄ getElementsByTagName() ·½·¨»ñÈ¡Ò»¸ö½Úµã¼¯ºÏ NodeList ÊµÀı
-			2)±éÀú NodeList ÊµÀı£¬Í¨¹ıÆä item() ·½·¨»ñµÃÄ³Ò»¾ßÌå½Úµã Node ÊµÀı
-			3)ÔÚÍ¨¹ı Node ÊµÀıµÄ getAttributes() ·½·¨»ñµÃ¸ÃÊµÀıµÄËùÓĞÊôĞÔ£¬Ò»¸ö NamedNodeMap ÊµÀı
-			4)Í¨¹ı±éÀú NamedNodeMap »ñµÃ¸Ã½ÚµãµÄÃ¿Ò»¸öÊôĞÔ
-		SAX£º
-			²½Öè£º
-			1)Í¨¹ı SAXParserFactory µÄ¾²Ì¬ newInstance() ·½·¨»ñÈ¡ SAXParserFactory ÊµÀı
-			2)Í¨¹ı SAXParserFactory ÊµÀıµÄ newSAXParser() ·½·¨»ñÈ¡ SAXParser ÊµÀı
-			3)´´½¨Ò»¸öÀà¼Ì³ĞÓë DefaultHandler Àà£¬²¢¸²Ğ´ÆäÖĞµÄ·½·¨½øĞĞ½âÊÍ
-		DOM4J£º
-		JDOM£º
-			²½Öè£º
-			1)´´½¨Ò»¸ö SAXBuilder ¶ÔÏóÊµÀı
-			2)Ê¹ÓÃ SAXBuilder ÊµÀıµÄ build() ·½·¨£¬·µ»ØÒ»¸ö Document ÊµÀı(jdom2 °üÏÂµÄ Document Àà)
-			3)Í¨¹ı Document µÄ getRootElement() »ñµÃ¸ù½ÚµãµÄ Element ÊµÀı
-			4)Í¨¹ı ¸ù½Úµã µÄ getChildren() ·½·¨»ñµÃ×Ó½Úµã¼¯ºÏ
+JAVA ä¸­çš„ XMLï¼š
+1. è§£æ XML
+	(1)å››ç§è§£ææ–¹å¼ï¼š
+		DOMï¼š
+			å‡†å¤‡å·¥ä½œï¼š
+			1)åˆ›å»ºä¸€ä¸ª DocumentBuilderFactory å®ä¾‹
+			2)åˆ›å»ºä¸€ä¸ª DocumentBuilder å®ä¾‹
+			3)ä½¿ç”¨ DocumentBuilder å®ä¾‹çš„ parse() æ–¹æ³•è¿›è¡ŒåŠ è½½ï¼Œè·å–ä¸€ä¸ª Document å®ä¾‹
+			è§£æè¿‡ç¨‹ï¼š
+			1)é€šè¿‡ Document å®ä¾‹çš„ getElementsByTagName() æ–¹æ³•è·å–ä¸€ä¸ªèŠ‚ç‚¹é›†åˆ NodeList å®ä¾‹
+			2)éå† NodeList å®ä¾‹ï¼Œé€šè¿‡å…¶ item() æ–¹æ³•è·å¾—æŸä¸€å…·ä½“èŠ‚ç‚¹ Node å®ä¾‹
+			3)åœ¨é€šè¿‡ Node å®ä¾‹çš„ getAttributes() æ–¹æ³•è·å¾—è¯¥å®ä¾‹çš„æ‰€æœ‰å±æ€§ï¼Œä¸€ä¸ª NamedNodeMap å®ä¾‹
+			4)é€šè¿‡éå† NamedNodeMap è·å¾—è¯¥èŠ‚ç‚¹çš„æ¯ä¸€ä¸ªå±æ€§
+		SAXï¼š
+			æ­¥éª¤ï¼š
+			1)é€šè¿‡ SAXParserFactory çš„é™æ€ newInstance() æ–¹æ³•è·å– SAXParserFactory å®ä¾‹
+			2)é€šè¿‡ SAXParserFactory å®ä¾‹çš„ newSAXParser() æ–¹æ³•è·å– SAXParser å®ä¾‹
+			3)åˆ›å»ºä¸€ä¸ªç±»ç»§æ‰¿ä¸ DefaultHandler ç±»ï¼Œå¹¶è¦†å†™å…¶ä¸­çš„æ–¹æ³•è¿›è¡Œè§£é‡Š
+		DOM4Jï¼š
+			æ­¥éª¤ï¼š
+			1)åˆ›å»ºä¸€ä¸ª SAXReader çš„å¯¹è±¡å®ä¾‹
+			2)é€šè¿‡ SAXReader çš„ read() æ–¹æ³•åŠ è½½ XML æ–‡ä»¶ï¼Œè¿”å›ä¸€ä¸ª Document å®ä¾‹(dom4j åŒ…ä¸‹çš„ Document ç±»)
+			3)é€šè¿‡ Document çš„ getRootElement() è·å¾—æ ¹èŠ‚ç‚¹çš„ Element å®ä¾‹
+			4)åˆ©ç”¨ Element(dom4j åŒ…ä¸‹çš„ Element ç±») çš„ elementIterator() æ–¹æ³•è·å–è¿­ä»£å™¨
+			5)éå†è¿­ä»£å™¨ï¼Œè·å–å…¶å­èŠ‚ç‚¹çš„ä¿¡æ¯(éœ€è¦å°† Object å¼ºè½¬æˆ Element)
+		JDOMï¼š
+			æ­¥éª¤ï¼š
+			1)åˆ›å»ºä¸€ä¸ª SAXBuilder å¯¹è±¡å®ä¾‹
+			2)ä½¿ç”¨ SAXBuilder å®ä¾‹çš„ build() æ–¹æ³•ï¼Œè¿”å›ä¸€ä¸ª Document å®ä¾‹(jdom2 åŒ…ä¸‹çš„ Document ç±»)
+			3)é€šè¿‡ Document çš„ getRootElement() è·å¾—æ ¹èŠ‚ç‚¹çš„ Element å®ä¾‹
+			4)é€šè¿‡ æ ¹èŠ‚ç‚¹ çš„ getChildren() æ–¹æ³•è·å¾—å­èŠ‚ç‚¹é›†åˆ
+			5)éå†å­èŠ‚ç‚¹ï¼Œå¹¶è·å–å­èŠ‚ç‚¹çš„ä¿¡æ¯
 			
-
