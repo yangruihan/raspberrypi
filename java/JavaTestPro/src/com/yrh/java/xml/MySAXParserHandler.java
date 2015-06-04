@@ -1,39 +1,46 @@
 package com.yrh.java.xml;
 
+import java.util.ArrayList;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * ĞÂ½¨Ò»¸ö SAXParserHandler Àà£¬¼Ì³Ğ×ÔDefaultHandler
+ * è‡ªå®šä¹‰ SAXParserHandler ç»§æ‰¿è‡ª DefaultHandler
  */
 public class MySAXParserHandler extends DefaultHandler {
-
-	int bookIndex = 0;
 	
+	Book bookEntity = null;
+	ArrayList<Book> bookEntities = new ArrayList<Book>();
+	String tempAttr = null;
+	
+	int bookIndex = 0;
+
 	/**
-	 * ¿ªÊ¼É¨Ãè±êÇ©
+	 * å¼€å§‹èŠ‚ç‚¹
 	 */
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
 		super.startElement(uri, localName, qName, attributes);
 		if (qName.equals("book")) {
-			System.out.println("------------µÚ" + ++bookIndex + "±¾Êé------------");
-//			// µÚÒ»ÖÖ·½·¨£¬ÖªµÀÊôĞÔÃû
-//			System.out.println(attributes.getValue("id"));
-			// µÚ¶şÖÖ·½·¨£¬²»ÖªµÀÊôĞÔÃû£¬½øĞĞ±éÀú
+			System.out
+					.println("------------ç¬¬" + ++bookIndex + "æœ¬ä¹¦------------");
 			for (int i = 0; i < attributes.getLength(); i++) {
-				System.out.println("ÊôĞÔÃû£º" + attributes.getQName(i) + "ÊôĞÔÖµ£º" + attributes.getValue(i));
+				System.out.println("å±æ€§åï¼š" + attributes.getQName(i) + "----å±æ€§å€¼ï¼š"
+						+ attributes.getValue(i));
+				bookEntity = new Book();
 			}
 		}
 		if (!qName.equals("bookstore")) {
-		System.out.print("×ÓÊôĞÔÃû£º" + qName); 
+			System.out.print("å­å±æ€§åï¼š" + qName);
+			tempAttr = qName;
 		}
 	}
 
 	/**
-	 * ½áÊøÉ¨Ãè±êÇ©
+	 * ç»“æŸèŠ‚ç‚¹
 	 */
 	@Override
 	public void endElement(String uri, String localName, String qName)
@@ -41,11 +48,15 @@ public class MySAXParserHandler extends DefaultHandler {
 		super.endElement(uri, localName, qName);
 		if (qName.equals("book")) {
 			System.out.println("------------------------------\n");
+			if (bookEntity != null) {
+				bookEntities.add(bookEntity);
+				bookEntity = null;
+			}
 		}
 	}
-	
+
 	/**
-	 * É¨Ãè½ÚµãÖĞµÄÄÚÈİ
+	 * æ–‡å­—å†…å®¹
 	 */
 	@Override
 	public void characters(char[] ch, int start, int length)
@@ -53,25 +64,44 @@ public class MySAXParserHandler extends DefaultHandler {
 		super.characters(ch, start, length);
 		String str = new String(ch, start, length);
 		if (!str.trim().equals("")) {
-			System.out.println("----ÊôĞÔÖµ£º" + str);
+			System.out.println("----å±æ€§å€¼ï¼š" + str);
+			if (tempAttr.equals("name")) {
+				bookEntity.setName(str);
+			} else if (tempAttr.equals("author")) {
+				bookEntity.setAuthor(str);
+			} else if (tempAttr.equals("year")) {
+				bookEntity.setYear(str);
+			} else if (tempAttr.equals("price")) {
+				bookEntity.setPrice(str);
+			} else if (tempAttr.equals("language")) {
+				bookEntity.setLanguage(str);
+			}
 		}
 	}
 
+	public ArrayList<Book> getBookEntities() {
+		return bookEntities;
+	}
+
+	public void setBookEntities(ArrayList<Book> bookEntities) {
+		this.bookEntities = bookEntities;
+	}
+
 	/**
-	 * ¿ªÊ¼É¨ÃèÎÄ¼ş
+	 * å¼€å§‹ XML æ‰«æ
 	 */
 	@Override
 	public void startDocument() throws SAXException {
 		super.startDocument();
-		System.out.println("É¨Ãè¿ªÊ¼");
+		System.out.println("å¼€å§‹æ‰«æ");
 	}
 
 	/**
-	 * ½áÊøÉ¨ÃèÎÄ¼ş
+	 * ç»“æŸ XML æ‰«æ
 	 */
 	@Override
 	public void endDocument() throws SAXException {
 		super.endDocument();
-		System.out.println("½áÊøÉ¨Ãè");
+		System.out.println("ç»“æŸæ‰«æ");
 	}
 }
