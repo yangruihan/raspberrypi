@@ -2,6 +2,7 @@ package com.yrh.java.xml;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,9 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.EscapeStrategy;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 public class JDOMTest {
 	
@@ -25,6 +29,45 @@ public class JDOMTest {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, JDOMException, IOException {
+		JDOMTest test = new JDOMTest();
+		test.createXML();
+	}
+	
+	/**
+	 * 创建 XML 文件
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public void createXML() throws FileNotFoundException, IOException {
+		// 创建一个根节点
+		Element root = new Element("rss");
+		// 设置一个属性
+		root.setAttribute("version", "2.0");
+		// 新建一个子节点
+		Element channel = new Element("channel");
+		Element title = new Element("title");
+		title.setText("IT新闻");
+		channel.addContent(title);
+		// 通过 addContent() 方法将子节点添加进去
+		root.addContent(channel);
+		// 创建一个 Document 实例
+		Document doc = new Document(root);
+		// 新建一个 XMLOutputter 用来将 XML 内容写入文件中
+		XMLOutputter output = new XMLOutputter();
+		
+		// 得到一个 format 实例，用来美化格式
+		Format format = Format.getPrettyFormat();
+		// 设置格式
+		output.setFormat(format);
+		// 通过 XMLOutputter 的 output 方法，将内容写入指定文件中
+		output.output(doc, new FileOutputStream("demo/rssnews_2.xml"));
+	}
+
+	/**
+	 * 解析 XML 文件
+	 */
+	public void parseXML() throws JDOMException, IOException,
+			FileNotFoundException {
 		// 获取一个 SAXBuilder 实例
 		SAXBuilder sb = new SAXBuilder();
 		// 获得一个 Document 实例

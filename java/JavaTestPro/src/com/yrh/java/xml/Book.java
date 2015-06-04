@@ -1,12 +1,28 @@
 package com.yrh.java.xml;
 
 public class Book {
-
+	
+	public static int index = 1;
+	private int id;
 	private String name;
 	private String author;
 	private String year;
 	private String price;
 	private String language;
+	
+	public Book() {
+		this.id = index;
+		index++;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	public String getName() {
 		return name;

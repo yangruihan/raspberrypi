@@ -54,14 +54,59 @@ public class SAXTest {
 		tfhandler.startElement("", "", "bookstore", attrs);
 		attrs.clear();
 		
-		attrs.addAttribute("", "", "id", "", "1");
-		tfhandler.startElement("", "", "book", attrs);
-		tfhandler.endElement("", "", "book");
-		attrs.clear();
+		for (Book book : list) {
+			// 创建书本 id
+			attrs.addAttribute("", "", "id", "", book.getId() + "");
+			tfhandler.startElement("", "", "book", attrs);
+			attrs.clear();
+			
+			// 创建子节点
+			createChildElement(tfhandler, attrs, book);
+			
+			tfhandler.endElement("", "", "book");
+		}
+		
 		
 		tfhandler.endElement("", "", "bookstore");
 		// 结束 Document
 		tfhandler.endDocument();
+	}
+
+	private void createChildElement(TransformerHandler tfhandler,
+			AttributesImpl attrs, Book book) throws SAXException {
+		// 创建书名节点
+		tfhandler.startElement("", "", "name", attrs);
+		tfhandler.characters(book.getName().toCharArray(), 0, book.getName().length());
+		tfhandler.endElement("", "", "name");
+		attrs.clear();
+		
+		// 创建时间节点
+		tfhandler.startElement("", "", "year", attrs);
+		tfhandler.characters(book.getYear().toCharArray(), 0, book.getYear().length());
+		tfhandler.endElement("", "", "year");
+		attrs.clear();
+		
+		// 创建价格节点
+		tfhandler.startElement("", "", "price", attrs);
+		tfhandler.characters(book.getPrice().toCharArray(), 0, book.getPrice().length());
+		tfhandler.endElement("", "", "price");
+		attrs.clear();
+		
+		// 创建语言节点
+		if (book.getLanguage() != null) {
+			tfhandler.startElement("", "", "language", attrs);
+			tfhandler.characters(book.getLanguage().toCharArray(), 0, book.getLanguage().length());
+			tfhandler.endElement("", "", "language");
+			attrs.clear();	
+		}
+		
+		// 创建作者节点
+		if (book.getAuthor() != null) {
+			tfhandler.startElement("", "", "author", attrs);
+			tfhandler.characters(book.getAuthor().toCharArray(), 0, book.getAuthor().length());
+			tfhandler.endElement("", "", "author");
+			attrs.clear();	
+		}
 	}
 	
 	/**
