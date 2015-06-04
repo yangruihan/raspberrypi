@@ -17,24 +17,22 @@ import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 
+import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.AttributesImpl;
 
 public class SAXTest {
 	
 	/**
 	 * 使用 SAX 方法解析和生成 XML 文件
 	 */
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException, TransformerFactoryConfigurationError {
 		SAXTest test = new SAXTest();
+		test.createXML();
 	}
 	
 	/**
 	 * 生成 XML 文件
-	 * @throws IOException 
-	 * @throws SAXException 
-	 * @throws ParserConfigurationException 
-	 * @throws TransformerFactoryConfigurationError 
-	 * @throws TransformerConfigurationException 
 	 */
 	public void createXML() throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException, TransformerFactoryConfigurationError {
 		ArrayList<Book> list = parseXML();
@@ -49,6 +47,21 @@ public class SAXTest {
 		Result res = new StreamResult(new FileOutputStream(new File("demo/books_output2.xml")));
 		// 将 Result 实例和 Transformer 实例 绑定起来
 		tfhandler.setResult(res);
+		// 添加节点
+		// 开始 Document
+		tfhandler.startDocument();
+		AttributesImpl attrs = new AttributesImpl();
+		tfhandler.startElement("", "", "bookstore", attrs);
+		attrs.clear();
+		
+		attrs.addAttribute("", "", "id", "", "1");
+		tfhandler.startElement("", "", "book", attrs);
+		tfhandler.endElement("", "", "book");
+		attrs.clear();
+		
+		tfhandler.endElement("", "", "bookstore");
+		// 结束 Document
+		tfhandler.endDocument();
 	}
 	
 	/**
