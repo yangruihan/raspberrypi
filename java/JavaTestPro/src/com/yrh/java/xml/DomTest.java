@@ -1,14 +1,10 @@
 package com.yrh.java.xml;
 
 import java.io.IOException;
-import java.io.ObjectInputStream.GetField;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -17,49 +13,51 @@ import org.xml.sax.SAXException;
 public class DomTest {
 
 	/**
-	 * ÓÃÓÚ²âÊÔ dom ·½·¨ÏÂµÄ xml ÎÄ¼þ½âÎö
+	 * ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ dom ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ xml ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static void main(String[] args) throws ParserConfigurationException,
 			SAXException, IOException {
-		// Éú³ÉÒ»¸ö DocumentBuilderFactory ÊµÀý
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ DocumentBuilderFactory Êµï¿½ï¿½
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		// Éú³ÉÒ»¸ö DocumentBuilder ÊµÀý
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ DocumentBuilder Êµï¿½ï¿½
 		DocumentBuilder db = dbf.newDocumentBuilder();
-		// Í¨¹ý parse ·½·¨½øÐÐ¼ÓÔØ
-		Document doc = db.parse("demo\\books.xml");
-		// Í¨¹ýÒ»¸öÔªËØµÄ±ê¼ÇÃû£¬»ñµÃ nodelist
+		// Í¨ï¿½ï¿½ parse ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
+		Document doc = db.parse("demo/books.xml");
+		// Í¨ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ØµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nodelist
 		NodeList nl = doc.getElementsByTagName("book");
-		// ±éÀú nodelist
+		// ï¿½ï¿½ï¿½ï¿½ nodelist
 		for (int i = 0; i < nl.getLength(); i++) {
 			Node node = nl.item(i);
-			System.out.println("------------µÚ" + (i + 1) + "±¾Êé------------");
-			// »ñÈ¡nodeÀïËùÓÐµÄÊôÐÔ
+			System.out.println("------------ï¿½ï¿½" + (i + 1) + "ï¿½ï¿½ï¿½ï¿½------------");
+			// ï¿½ï¿½È¡nodeï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
 			NamedNodeMap nnm = node.getAttributes();
-			System.out.println("¸Ã½ÚµãÒ»¹²ÓÐ" + nnm.getLength() + "¸öÊôÐÔ");
+			System.out.println("ï¿½Ã½Úµï¿½Ò»ï¿½ï¿½ï¿½ï¿½" + nnm.getLength() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			for (int j = 0; j < nnm.getLength(); j++) {
-				System.out.println("ÊôÐÔÃû£º" + nnm.item(j).getNodeName()
-						+ "----ÊôÐÔÖµ£º" + nnm.item(j).getNodeValue());
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + nnm.item(j).getNodeName()
+						+ "----ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½" + nnm.item(j).getNodeValue());
 			}
-			
-			// Èç¹ûÖªµÀ¸Ã½ÚµãµÄÊôÐÔ£¬Ò²¿ÉÒÔÍ¨¹ýÏÂÃæÕâÖÖ·½·¨»ñÈ¡ÊôÐÔÖµ
-			// Element el = (Element) nl.item(i);
-			// System.out.println("ÊôÐÔÃû£ºid----ÊôÐÔÖµ£º" + el.getAttribute("id"));
 
-			// »ñµÃ×Ó½Úµãnodelist
+			// ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
+			// Element el = (Element) nl.item(i);
+			// System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id----ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½" +
+			// el.getAttribute("id"));
+
+			// ï¿½ï¿½ï¿½ï¿½Ó½Úµï¿½nodelist
 			NodeList childNodeList = node.getChildNodes();
-			System.out.println("¸Ã½ÚµãÒ»¹²ÓÐ" + childNodeList.getLength() + "¸ö×ÓÊôÐÔ");
-			// ±éÀú×Ó½Úµã
+			System.out.println("ï¿½Ã½Úµï¿½Ò»ï¿½ï¿½ï¿½ï¿½" + childNodeList.getLength()
+					+ "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ó½Úµï¿½
 			for (int k = 0; k < childNodeList.getLength(); k++) {
-				// ÒòÎª ¿Õ¸ñ»ò»»ÐÐ·û »á±»Ä¬ÈÏ¶ÁÈ¡Îª #test ÀàÐÍµÄ½Úµã£¬Òò´ËÕâÀïÒª¹ýÂËÒ»ÏÂ
+				// ï¿½ï¿½Îª ï¿½Õ¸ï¿½ï¿½ï¿½Ð·ï¿½ ï¿½á±»Ä¬ï¿½Ï¶ï¿½È¡Îª #test ï¿½ï¿½ï¿½ÍµÄ½Úµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 				if (childNodeList.item(k).getNodeType() == Node.ELEMENT_NODE) {
-//					System.out.println("\t×ÓÊôÐÔÃû£º"
-//							+ childNodeList.item(k).getNodeName()
-//							+ "----ÊôÐÔÖµ£º"
-//							+ childNodeList.item(k).getFirstChild()
-//									.getNodeValue());
-					System.out.println("\t×ÓÊôÐÔÃû£º"
+					// System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+					// + childNodeList.item(k).getNodeName()
+					// + "----ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½"
+					// + childNodeList.item(k).getFirstChild()
+					// .getNodeValue());
+					System.out.println("\tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 							+ childNodeList.item(k).getNodeName()
-							+ "----ÊôÐÔÖµ£º"
+							+ "----ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½"
 							+ childNodeList.item(k).getTextContent());
 				}
 			}
