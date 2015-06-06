@@ -1,68 +1,68 @@
 1. RandomAccessFile
-	RandomAccessFile java�ṩ�Ķ��ļ����ݵķ��ʣ��ȿ��Զ��ļ���Ҳ����д�ļ���
-	RandomAccessFile֧����������ļ������Է����ļ�������λ��
+	RandomAccessFile java提供的对文件内容的访问，既可以读文件，也可以写文件。
+	RandomAccessFile支持随机访问文件，可以访问文件的任意位置
 
-	(1)���ļ���
-	������ģʽ����rw������д������r����ֻ����
+	(1)打开文件：
+	有两种模式：“rw”（读写），“r”（只读）
 	RandomAccessFile raf = new RandomAccessFile(file, "rw");
-	�ļ�ָ�룬���ļ�ʱָ���ڿ�ͷ pointer = 0;
-	(2)д�ļ�
-	raf.write(int) ---> ֻдһ���ֽڣ���8λ����ͬʱָ��ָ����һ��λ�ã�׼���ٴ�д��
-	(3)������
-	int b = raf.read() ---> ��һ���ֽ�
-	(4)�ļ���д����Ժ�һ��Ҫ�ر�
+	文件指针，打开文件时指针在开头 pointer = 0;
+	(2)写文件
+	raf.write(int) ---> 只写一个字节（后8位），同时指针指向下一个位置，准备再次写入
+	(3)读方法
+	int b = raf.read() ---> 都一个字节
+	(4)文件读写完成以后一定要关闭
 
-2. IO�������������������
-	(1)�ֽ�����
-		1)InputStream��OutputStream��
-			InputStream������Ӧ�ó����ȡ���ݵķ�ʽ
-			OutputStream������Ӧ�ó���д�����ݵķ�ʽ
-		2)EOF == End or ����-1������β
-		3)����������������
-			int b = in.read(); ��ȡһ���ֽ��޷�����䵽int�ĵͰ�λ��-1��EOF
+2. IO流（输入流、输出流）
+	(1)字节流：
+		1)InputStream、OutputStream：
+			InputStream抽象了应用程序读取数据的方式
+			OutputStream抽象了应用程序写出数据的方式
+		2)EOF == End or 读到-1读到结尾
+		3)输入流基本方法：
+			int b = in.read(); 读取一个字节无符号填充到int的低八位，-1是EOF
 			in.read(byte[] buf);
 			in.read(byte[] buf, int start, int size);
-		4)���������������
-			out.write(int b); д��һ��byte������b�ĵͰ�λ��
-			out.write(byte[] buf); ��buf�ֽ����鶼д�뵽��
+		4)输出流基本方法：
+			out.write(int b); 写出一个byte到流（b的低八位）
+			out.write(byte[] buf); 将buf字节数组都写入到流
 			out.write(byte[] buf, int start, int size);
-		5)FileInputStream(extends InputStream) --> ����ʵ�������ļ��϶�ȡ����
-		6)FileOutputStream(extends OutputStream) --> ����ʵ�������ļ���д�� byte���� �ķ���
+		5)FileInputStream(extends InputStream) --> 具体实现了在文件上读取数据
+		6)FileOutputStream(extends OutputStream) --> 具体实现了向文件中写出 byte数据 的方法
 		7)DataOutputStream/DataInputStream:
-			�ԡ��������ܵ���չ�����Ը��ӷ���ض�ȡint��long���ַ�����������
+			对“流”功能的扩展，可以更加方便地读取int，long，字符等数据类型
 			1)DataOutputStream
-				writeInt/writeByte/writeBoolean/writeChar/writeUTF��
+				writeInt/writeByte/writeBoolean/writeChar/writeUTF等
 		8)BufferedInputStream/BufferedOutputStream:
-			����������Ϊ IO �ṩ�˴��������Ĳ�����һ����ļ�����д����ȡ����ʱ��������ϻ��壬������ģʽ������� IO ������
-	(2)�ַ��� --> �󲿷ֲ��������ı��ļ�
-		1)��������
-		2)��ʶ�ı����ı��ļ���
-			java���ı�ָ���� char��16λ�޷��������������ַ��� unicode ����
-			�ļ��� byte byte byte ... ����������
-			�ı��ļ����ı���char�����а���ĳ�ֱ��뷽����utf-8/utf-16be/gbk�����л�Ϊ byte �Ĵ洢���
-		3)�ַ�����Reader/Writer����
-			�ַ��Ĵ�����һ�δ���һ���ַ�
-			���ַ��ĵײ���Ȼ�ǻ������ֽ�����
-		4)�ַ����Ļ���ʵ�֣�
-			1)InputStreamReader ��� byte �� ����Ϊ char�������ձ������
-			   OutputStreamWriter �ṩ char�� �� byte�������ձ��봦��
-			2)FileReader/FileWriter��
-				�൱������2�ַ����ļ򻯰棬���ǲ���ֱ�����ñ���
-		5)�ַ����Ĺ�����
-			1)BufferedReader --> readLine һ�ζ�һ��
-			2)BufferedWriter/PrintWriter --> write + newLine дһ��
+			这两个流类为 IO 提供了带缓冲区的操作，一般打开文件进行写入或读取操作时，都会加上缓冲，这种流模式，提高了 IO 的性能
+	(2)字符流 --> 大部分操作的是文本文件
+		1)编码问题
+		2)认识文本和文本文件：
+			java的文本指的是 char（16位无符号整数），是字符的 unicode 编码
+			文件是 byte byte byte ... 的数据序列
+			文本文件是文本（char）序列按照某种编码方案（utf-8/utf-16be/gbk）序列化为 byte 的存储结果
+		3)字符流（Reader/Writer）：
+			字符的处理：一次处理一个字符
+			而字符的底层任然是基本的字节序列
+		4)字符流的基本实现：
+			1)InputStreamReader 完成 byte 流 解析为 char流，按照编码解析
+			   OutputStreamWriter 提供 char流 到 byte流，按照编码处理
+			2)FileReader/FileWriter：
+				相当于上面2种方法的简化版，但是不能直接设置编码
+		5)字符流的过滤器
+			1)BufferedReader --> readLine 一次读一行
+			2)BufferedWriter/PrintWriter --> write + newLine 写一行
 
-3. ��������л��뷴���л�
-	(1)�������л������ǽ� Object ת���� byte ���У���֮�ж���ķ����л�
-	(2)���л���(ObjectOutputStream) --> writeObject���ǹ�����
-	    �����л�(ObjectInputStream) --> readObject
-	(3)���л��ӿ�(Serializable)
-		�������ʵ�����л��ӿڣ����ܽ������л������򽫳����쳣
-		����ӿڣ�û���κη�����ֻ��һ����׼
-	(4)transient ���η��������Ժ󣬸����Բ������ jvm Ĭ�ϵ����л���Ҳ����������ɶԸ�Ԫ�ص����л�
-	�ֶ�������л�������
+3. 对象的序列化与反序列化
+	(1)对象序列化，就是将 Object 转换成 byte 序列，反之叫对象的反序列化
+	(2)序列化流(ObjectOutputStream) --> writeObject，是过滤流
+	    反序列化(ObjectInputStream) --> readObject
+	(3)序列化接口(Serializable)
+		对象必须实现序列化接口，才能进行序列化，否则将出现异常
+		这个接口，没有任何方法，只是一个标准
+	(4)transient 修饰符修饰属性后，该属性不会进行 jvm 默认的序列化，也可以自行完成对该元素的序列化
+	手动完成序列化方法：
 		private void readObject(java.io.ObjectInputStream s) throws java.io.IOException, ClassNotFoundException {}
 		private void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {}
-	(5)���л��У�����͸��๹�캯���ĵ������⣺
-		1)һ����ʵ�������л��ӿڣ������඼���Խ������л�
-		2)�����������з����л�����ʱ������丸��û��ʵ�����л��ӿڣ����丸��Ĺ��캯����������
+	(5)序列化中，子类和父类构造函数的调用问题：
+		1)一个类实现了序列化接口，其子类都可以进行序列化
+		2)对子类对象进行反序列化操作时，如果其父类没有实现序列化接口，则其父类的构造函数将被调用

@@ -1,3 +1,4 @@
+InetAddress：
 1. 端口号范围为0~65535，其中0~1023为系统所保留
 2. 常用的端口号：
 	(1)http:	80
@@ -9,3 +10,34 @@
 	(3)Sockets:		使用 TCP 协议实现网络通信的 Socket 相关的类
 	(4)Datagram:	使用 UDP 协议，将数据保存在数据报中，通过网络进行通信
 	
+URL：
+通过URL读取网页信息：
+(1)新建一个 URL 实例
+	例：URL url = new URL("www.xxxx.com");
+(2)通过 URL 实例的 openStream 方法获取 URL 对象所表示的资源的字节输入流
+	例： InputStream is = url.openStream();
+(3)将字节输入流转换成字符输入流
+	例：InputStreamReader isr = new InputStreamReader(is);
+(4)为字符输入流添加缓冲
+	例：BufferedReader br = new BufferedReader(isr);
+(5)循环读取数据
+	例：while((data = br.readLine()) != null) { ... }
+	
+Socket简介：
+1. 基于TCP网络通信中 Java 的类：
+	客户端：Socket 类
+	服务器：ServerSocket 类
+2. Socket通信实现步骤：
+	(1)创建 ServerSocket 和 Socket
+	(2)打开连接到 Socket 的输入/输出流
+	(3)按照协议对 Socket 进行读/写操作
+	(4)关闭输入/输出流、并关闭 Socket
+3. Socket编程注意事项：
+	(1)多线程编程的优先级：
+		适当降低线程优先级，可能会使程序更加效率
+	(2)是否关闭输出流和输入流：
+		对于同一个 socket，如果关闭了输出流，则与该输出流关联的 socket 也会被关闭，所以一般不用关闭流，直接关闭 socket 即可
+	(3)使用 TCP 通信传输对象：
+		首先将对象序列化，之后再将其传输
+	(4) Socket 编程传递文件：
+		可以通过 I/O 流，读取文件的字节内容，再进行传输
