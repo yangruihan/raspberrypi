@@ -22,6 +22,26 @@ public class Goddess {
 	private String update_user;
 	private Date update_date;
 	private Integer isdel;
+	
+	/*
+	 * 覆写 toString 方法
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return  "\n------------------"
+				+ "ID:" + id 
+				+ "\n用户名:" + user_name
+				+ "\n性别:" + sex
+				+ "\n年龄:" + age
+				+ "\n生日:" + birthday.toString()
+				+ "\n邮箱:" + email
+				+ "\n手机号:" + mobile
+				+ "\n创建人:" + create_user
+				+ "\n创建时间:" + create_date.toString()
+				+ "\n更新人:" + update_user
+				+ "\n更新时间:" + update_date.toString(); 
+	}
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -39,7 +59,7 @@ public class Goddess {
 		this.isdel = isdel;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -51,11 +71,11 @@ public class Goddess {
 		this.user_name = user_name;
 	}
 
-	public int getSex() {
+	public Integer getSex() {
 		return sex;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
@@ -115,7 +135,7 @@ public class Goddess {
 		this.update_date = update_date;
 	}
 
-	public int getIsdel() {
+	public Integer getIsdel() {
 		return isdel;
 	}
 

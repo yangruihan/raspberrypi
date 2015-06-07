@@ -1,28 +1,69 @@
 package com.yrh.java.jdbc;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+/**
+ * control 层
+ * @author Yrh
+ *
+ */
 public class GoddessAction {
-
-	public static void main(String[] args) throws Exception {
-		GoddessDao goddessDao = new GoddessDao();
-//		ArrayList<Goddess> list = (ArrayList<Goddess>) goddessDao.queryGoddess();
-//		for (Goddess goddess : list) {
-//			System.out.println(goddess.getName() + "," + goddess.getAge());
-//		}
-		
-		Goddess g = new Goddess();
-		g.setName("小红");
-		g.setAge(22);
-		g.setSex(1);
-		g.setBirthday(new Date());
-		g.setEmail("12314@qq.com");
-		g.setMobile("17412341234");
-		g.setCreate_user("admin");
-		g.setUpdate_user("admin");
-		g.setIsdel(0);
-		
+	
+	private GoddessDao goddessDao = new GoddessDao();
+	
+	/**
+	 * 增加
+	 * @param g
+	 * @throws Exception 
+	 */
+	public void add(Goddess g) throws Exception {
 		goddessDao.addGoddess(g);
+	}
+	
+	/**
+	 * 删除
+	 * @param id
+	 * @throws Exception 
+	 */
+	public void del(Integer id) throws Exception {
+		goddessDao.delGoddess(id);
+	}
+	
+	/**
+	 * 更新
+	 * @param g
+	 * @throws Exception 
+	 */
+	public void update(Goddess g) throws Exception {
+		goddessDao.updateGoddess(g);
+	}
+	
+	/**
+	 * 查询全部
+	 * @return
+	 * @throws Exception 
+	 */
+	public List<Goddess> query() throws Exception {
+		return goddessDao.queryGoddesses();
+	}
+	
+	/**
+	 * 按条件查询
+	 * @return
+	 * @throws Exception 
+	 */
+	public List<Goddess> query(List<Map<String, Object>> params) throws Exception {
+		return goddessDao.queryGoddesses(params);
+	}
+	
+	/**
+	 * 获取某个 id 的详细信息
+	 * @param id
+	 * @return
+	 * @throws Exception 
+	 */
+	public Goddess get(Integer id) throws Exception {
+		return goddessDao.queryGoddess(id);
 	}
 }
