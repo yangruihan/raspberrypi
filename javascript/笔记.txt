@@ -1,4 +1,4 @@
-JavaScript 学习笔记
+JavaScript 学习笔记:
 
 1. alert(str);
     用来显示一个提示
