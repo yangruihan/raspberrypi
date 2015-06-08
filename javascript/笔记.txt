@@ -1,0 +1,41 @@
+JavaScript 学习笔记
+
+1. alert(str);
+    用来显示一个提示
+    其中 str 是提示语
+
+2. confirm(str);
+    用来显示一个确定对话框
+    其中 str 是提示语
+    返回值：点击确定返回 true，反之返回 false
+
+3. prompt(str1, str2);
+    用来显示一个消息对话框
+    其中 str1 是要显示在对话框中的文本，不可修改
+         str2 是文本框中的内容，可以修改
+    返回值：点击确定文本框内容将作为函数返回值
+            点击取消，返回 null
+
+4. window.open(<URL>, <窗口名称>, <参数字符串>);
+    用来打开一个新的窗口
+    参数：URL：打开的网址或路径
+          窗口名称：被打开窗口的名称。可以为"_top"、"_blank"、"_self"等
+          参数字符串：设置窗口参数，各参数用逗号隔开
+    参数字符串：
+        参数        值      说明
+        top         Number  窗口顶部离开屏幕顶部的像素数
+        left        Number  窗口左端离开屏幕左端的像素数
+        width       Number  窗口的宽度
+        height      Number  窗口的高度
+        menubar     yes/no  窗口有没有菜单
+        toolbar     yes/no  窗口有没有工具栏
+        scrollbars  yes/no  窗口有没有滚动条
+        status      yes/no  窗口有没有状态栏
+    注意：参数之间逗号及等号前后有空格，该字符串无效，只有删除这些空格才能正常运行
+
+5. window.close(); | <窗口对象>.close();
+    用来关闭这个（指定）的窗口
+    例如：mywin=window.open('http://www.baidu.com');
+          mywin.close();
+
+
