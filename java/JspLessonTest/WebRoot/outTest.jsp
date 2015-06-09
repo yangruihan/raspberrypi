@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'outTest.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,18 +19,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-    <h1>这是一个9*9的乘法表</h1>
-    <hr/>
-   <%
-   for (int i = 1; i < 10; i++) {
-   		for (int j = 1; j < i + 1; j++) {
-   			out.print(i + "*" + j + "=" + (i * j) + "&nbsp&nbsp&nbsp");	
-   		}
-   		out.print("<br>");
-   }	
-   %>
+    <h1>静夜思</h1>
+    <%
+    	out.println("床前明月光<br>");
+    	out.println("疑是地上霜<br>");
+    	out.println("举头望明月<br>");
+    	out.println("疑是地上霜<br>");
+     %>
   </body>
 </html>

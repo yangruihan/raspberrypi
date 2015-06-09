@@ -25,4 +25,14 @@
 - 在JSP页面中执行的表达式
 - 语法：<%= 表达式 %>
 
+####Jsp内置对象(九大内置对象)
+- out
+- request
+- response
+- session
+- application
+- Page
+- pageContext
+- exception
+- config
 

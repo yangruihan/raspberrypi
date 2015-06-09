@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="JspBaseElementDemo"
+  name="JspLessonTest"
   id="myeclipse.1433861342557"
-  context-root="/JspBaseElementDemo"
+  context-root="/JspTest"
   j2ee-spec="5.0"
-  archive="JspBaseElementDemo.war">
+  archive="JspLessonTest.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
