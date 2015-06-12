@@ -19,7 +19,33 @@
   	<url-pattern>/index</url-pattern>
   </servlet-mapping>
   
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toregister</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toregister</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toregister</url-pattern>
+  </servlet-mapping>
   
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>register</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>register</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
   
   <!-- <display-name></display-name>	
   <welcome-file-list>

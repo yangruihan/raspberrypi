@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 
 /**
  * 数据库工具类
@@ -39,7 +39,7 @@ public class DBUtil {
 	 * 关闭连接
 	 * @param conn
 	 */
-	public void closeConnection(Connection conn) {
+	public static void closeConnection(Connection conn) {
 		try {
 			if ((conn != null) && (!conn.isClosed())) {
 				conn.close();
@@ -54,7 +54,7 @@ public class DBUtil {
 	 * 关闭状态
 	 * @param state
 	 */
-	public void closeStatement(Statement state) {
+	public static void closeStatement(Statement state) {
 		try {
 			if ((state != null) && (!state.isClosed())) {
 				state.close();
@@ -69,7 +69,7 @@ public class DBUtil {
 	 * 关闭结果集
 	 * @param result
 	 */
-	public void closeResultSet(ResultSet result) {
+	public static void closeResultSet(ResultSet result) {
 		try {
 			if ((result != null) && (!result.isClosed())) {
 				result.close();
