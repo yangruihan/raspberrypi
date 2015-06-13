@@ -20,4 +20,12 @@ public interface UserDao {
 	 * @throws AppException
 	 */
 	public boolean add(User user) throws AppException;
+	
+	/**
+	 * 检查登录用户名或密码是否正确
+	 * @param user
+	 * @return
+	 * @throws AppException
+	 */
+	public boolean check(User user) throws AppException;
 }

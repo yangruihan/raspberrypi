@@ -14,43 +14,84 @@ public class UserDaolmpl implements UserDao {
 	public boolean isExist(String name) throws AppException {
 		// 获得数据库连接
 		Connection conn = DBUtil.getConnection();
+		Statement stmt = null;
+		ResultSet result = null;
+		boolean flag = false;
+		
 		try {
-			Statement stmt = conn.createStatement();
-			ResultSet result = stmt.executeQuery("Select name from t_user;");
+			stmt = conn.createStatement();
+			result = stmt.executeQuery("Select name from t_user;");
 			// 遍历判断是否有重名
 			while (result.next()) {
 				if (name.equals(result.getString("name"))) {
-					return true;
+					flag = true;
+					break;
 				}
 			}
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.UserDaolmpl.isExist");
+		} finally {
 			// 关闭资源
 			DBUtil.closeResultSet(result);
 			DBUtil.closeStatement(stmt);
-		} catch (SQLException e) {
-			e.printStackTrace();
+			DBUtil.closeConnection(conn);
 		}
 
-		// 关闭连接
-		DBUtil.closeConnection(conn);
-		return false;
+		return flag;
 	}
 
 	public boolean add(User user) throws AppException {
 		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
 		String sql = "insert into t_user(name, password, role, del) values(?,?,?,0)";
+		boolean flag = false;
 		try {
-			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user.getName().toString());
 			psmt.setString(2, user.getPassword().toString());
 			psmt.setInt(3, user.getRole());
 			psmt.execute();
-			DBUtil.closeStatement(psmt);
-			DBUtil.closeConnection(conn);
-			return true;
+			flag = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new AppException("com.yrh.dao.UserDaolmpl.add");
+		} finally {
+			// 关闭资源
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
 		}
-		return false;
+		return flag;
+	}
+
+	public boolean check(User user) throws AppException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		String name = user.getName();
+		String password = user.getPassword();
+		String sql = "select password from t_user where name='" + name +"';";
+		boolean flag = false;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String str = rs.getString("password");
+				if (str.equals(password)) {
+					flag = true;
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.UserDaolmpl.check");
+		} finally {
+			// 关闭资源
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
+		}
+		return flag;
 	}
 }

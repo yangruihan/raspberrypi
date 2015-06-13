@@ -4,6 +4,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	
+<!-- IndexServlet 配置 -->
   
   <!-- 配置 Servlet的访问 -->
   <servlet>
@@ -19,19 +22,27 @@
   	<url-pattern>/index</url-pattern>
   </servlet-mapping>
   
+  
+  
+  <!-- ToRegisterServlet 配置 -->
+  
   <!-- 配置 Servlet的访问 -->
   <servlet>
   	<!-- 设置 Servlet 名称 -->
-  	<servlet-name>toregister</servlet-name>
+  	<servlet-name>toRegister</servlet-name>
   	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
   	<servlet-class>com.yrh.web.ToRegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<!-- Servlet 的名称，需要和上述保持一致 -->
-  	<servlet-name>toregister</servlet-name>
+  	<servlet-name>toRegister</servlet-name>
   	<!-- Servlet 的访问路径 -->
-  	<url-pattern>/toregister</url-pattern>
+  	<url-pattern>/toRegister</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  <!-- RegisterServlet 配置 -->
   
   <!-- 配置 Servlet的访问 -->
   <servlet>
@@ -45,6 +56,93 @@
   	<servlet-name>register</servlet-name>
   	<!-- Servlet 的访问路径 -->
   	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ToLoginServlet 配置 -->
+  
+    <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toLogin</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toLogin</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toLogin</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+ <!-- LoginServlet 配置 -->
+  
+     <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>login</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>login</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <!-- LogoutServlet 配置 -->
+  
+     <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>logout</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>logout</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ToErrorServlet 配置 -->
+  
+    <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toError</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToErrorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toError</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toError</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ToNewUserServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toNewUser</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToNewUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toNewUser</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toNewUser</url-pattern>
   </servlet-mapping>
   
   <!-- <display-name></display-name>	
