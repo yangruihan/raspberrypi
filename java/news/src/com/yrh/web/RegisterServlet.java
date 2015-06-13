@@ -52,7 +52,7 @@ public class RegisterServlet extends HttpServlet {
 			}
 		}
 		
-		req.getRequestDispatcher("/toRegister").forward(req, resp);
+		req.getRequestDispatcher("toRegister").forward(req, resp);
 	}
 	
 	@Override

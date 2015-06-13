@@ -1,8 +1,6 @@
 package com.yrh.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,21 +12,22 @@ public class ToNewUserServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		resp.setContentType("text/html"); // 设置输出内容的类型
-		resp.setCharacterEncoding("UTF-8"); // 设置输出内容的编码
-		PrintWriter out = resp.getWriter();
-		
-		String name = (String) req.getSession().getAttribute("name");
-		
-		if (name == null) {
-			
-		}
-		if (name.equals("")) {
-			
-		}
-		
-		out.print("欢迎您，" + name + "<br>");
-		out.print("<a href=\"logout\" method=\"post\">注销</a>");
+//		resp.setContentType("text/html"); // 设置输出内容的类型
+//		resp.setCharacterEncoding("UTF-8"); // 设置输出内容的编码
+//		PrintWriter out = resp.getWriter();
+//		
+//		String name = (String) req.getSession().getAttribute("name");
+//		
+//		if (name == null) {
+//			
+//		}
+//		if (name.equals("")) {
+//			
+//		}
+//		
+//		out.print("欢迎您，" + name + "<br>");
+//		out.print("<a href=\"logout\" method=\"post\">注销</a>");
+		req.getRequestDispatcher("newUser.jsp").forward(req, resp);
 	}
 	
 	@Override

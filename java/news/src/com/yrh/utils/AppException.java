@@ -5,6 +5,7 @@ package com.yrh.utils;
  * @author Yrh
  *
  */
+@SuppressWarnings("serial")
 public class AppException extends Exception {
 	
 	private int exceptionCode;		// “Ï≥£±‡∫≈

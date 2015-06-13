@@ -23,9 +23,33 @@ public interface UserDao {
 	
 	/**
 	 * 检查登录用户名或密码是否正确
-	 * @param user
-	 * @return
+	 * @param user 用户对象
+	 * @return true 表示正确 false 表示错误
 	 * @throws AppException
 	 */
 	public boolean check(User user) throws AppException;
+	
+	/**
+	 * 通过用户id取得用户身份信息 
+	 * @param userid 用户id
+	 * @return 0 普通编辑 1 管理员
+	 * @throws AppException
+	 */
+	public int getRoleById(int userid) throws AppException;
+	
+	/**
+	 * 通过用户名得到用户身份信息
+	 * @param name 用户名
+	 * @return 0 普通编辑 1 管理员
+	 * @throws AppException
+	 */
+	public int getRoleByName(String name) throws AppException;
+	
+	/**
+	 * 通过用户名得到用户id
+	 * @param name 用户名
+	 * @return 用户id
+	 * @throws AppException
+	 */
+	public int getIdByName(String name) throws AppException;
 }

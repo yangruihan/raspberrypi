@@ -145,9 +145,91 @@
   	<url-pattern>/toNewUser</url-pattern>
   </servlet-mapping>
   
-  <!-- <display-name></display-name>	
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list> -->
   
+   <!-- ToAdminServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toAdmin</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toAdmin</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toAdmin</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!-- ToEditorServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toEditor</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToEditorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toEditor</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toEditor</url-pattern>
+  </servlet-mapping>
+  
+    <!-- ToCreateNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toCreateNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToCreateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toCreateNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toCreateNews</url-pattern>
+  </servlet-mapping>
+  
+    <!-- ToCreateNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toCreate</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToCreateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toCreate</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toCreate</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!-- CreateNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>createNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.CreateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>createNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/createNews</url-pattern>
+  </servlet-mapping>
+  
+<display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
 </web-app>

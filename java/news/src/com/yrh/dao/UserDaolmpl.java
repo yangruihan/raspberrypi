@@ -94,4 +94,79 @@ public class UserDaolmpl implements UserDao {
 		}
 		return flag;
 	}
+
+	public int getRoleById(int userid) throws AppException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		String sql = "select role from t_user where id='" + userid +"';";
+		int role = 0;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				role = rs.getInt("role");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.UserDaolmpl.getRoleById");
+		} finally {
+			// 关闭资源
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
+		}
+		return role;
+	}
+
+	public int getRoleByName(String name) throws AppException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		String sql = "select role from t_user where name='" + name +"';";
+		int role = 0;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				role = rs.getInt("role");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.UserDaolmpl.getRoleByName");
+		} finally {
+			// 关闭资源
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
+		}
+		return role;
+	}
+
+	public int getIdByName(String name) throws AppException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		String sql = "select id from t_user where name='" + name +"';";
+		int id = 0;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt("id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.UserDaolmpl.getIdByName");
+		} finally {
+			// 关闭资源
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
+		}
+		return id;
+	}
 }
