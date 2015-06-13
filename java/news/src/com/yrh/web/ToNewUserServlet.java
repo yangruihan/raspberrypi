@@ -17,6 +17,7 @@ public class ToNewUserServlet extends HttpServlet {
 		resp.setContentType("text/html"); // 设置输出内容的类型
 		resp.setCharacterEncoding("UTF-8"); // 设置输出内容的编码
 		PrintWriter out = resp.getWriter();
+		
 		String name = (String) req.getSession().getAttribute("name");
 		
 		if (name == null) {
@@ -26,7 +27,8 @@ public class ToNewUserServlet extends HttpServlet {
 			
 		}
 		
-		out.print("欢迎您，" + name);
+		out.print("欢迎您，" + name + "<br>");
+		out.print("<a href=\"logout\" method=\"post\">注销</a>");
 	}
 	
 	@Override

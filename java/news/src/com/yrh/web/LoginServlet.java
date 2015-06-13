@@ -1,7 +1,6 @@
 package com.yrh.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +11,7 @@ import com.yrh.model.User;
 import com.yrh.service.UserService;
 import com.yrh.utils.AppException;
 
+@SuppressWarnings("serial")
 public class LoginServlet extends HttpServlet {
 
 	@Override
@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
 		resp.setContentType("text/html"); 	// 设置输出内容的类型
 		resp.setCharacterEncoding("UTF-8");	// 设置输出内容的编码
 		req.setCharacterEncoding("utf-8");
-		PrintWriter out = resp.getWriter();
 		
 		// 获取用户名、密码和重复密码
 		String name = req.getParameter("name").toString();
@@ -57,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 				}
 			} catch (AppException e) {
 				System.out.println(e.getMessage());
+				resp.sendRedirect("toError");
 			}
 		}
 		

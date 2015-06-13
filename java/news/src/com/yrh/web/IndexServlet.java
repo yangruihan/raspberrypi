@@ -27,8 +27,6 @@ public class IndexServlet extends HttpServlet {
 		resp.setContentType("text/html"); 	// 设置输出内容的类型
 		resp.setCharacterEncoding("UTF-8");	// 设置输出内容的编码
 		PrintWriter out = resp.getWriter();	// 获得一个输出对象
-		// ...输出头部声明
-		// ...输出标准的 HTML 结构
 		// 页面主体信息
 		out.println("欢迎进入新闻系统！");
 		// 关闭输出流
