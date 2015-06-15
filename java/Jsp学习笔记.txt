@@ -1,4 +1,6 @@
-#Jsp学习笔记
+﻿#Jsp学习笔记
+
+-----
 
 ##Jsp基础语法
 
@@ -8,6 +10,8 @@
         属性n="属性值n"%>
 - include指令：将一个外部文件嵌入到当前的jsp文件中，同时解析这个页面中的jsp语句
 - taglib指令：使用标签库定义新的自定义标签，在jsp页面中启用定制行为
+
+-----
 
 ###Jsp页面元素
 
@@ -36,6 +40,8 @@
 - exception
 - config
 
+-----
+
 ###Jsp动作元素
 - JSP动作元素(action elements)，动作元素为请求处理阶段提供的信息，动作元素遵循XML元素的语法，有一个包含元素名的开始标签，可以有属性、可选的内容、与开始标签匹配的结束标签。
 
@@ -51,14 +57,20 @@
 5. 用在 Tag File 中
     <jsp:invoke> <jsp:dobody>
 
+-----
+
 ###Jsp状态管理
 
 ####http协议无状态性
 - 无状态是指，当浏览器发送请求给服务器的时候，服务器响应客户端请求。但是，当同一个浏览器再次发送请求给服务器的时候，服务器并不知道它就是刚才那个浏览器。简单地说就是，服务器不会去记得你，所以就是无状态协议。
 
+-----
+
 ##Javabean
 ###Javabeans就是符合某种特定的规范的java类。
 - 使用Javabeans的好处是解决代码重复编写，减少代码冗余，功能区分明确，提高代码的维护性。
+
+-----
 
 ###Javabean的设计原则
 - 是一个公有类
@@ -66,8 +78,12 @@
 - 属性私有
 - 用setter和getter封装
 
+-----
+
 ###Javabean使用方法
 - <jsp:useBean id="实例名" class="javabean类完整名（包括包名）" scope="作用范围">
+
+-----
 
 ###Javabean作用域范围
 说明：使用useBean的scope属性可以用来指定javabean的作用范围
@@ -76,7 +92,7 @@
 - session       // 可以通过HttpSession.getAttribute()方法取得javabean对象
 - application   // 可以通过application.getAttribute()方法取得javabean对象
 
-
+-----
 
 
 
