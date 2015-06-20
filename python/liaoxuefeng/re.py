@@ -110,3 +110,12 @@ if (re_email.match(email)):
     print (re_email.match(email).groups())
 else:
     print ('failed')
+
+email = raw_input('Please input a email address2:')
+re_email = re.compile(r'\<([A-Za-z\_\s]+)\>\s+([a-zA-Z\_][a-zA-Z0-9\_\.]*)@([a-zA-Z\_][a-zA-Z0-9\_\.]+?).(com|cn|org)$')
+
+if (re_email.match(email)):
+    print ('ok')
+    print (re_email.match(email).groups())
+else:
+    print ('failed')
