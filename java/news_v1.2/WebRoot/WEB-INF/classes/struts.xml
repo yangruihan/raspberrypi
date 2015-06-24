@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="yrh" extends="struts-default">
+		<action name="toIndex" class="com.yrh.web.ToIndexAction">
+			<result name="index" type="dispatcher">/index.jsp</result>
+		</action>
+		<action name="toAdmin" class="com.yrh.web.ToAdminAction">
+			<result name="adminFrame" type="dispatcher">/adminFrame.jsp</result>
+		</action>
+		<action name="toCreateNews" class="com.yrh.web.ToCreateNewsAction">
+			<result name="createNews" type="dispatcher">/createNews.jsp</result>
+		</action>
+		<action name="toEditor" class="com.yrh.web.ToEditorAction">
+			<result name="editorFrame" type="dispatcher">/editorFrame.jsp</result>
+		</action>
+		<action name="toError" class="com.yrh.web.ToErrorAction">
+			<result name="error" type="dispatcher">/error.jsp</result>
+		</action>
+		<action name="toLogin" class="com.yrh.web.ToLoginAction">
+			<result name="login" type="dispatcher">/login.jsp</result>
+		</action>
+		<action name="toNewUser" class="com.yrh.web.ToNewUserAction">
+			<result name="newUser" type="dispatcher">/newUser.jsp</result>
+		</action>
+		<action name="toRegister" class="com.yrh.web.ToRegisterAction">
+			<result name="register" type="dispatcher">/register.jsp</result>
+		</action>
+	</package>
+</struts>
