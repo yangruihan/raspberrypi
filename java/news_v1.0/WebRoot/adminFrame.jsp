@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" import="java.util.*" import="com.yrh.model.User" contentType="text/html; charset=UTF-8" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -25,8 +25,17 @@
 </head>
 
 <body>
-
-欢迎您，管理员<%= session.getAttribute("name") %><br>
+<h1>新闻系统</h1> 
+	<hr>
+<% 
+	User user = (User)session.getAttribute("user");
+	String name = "";
+	if (user != null) {
+		name = user.getName();
+	}
+%>
+欢迎您，管理员<%= name%><br>
+<a href="toManagerNews">管理新闻</a><br>
 <a href="logout" >注销</a><br>
 
 <frameset rows="100,*,70">

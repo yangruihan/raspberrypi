@@ -21,6 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <h1>新闻系统</h1> 
+	<hr>
     系统维护中...<br>
   </body>
 </html>

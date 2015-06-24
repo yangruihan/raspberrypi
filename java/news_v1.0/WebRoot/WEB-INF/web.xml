@@ -179,9 +179,39 @@
   	<url-pattern>/toEditor</url-pattern>
   </servlet-mapping>
   
-    <!-- ToCreateNewsServlet 配置 -->
+    <!-- ToManagerNewsServlet 配置 -->
   
    <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toManagerNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToManagerNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toManagerNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toManagerNews</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ManagerNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>managerNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ManagerNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>managerNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/managerNews</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 配置 Servlet的访问 -->
   <servlet>
   	<!-- 设置 Servlet 名称 -->
   	<servlet-name>toCreateNews</servlet-name>

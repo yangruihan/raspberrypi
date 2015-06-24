@@ -23,6 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <h1>新闻系统</h1> 
+	<hr>
    	欢迎您， <%= request.getSession().getAttribute("name") %><br>
    	<a href="logout" >注销</a>
   </body>

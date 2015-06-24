@@ -23,6 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <h1>新闻系统</h1> 
+	<hr>
     <form action="register" name="toregister" method="post">
 	<table>
 		<tr>
@@ -45,13 +47,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>重复密码：</td>
 			<td><input type="password" name="password2"/></td>
 		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="submit" name="click" value="提交">
-			</td>
-		</tr>
 	</table>
+	<input type="submit" name="click" value="提交">
 </form>
+<input type="submit" name="cancel" value="取消"
+		onClick="window.location.href='index'">
 
 <%
 	String result = (String) request.getAttribute("result");

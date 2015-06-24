@@ -25,6 +25,8 @@
 </head>
 
 <body>
+<h1>新闻系统</h1> 
+	<hr>
 <% 
 	User user = (User)session.getAttribute("user");
 	String name = "";

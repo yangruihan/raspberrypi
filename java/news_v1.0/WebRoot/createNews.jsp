@@ -27,6 +27,8 @@
 </head>
 
 <body>
+<h1>新闻系统</h1> 
+	<hr>
 	<%
 		String message = (String) request.getAttribute("message");
 		if (message != null) {

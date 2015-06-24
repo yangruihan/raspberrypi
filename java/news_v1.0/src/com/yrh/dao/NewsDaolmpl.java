@@ -62,20 +62,36 @@ public class NewsDaolmpl implements NewsDao {
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		String sql = "select id,title,newsType_id from t_news where state=" + state +" and del=0 order by createTime desc;";
+		String sql = "select * from t_news where state=" + state +" and del=0 order by createTime desc;";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");
+				int user_id = rs.getInt("user_id");
+				int newsType_id = rs.getInt("newsType_id");
 				String title = rs.getString("title");
-				int newsTypeId = rs.getInt("newsType_id");
+				String author = rs.getString("author");
+				String keywords = rs.getString("keywords");
+				String source = rs.getString("source");
+				String content = rs.getString("content");
+				Date createTime = rs.getDate("createTime");
+				int click = rs.getInt("click");
+				int del = rs.getInt("del");
 				News news = new News();
 				news.setId(id);
+				news.setUserId(user_id);
+				news.setNewsTypeId(newsType_id);
 				news.setTitle(title);
+				news.setAuthor(author);
+				news.setKeywords(keywords);
+				news.setSource(source);
+				news.setContent(content);
+				news.setCreateTime(createTime.toString());
 				news.setState(state);
-				news.setNewsTypeId(newsTypeId);
+				news.setClick(click);
+				news.setDel(del);
 				newsList.add(news);
 			}
 		} catch (SQLException e) {
@@ -88,6 +104,29 @@ public class NewsDaolmpl implements NewsDao {
 			DBUtil.closeConnection(conn);
 		}
 		return newsList;
+	}
+
+	@Override
+	public boolean setState(int id, int state) throws AppException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
+		String sql = "update t_news set state=? where id=?;";
+		boolean flag = false;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, state);
+			psmt.setInt(2, id);
+			psmt.execute();
+			flag = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.NewsDaolmpl.setState");
+		} finally {
+			// ¹Ø±Õ×ÊÔ´
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
+		}
+		return flag;
 	}
 
 }

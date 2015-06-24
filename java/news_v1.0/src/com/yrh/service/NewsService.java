@@ -27,7 +27,7 @@ public class NewsService {
 	}
 
 	/**
-	 * 获得已发布的新闻列表
+	 * 获得传入状态的新闻列表
 	 * 
 	 * @return
 	 * @throws AppException
@@ -36,6 +36,20 @@ public class NewsService {
 		ArrayList<News> result = new ArrayList<News>();
 		result = newsDao.getList(state);
 		return result;
+	}
+
+	/**
+	 * 修改传入id的新闻的state值
+	 * 
+	 * @param id
+	 * @throws AppException
+	 */
+	public static boolean setState(int id, int state) throws AppException {
+		boolean flag = false;
+		if (newsDao.setState(id, state)) {
+			flag = true;
+		}
+		return flag;
 	}
 
 }

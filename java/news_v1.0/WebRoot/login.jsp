@@ -23,6 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <h1>新闻系统</h1> 
+	<hr>
     <form action="login" name="tologin" method="post">
 	<table>
 		<tr>
@@ -41,12 +43,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>密码：</td>
 			<td><input type="password" name="password"/></td>
 		</tr>
-		<tr>
-			<td colspan="2">
-			<input type="submit" name="click" value="登录">
-		</tr>
 	</table>
+	<input type="submit" name="click" value="登录"> 
 </form>
+<input type="submit" name="cancel" value="取消"
+		onClick="window.location.href='index'">
 
 <%
 	String message = (String) request.getAttribute("message");

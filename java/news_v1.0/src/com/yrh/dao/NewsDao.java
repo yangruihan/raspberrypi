@@ -21,4 +21,13 @@ public interface NewsDao {
 	 * @throws AppException
 	 */
 	public ArrayList<News> getList(int state) throws AppException;
+	
+	/**
+	 * 根据输入id，将其state修改为输入值
+	 * @param id
+	 * @param state
+	 * @return
+	 * @throws AppException
+	 */
+	public boolean setState(int id, int state) throws AppException;
 }

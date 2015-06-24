@@ -24,8 +24,10 @@
 </head>
 
 <body>
-	<h1>新闻系统</h1> <a href="toLogin" >登录</a>
+	<h1>新闻系统</h1> <a href="toLogin" >登录</a> <a href="toRegister">注册</a>
 	<hr>
+		ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容<br>
+	
 	<%
 		ArrayList<News> newsList = (ArrayList<News>) request
 				.getAttribute("newsList");
@@ -37,6 +39,8 @@
 						+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + news.getTitle()
 						+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 						+ NewsTypeService.getNewsTypeName(news.getNewsTypeId())
+						+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+						+ news.getContent()
 						+ "<hr>");
 			}
 		}
