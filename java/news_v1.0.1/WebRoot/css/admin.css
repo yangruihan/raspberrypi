@@ -1,0 +1,150 @@
+/*---------- base ---------*/
+*{
+	padding:0px;
+	margin:0px;
+}
+html{
+	background:#FFF;
+}
+body{
+	font:12px Verdana,Arial,Tahoma;
+}
+img{
+	border:none;
+}
+a{
+	color:#256EB1;
+	text-decoration:none;
+}
+a:hover{
+	color:#ff3300;
+	text-decoration:underline;
+}
+
+input,select,button{
+	font:12px Verdana,Arial,Tahoma;
+	vertical-align:middle;
+}
+table {
+	width:98%;
+	border:none;
+	/*text-align:center;*/
+}
+table tr td{
+	border:#E4E8EB solid 1px; 
+}
+input.button {
+	width:108px;
+	height:28px;
+	background:url("../images/blue_skin.png") -42px -222px;
+}
+/*---------- frame : header ---------*/
+.header{
+	background:#F0F8FF;
+	height:100%;
+	width:100%;
+	padding-top:8px;
+	padding-bottom:8px;
+}
+.header .toplinks{
+	float:right;
+}
+.header .toplinks a{
+	margin:0 5px;
+}
+.header .toplinks span{
+	margin-left:15px;
+}
+.header .toplinks span a{
+	margin:0 2px;
+}
+
+/*------------- frame:menu -------------*/
+.menu {
+	height:100%;
+	background:#F4F8FB;
+}
+.menu li {
+	font-size: 14px;
+	padding-left:26px;
+	padding-top:11px;
+	background:url(../images/ico-3.gif) 16px 15px no-repeat;
+}
+.menu a{
+	color:#585858;
+}
+.menu a:hover{
+	color:#ff3300;
+}
+/*---------- viewbox ---------*/
+.viewbox{
+	overflow:hidden;
+	padding-bottom:8px;
+	background:#F4F8FB;
+}
+.viewbox .title{
+	height:56px;
+	line-height:56px;
+	text-align:center;
+	overflow:hidden;
+	padding-top:10px;
+}
+.viewbox .title h2{
+	font-size:24px;
+	color:#2b2b2b;
+}
+.viewbox .info{
+	height:24px;
+	line-height:17px;
+	text-align:center;
+	overflow:hidden;
+	color:#666;
+}
+.viewbox .info small{
+	margin-left:8px;
+	margin-right:3px;
+	color:#999;
+	font-size:12px;
+}
+.viewbox .info a{
+	color:#690;
+}
+.vContent{
+	font-size:14px;
+	padding:12px 16px;
+	line-height:25px;
+	color:#333;
+    height:320px; 
+}
+
+/*---------- frame : content ---------*/
+.content{
+	height: 100%;
+	width: 100%;
+	margin: 0px auto;
+	background: url(../images/welcome.png) no-repeat center;
+}
+
+.content p {
+	float: right;
+	margin: 0px 50px;
+	padding-top:10px;
+	line-height: 30px;
+	font-size:14px;
+	text-align: right;
+	color: #0000FF;
+	white-space: normal;
+}
+
+/*---------- frame : footer ---------*/
+.footer{
+	width:100%;
+	color:#999;
+	text-align:center;
+	margin:8px auto;
+	padding-bottom:10px;
+	border-top:1px solid #DBDBDB;
+	padding-top:10px;
+	overflow:hidden;
+	line-height:25px;
+}

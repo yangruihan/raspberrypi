@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	
+<!-- IndexServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>index</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToIndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>index</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ToMyNewsServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toMyNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToMyNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toMyNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toMyNews</url-pattern>
+  </servlet-mapping>
+  
+  <!-- UpdateNewsServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>updateNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.UpdateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>updateNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/updateNews</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ToUpdateNewsServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toUpdateNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToUpdateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toUpdateNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toUpdateNews</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ToRegisterServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toRegister</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toRegister</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toRegister</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <!-- RegisterServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>register</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>register</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ToLoginServlet 配置 -->
+  
+    <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toLogin</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toLogin</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toLogin</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+ <!-- LoginServlet 配置 -->
+  
+     <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>login</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>login</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <!-- LogoutServlet 配置 -->
+  
+     <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>logout</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>logout</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ToErrorServlet 配置 -->
+  
+    <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toError</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToErrorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toError</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toError</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ToNewUserServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toNewUser</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToNewUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toNewUser</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toNewUser</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!-- ToAdminServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toAdmin</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toAdmin</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toAdmin</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!-- ToEditorServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toEditor</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToEditorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toEditor</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toEditor</url-pattern>
+  </servlet-mapping>
+  
+    <!-- ToManagerNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toManagerNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToManagerNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toManagerNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toManagerNews</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ManagerNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>managerNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ManagerNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>managerNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/managerNews</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toCreateNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToCreateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toCreateNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toCreateNews</url-pattern>
+  </servlet-mapping>
+  
+    <!-- ToCreateNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toCreate</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToCreateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toCreate</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toCreate</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!-- CreateNewsServlet 配置 -->
+  
+   <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>createNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.CreateNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>createNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/createNews</url-pattern>
+  </servlet-mapping>
+  
+<display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+</web-app>

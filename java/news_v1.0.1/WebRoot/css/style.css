@@ -1,0 +1,471 @@
+﻿/*---------- base ---------*/
+*{
+	padding:0px;
+	margin:0px;
+}
+html{
+	background:#FFF;
+}
+body{
+	font:12px Verdana,Arial,Tahoma;
+}
+img{
+	border:none;
+}
+
+a{
+	color:#256EB1;
+	text-decoration:none;
+}
+a:hover{
+	color:#ba2636;
+	text-decoration:underline;
+}
+
+ul{
+	list-style:none;
+}
+input,select,button{
+	vertical-align:middle;
+}
+
+/*---------- header ---------*/
+.header {
+	width: 960px; /*宽度*/
+	margin: auto; /*外边距自动适应，效果是居中*/ 
+	overflow: hidden; /*隐藏溢出，超出设定尺寸的内容将自动隐藏*/
+}
+.header a{
+	color:#777;
+}
+.header a:hover{
+	color:#ff3333;
+	text-decoration:none;
+}
+.header .toplinks{
+	width:960px;
+	height:25px;
+	line-height:25px;
+	border-bottom:1px solid #DBDBDB; /*下边框：1像素的实线*/
+	color:#676767;
+}
+.header .toplinks span{
+	float:right;  /*右浮动*/
+	margin-left:15px; /*左外边距*/
+}
+.header .toplinks span a{
+	margin:0 5px;
+}
+
+.header h1{
+	float: left; /*左浮动*/
+	margin-top:10px; /*上外边距*/
+	padding-left:10px; /*左内边距*/
+}
+
+/*----- menu -------*/
+.menu {
+	width: 960px;
+	height: 70px;
+	margin:8px auto; /*外边距：向上8px，左右自动适应*/
+	background: /*背景：图片，y轴下移72px。横向铺满*/
+		url(../images/blue_skin.png) 0 -72px repeat-x;
+	overflow:hidden;
+}
+.menu ul {
+	width:915px;
+	height: 28px;
+	overflow:hidden;
+	padding:8px 0 0 15px;
+}
+.menu ul li {
+	float:left;	
+	height: 22px;
+	margin-right: 10px;
+	padding-left: 10px;
+}
+.menu ul li a {
+	color: #FFF;
+	height: 22px;
+	text-decoration:none;
+	display: inline-block;
+	position: relative;
+}
+.menu ul li span {
+	cursor:pointer; /*光标呈现为指示链接的指针（一只手）*/
+	display:inline-block; /*作为行内块*/
+	height:22px; /*元素自身的高度*/
+	line-height:20px; /*行高*/
+	margin:0 0 0 5px;
+	padding:0 5px 0 0;
+	text-align:center; /*文本内容居中*/
+	vertical-align:middle; /*元素相对于父元素中部垂直居中*/
+	font-weight:bold; /*粗体字符*/
+	color:#ebf5e9;
+}
+.menu form {
+	float:left;
+	/*考虑不同浏览器兼容性或设置不同样式，可采用CSS Hack的以下符号设置：
+		*, _, !important 等。 可以组合使用这几个符号。
+	!important：IE7以及所有标准浏览器能识别，
+	*：IE都能识别，标准浏览器(如火狐)不能识别，
+	_：IE6支持，IE7和firefox均不支持。
+		*/
+	margin:0 10px 0 0;
+	*margin:0 10px 0 0; 
+	_margin:5px 10px 0 0;
+	padding-left:10px;
+	line-height:32px;
+}
+.search-keyword {
+	width:210px;
+	height:18px;
+	padding-top:2px;
+	padding-left:6px;
+	border:0px;
+	border:#9DBCC9 solid 1px;
+	background: #FFF;
+	color:#444;
+}
+.search-submit {
+	cursor:pointer;
+	width:68px;
+	height:22px;
+	font-size:0px;
+	color:#fafafa;
+	border:0px;
+	background:url(../images/search-bt.gif) no-repeat;
+}
+
+/*---------- main ---------*/
+.main {
+	width:960px;
+	margin:0px auto;
+	overflow:hidden;
+}
+.left{
+	width:720px;
+	float:left;
+	clear:both;
+	overflow:hidden;
+}
+.right{
+	width:240px;
+	float:right;
+	overflow:hidden;
+}
+/*--------------- index.html页面的新闻框 ---------------*/
+/*---新闻版块---*/
+.left dl{
+	width:352px;
+	margin-right:8px;
+	float:left;
+}
+
+.tbox{
+	margin:0 0 8px 0;
+	border-bottom:1px solid #9DBCC9;
+	overflow:hidden;
+	background:url(../images/blue_skin.png) 0 -294px repeat-x;
+}
+.tbox dt{
+	height:24px;
+	border:1px solid #9DBCC9;
+	overflow:hidden;
+	clear:both;
+}
+.tbox dd{
+	border-left:1px solid #9DBCC9;
+	border-right:1px solid #9DBCC9;
+	/*padding:4px 4px 0px;*/
+	overflow:hidden;
+}
+
+.tbox dt strong{
+	height:24px;
+	line-height:24px; !important;line-height:25px; /*IE7以及所有标准浏览器能识别!important*/
+	padding-left:8px;
+	padding-right:4px;
+	display:block;
+	float:left;
+	color:#256EB1;
+	letter-spacing:1px; /*增加1px的字符间距*/
+}
+.tbox dt strong a{
+	color:#256EB1;
+}
+.tbox dt strong a:hover{
+	color:#ff3333;
+	text-decoration:none; /*添加到文本的修饰：标准文本*/
+}
+.tbox dt span.more{
+	float:right;
+	position:relative;
+	line-height:25px;
+	padding-right:8px;
+	color:#596F37;
+}
+.tbox dt span.more a{
+	color:#256EB1;
+	text-decoration:none;
+}
+.tbox dt span.more a:hover{
+	color:#ff3333;
+	text-decoration:underline;/*添加到文本的修饰：下划线*/
+}
+.tbox ul{
+	padding:4px 0px;
+}
+.tbox ul li{
+	height:27px;
+	line-height:27px;
+	overflow:hidden;
+}
+.tbox ul li a{
+	color:#666;
+}
+.ico1 li{
+	padding-left:16px;
+	background:url(../images/ico-1.gif) 7px 11px no-repeat;
+}
+.ico2 li{
+	padding-left:16px;
+	background:url(../images/ico-2.gif) 6px 11px no-repeat;
+}
+.ico3 li{
+	padding-left:16px;
+	background:url(../images/ico-3.gif) 7px 11px no-repeat;
+}
+
+.left .place{
+	width:712px;
+	height:24px;
+	line-height:24px;
+	background: /*背景颜色为透明，图片横向平铺，随着页面的其余部分滚动*/
+	transparent url(../images/blue_skin.png) repeat-x scroll 0 -188px;
+	border:1px solid #9DBCC1;
+	text-indent:12px; /*首行文本缩进12px*/
+	color:#256EB1;
+	overflow:hidden;
+}
+.left .place strong{
+	color:#256EB1;
+	font-weight:normal;
+	letter-spacing:1px;
+}
+.left .place a{
+	color:#256EB1;
+	margin:0px 2px;
+}
+.left .place a:hover{
+	color:#ff3333;
+	text-decoration:none;
+}
+.left .place small{
+	display:inline-block;
+	vertical-align:middle;
+	width:8px;
+	height:20px;
+	*height:24px;
+	overflow:hidden;
+	background:url(../images/ico-3.gif) 2px 8px no-repeat;
+	font-size:0px;
+}
+
+/*--------- detail.html页面的新闻详细信息样式 --------*/
+.viewbox{
+	padding-bottom:8px;
+}
+.viewbox .title{
+	height:56px;
+	line-height:56px;
+	text-align:center;
+	overflow:hidden;
+	padding-top:10px;
+}
+.viewbox .title h2{
+	font-size:24px;
+	color:#2b2b2b;
+}
+.viewbox .info{
+	height:24px;
+	line-height:17px;
+	text-align:center;
+	overflow:hidden;
+	color:#666;
+}
+.viewbox .info small{
+	margin-left:8px;
+	margin-right:3px;
+	color:#999;
+	font-size:12px;
+}
+.viewbox .info a{
+	color:#690;
+}
+.viewbox .content{
+	font-size:14px;
+	padding:12px 16px;
+	line-height:25px;
+	color:#333;
+}
+
+/*------------ newsType.html页面的新闻列表 -------------*/
+.newslist {
+	width: 712px;
+	clear:both; /*清除浮动效果*/
+}
+.newslist li{
+	width:100%;
+	overflow:hidden;
+	clear:both;
+	padding:12px 0px;
+	border-bottom:1px solid #EEE;
+	color:#aaa;
+}
+.newslist li a.title{
+	color:#555;
+	overflow:hidden;
+	line-height:25px;
+	font-weight:bold;
+	font-size:14px;
+	margin-left:2px;
+}
+/*------------ newsType.html页面的分页 -------------*/
+.pagelist{
+	float:left;
+	padding:12px 0px 12px 16px;
+}
+.pagelist li{
+	float:left;
+	font-family:Tahoma; /*元素的字体系列*/
+	line-height:17px;
+	margin-right:6px;
+	border:1px solid #E9E9E9;
+}
+.pagelist li a{
+	float:left;
+	padding:2px 4px 2px;
+	color:#555;
+	display:block;
+}
+.pagelist li a:hover{
+	color:#f33;
+	text-decoration:none;
+	padding:2px 4px 2px;
+}
+.pagelist .pageinfo{
+	line-height:21px;
+	padding:12px 10px 12px 16px;
+	color:#999;
+}
+.pagelist .pageinfo strong{
+	color:#555;
+	font-weight:normal;
+	margin:0px 2px;
+}
+.pagelist .current {
+    font-weight:bold;
+    color:#27B1EB;
+}
+/*---------- footer ---------*/
+.footer {
+	width: 960px;
+	color: #1999;
+	text-align: center; /*文本内容居中*/
+	margin: 8px auto;  /*外边距：向上8px，左右自动适应*/
+	padding-bottom: 10px;   /*下内边距10px*/
+	border-top: 1px solid #DBDBDB;  /*上边框：1像素的实线*/
+	padding-top: 10px;  /*上内边距10px*/
+	overflow: hidden; 
+	line-height: 25px; /*行间的距离（行高）*/
+}
+
+/* 注册登录 */
+.register_main {
+    border: 1px solid #9DBCC9;
+	width: 500px;
+    margin: 10px auto 0;
+    position: relative; /*相对定位*/
+}
+
+.register_main table {
+    border-collapse: separate; /*是否合并边框：独立*/
+    width:480px;
+    font:12px Verdana,Arial,Tahoma;
+    margin: 10px 20px;
+}
+.register_main table tr td {
+    border: 1px none;
+    height: 24px;
+    line-height: 24px;
+	padding-bottom:6px;
+}
+
+.register_main .info {
+    color: #999999;
+}
+
+.register_main input {
+	height:18px;
+	width:180px;
+}
+
+input[type="radio"]{ /*元素选择器：<input type="radio" .../> */
+	width:20px;
+}
+
+input[type="checkbox"]{ 
+	width:30px;
+}
+
+input.button {
+	width:108px;
+	height:28px;
+	background:url("../images/blue_skin.png") -42px -222px;
+}
+
+/*------------ 创意工厂 ------------*/
+.blurbs_top_height {
+    padding-top: 20px;
+	clear:both;
+}
+
+.service {
+    float: left;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    width: 265px;
+}
+
+.service h3.title {
+    color: #758B8D;
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 1px #FFFFFF; /*文字的阴影及模糊效果*/
+}
+
+.thumb {
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 18px;
+    position: relative;
+}
+.service a.readmore {
+    background: url("../images/readmore.png") no-repeat scroll right bottom transparent;
+    color: #7E9294;
+    display: block;
+    float: right;
+    font-size: 11px;
+    height: 24px;
+    line-height: 25px;
+    padding-right: 10px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.service a.readmore span {
+    background: url("../images/readmore.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 24px;
+	padding-left: 10px;
+}
