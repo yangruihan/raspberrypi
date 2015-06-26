@@ -76,4 +76,12 @@ public interface NewsDao {
 	 * @throws AppException
 	 */
 	public boolean update(News news) throws AppException;
+	
+	/**
+	 * É¾³ýÐÂÎÅ
+	 * @param id
+	 * @return
+	 * @throws AppException
+	 */
+	public boolean delete(int id) throws AppException;
 }

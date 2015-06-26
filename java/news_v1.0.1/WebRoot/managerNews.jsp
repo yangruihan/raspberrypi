@@ -34,30 +34,36 @@
 			out.print("<font color=\"#FF0000\">" + message + "</font><br>");
 		}
 	%>
-	ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容
-	<br>
-	<hr>
 	<form action="managerNews" method="post">
-		<%
-			ArrayList<News> newsList = (ArrayList<News>) request
-					.getAttribute("newsList");
-			if (newsList == null) {
-				out.print("暂无新闻<br>");
-			} else {
-				for (News news : newsList) {
-					out.print(news.getId()
-							+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-							+ news.getTitle()
-							+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-							+ NewsTypeService.getNewsTypeName(news
-									.getNewsTypeId())
-							+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-							+ news.getContent() + "<hr>");
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>标题</th>
+				<th>类型</th>
+			</tr>
+			<%
+				ArrayList<News> newsList = (ArrayList<News>) request
+						.getAttribute("newsList");
+				if (newsList == null) {
+					out.print("暂无新闻<br>");
+				} else {
+					for (News news : newsList) {
+						out.print("<tr><td>"
+								+ news.getId()
+								+ "</td> <td><a href=\"toNewsDetail?newsid=" + news.getId() +"\"  target=\"_blank\">"
+								+ news.getTitle()
+								+ "</a></td><td>"
+								+ NewsTypeService.getNewsTypeName(news
+										.getNewsTypeId()) + "</td></tr>");
+					}
 				}
-			}
-		%>
-		请输入审核通过的新闻编号(以空格区别)：<input type="text" name="passid"> <br>
-		<input type="submit" name="check" value="确定"><br>
+			%>
+		</table>
+			请输入审核通过的新闻编号(以空格区别)：
+			<input type="text" name="passid">
+			<br>
+			<input type="submit" name="check" value="确定">
+			<br>
 	</form>
 </body>
 </html>

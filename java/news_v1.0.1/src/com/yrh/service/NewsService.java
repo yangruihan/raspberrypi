@@ -123,4 +123,18 @@ public class NewsService {
 		}
 		return flag;
 	}
+	
+	/**
+	 * É¾³ýÐÂÎÅ
+	 * @param news
+	 * @return
+	 * @throws AppException
+	 */
+	public static boolean delete(int id) throws AppException {
+		boolean flag = false;
+		if (newsDao.delete(id)) {
+			flag = true;
+		}
+		return flag;
+	}
 }

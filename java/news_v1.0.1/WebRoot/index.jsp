@@ -43,7 +43,7 @@
 		</div>
 
 		<h1>
-			<a href="index.htm"><img src="images/logo.png" width="260"
+			<a href="index"><img src="images/logo.png" width="260"
 				height="56" alt="新闻系统" /> </a>
 		</h1>
 	</div>
@@ -52,29 +52,29 @@
 	<!-- menu start -->
 	<div class="menu">
 		<ul>
-			<li><a href="index.htm"><span>主页</span> </a></li>
+			<li><a href="index"><span>主页</span> </a></li>
 
-			<li><a href="newsType.htm"><span>国际新闻</span> </a></li>
+			<li><a href="toNewsType?typeid=1"><span>国际新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>国内新闻</span> </a></li>
+			<li><a href="toNewsType?typeid=2"><span>国内新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>娱乐新闻</span> </a></li>
+			<li><a href="toNewsType?typeid=3"><span>娱乐新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>体育新闻</span> </a></li>
+			<li><a href="toNewsType?typeid=4"><span>体育新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>财经频道</span> </a></li>
+			<li><a href="toNewsType?typeid=5"><span>财经频道</span> </a></li>
 
-			<li><a href="newsType.htm"><span>汽车频道</span> </a></li>
+			<li><a href="toNewsType?typeid=6"><span>汽车频道</span> </a></li>
 
-			<li><a href="newsType.htm"><span>电子频道</span> </a></li>
+			<li><a href="toNewsType?typeid=7"><span>电子频道</span> </a></li>
 		</ul>
 
-		<form action="" method="post">
+		<!-- <form action="" method="post">
 			<input type="hidden" name="newstypeId" value="0" /> <input
 				name="name" type="text" class="search-keyword" id="search-keyword"
 				value="在这里搜索..." /> <input type="submit" class="search-submit"
 				value="搜索" />
-		</form>
+		</form> -->
 	</div>
 	<!-- menu end -->
 
@@ -84,33 +84,17 @@
 		<div class="left">
 			<dl class="tbox">
 				<dt>
-					<strong><a href="newsType.htm">国际新闻</a> </strong><span class="more"><a
-						href="newsType.htm">更多...</a> </span>
+					<strong>国际新闻 </strong><span class="more"><a
+						href="toNewsType?typeid=1">更多...</a> </span>
 				</dt>
 				<dd>
 					<ul class="ico3">
 
-						<!-- <li><a href="detail.htm">人无完人，但要注意怎么做人</a></li>
-
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-
-						<li><a href="detail.htm">用批处理实现删除3389终端服务</a></li>
-
-						<li><a href="detail.htm">红 楼 梦 遗</a></li>
-
-						<li><a href="detail.htm">教师节，那些代课老师们</a></li>
-
-						<li><a href="detail.htm">你所不知道的白岩松</a></li> -->
-						
 						<%
 								ArrayList<News> news = (ArrayList<News>)request.getAttribute("type1");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid=" + n.getId() +"\"  target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -121,32 +105,16 @@
 
 			<dl class="tbox">
 				<dt>
-					<strong><a href="newsType.htm">国内新闻</a> </strong><span class="more"><a
-						href="newsType.htm">更多...</a> </span>
+					<strong>国内新闻 </strong><span class="more"><a
+						href="toNewsType?typeid=2">更多...</a> </span>
 				</dt>
 				<dd>
 					<ul class="ico3">
-
-						<!-- <li><a href="detail.htm">人无完人，但要注意怎么做人</a></li>
-
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-
-						<li><a href="detail.htm">用批处理实现删除3389终端服务</a></li>
-
-						<li><a href="detail.htm">红 楼 梦 遗</a></li>
-
-						<li><a href="detail.htm">教师节，那些代课老师们</a></li>
-
-						<li><a href="detail.htm">你所不知道的白岩松</a></li> -->
 						<%
 								news = (ArrayList<News>)request.getAttribute("type2");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid=" + n.getId() +"\"  target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -157,32 +125,16 @@
 
 			<dl class="tbox">
 				<dt>
-					<strong><a href="newsType.htm">娱乐新闻</a> </strong><span class="more"><a
-						href="newsType.htm">更多...</a> </span>
+					<strong>娱乐新闻</strong><span class="more"><a
+						href="toNewsType?typeid=3">更多...</a> </span>
 				</dt>
 				<dd>
 					<ul class="ico3">
-
-						<!-- <li><a href="detail.htm">人无完人，但要注意怎么做人</a></li>
-
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-
-						<li><a href="detail.htm">用批处理实现删除3389终端服务</a></li>
-
-						<li><a href="detail.htm">红 楼 梦 遗</a></li>
-
-						<li><a href="detail.htm">教师节，那些代课老师们</a></li>
-
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>-->
 						<%
 								news = (ArrayList<News>)request.getAttribute("type3");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid=" + n.getId() +"\"  target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -193,33 +145,16 @@
 
 			<dl class="tbox">
 				<dt>
-					<strong><a href="newsType.htm">体育新闻</a> </strong><span class="more"><a
-						href="newsType.htm">更多...</a> </span>
+					<strong>体育新闻</strong><span class="more"><a
+						href="toNewsType?typeid=4">更多...</a> </span>
 				</dt>
 				<dd>
 					<ul class="ico3">
-
-						<!-- <li><a href="detail.htm">人无完人，但要注意怎么做人</a></li>
-
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-
-						<li><a href="detail.htm">用批处理实现删除3389终端服务</a></li>
-
-						<li><a href="detail.htm">红 楼 梦 遗</a></li>
-
-						<li><a href="detail.htm">教师节，那些代课老师们</a></li>
-
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>-->
-						
 						<%
 								news = (ArrayList<News>)request.getAttribute("type4");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid=" + n.getId() +"\"  target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -230,26 +165,16 @@
 
 			<dl class="tbox">
 				<dt>
-					<strong><a href="newsType.htm">财经频道</a> </strong><span class="more"><a
-						href="newsType.htm">更多...</a> </span>
+					<strong>财经频道</strong><span class="more"><a
+						href="toNewsType?typeid=5">更多...</a> </span>
 				</dt>
 				<dd>
 					<ul class="ico3">
-						
-						<!-- <li><a href="detail.htm">人无完人，但要注意怎么做人</a></li>
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-						<li><a href="detail.htm">用批处理实现删除3389终端服务</a></li>
-
-						<li><a href="detail.htm">红 楼 梦 遗</a></li>
-						<li><a href="detail.htm">教师节，那些代课老师们</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>-->
 						<%
 								news = (ArrayList<News>)request.getAttribute("type5");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid=" + n.getId() +"\"  target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -259,24 +184,16 @@
 
 			<dl class="tbox">
 				<dt>
-					<strong><a href="newsType.htm">汽车频道</a> </strong><span class="more"><a
-						href="newsType.htm">更多...</a> </span>
+					<strong>汽车频道</strong><span class="more"><a
+						href="toNewsType?typeid=6">更多...</a> </span>
 				</dt>
 				<dd>
 					<ul class="ico3">
-						<!-- <li><a href="detail.htm">人无完人，但要注意怎么做人</a></li>
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-						<li><a href="detail.htm">用批处理实现删除3389终端服务</a></li>
-						<li><a href="detail.htm">红 楼 梦 遗</a></li>
-						<li><a href="detail.htm">教师节，那些代课老师们</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>-->
 						<%
 								news = (ArrayList<News>)request.getAttribute("type6");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid=" + n.getId() +"\"  target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -294,16 +211,11 @@
 				</dt>
 				<dd>
 					<ul class="ico1">
-						<!-- <li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li> -->
 						<%
 								news = (ArrayList<News>)request.getAttribute("reNews");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid="+n.getId()+"\"   target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>
@@ -317,21 +229,11 @@
 				</dt>
 				<dd>
 					<ul class="ico2">
-						<!-- <li><a href="detail.htm">教师节，那些代课老师们</a></li>
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-						<li><a href="detail.htm">城市千金，我要远离农村婆婆</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">菲律宾总统再次将香港旅客被劫杀惨剧当笑料</a></li>
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-						<li><a href="detail.htm">十堰他日必大兴</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li>
-						<li><a href="detail.htm">你所不知道的白岩松</a></li> -->
 						<%
 								news = (ArrayList<News>)request.getAttribute("hotNews");
 								if(news != null) {
 									for (News n : news) {
-										out.print("<li><a href=\"detail.htm\">"+ n.getTitle() +"</a></li>");
+										out.print("<li><a href=\"toNewsDetail?newsid="+n.getId()+"\"   target=\"_blank\">"+ n.getTitle() +"</a></li>");
 									}
 								}
 						%>

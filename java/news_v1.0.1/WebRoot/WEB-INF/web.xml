@@ -22,6 +22,38 @@
   	<url-pattern>/index</url-pattern>
   </servlet-mapping>
   
+  <!-- ToNewsDetailServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toNewsDetail</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToNewsDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toNewsDetail</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toNewsDetail</url-pattern>
+  </servlet-mapping>
+  
+    <!-- ToNewsTypeServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>toNewsType</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.ToNewsTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>toNewsType</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/toNewsType</url-pattern>
+  </servlet-mapping>
+  
   <!-- ToMyNewsServlet 配置 -->
   
   <!-- 配置 Servlet的访问 -->
@@ -36,6 +68,22 @@
   	<servlet-name>toMyNews</servlet-name>
   	<!-- Servlet 的访问路径 -->
   	<url-pattern>/toMyNews</url-pattern>
+  </servlet-mapping>
+  
+  <!-- DeleteNewsServlet 配置 -->
+  
+  <!-- 配置 Servlet的访问 -->
+  <servlet>
+  	<!-- 设置 Servlet 名称 -->
+  	<servlet-name>deleteNews</servlet-name>
+  	<!-- 设置处理请求的servlet类：完整的包路径+类名 -->
+  	<servlet-class>com.yrh.web.DeleteNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<!-- Servlet 的名称，需要和上述保持一致 -->
+  	<servlet-name>deleteNews</servlet-name>
+  	<!-- Servlet 的访问路径 -->
+  	<url-pattern>/deleteNews</url-pattern>
   </servlet-mapping>
   
   <!-- UpdateNewsServlet 配置 -->

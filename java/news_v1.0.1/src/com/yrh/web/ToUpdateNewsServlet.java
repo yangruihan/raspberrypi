@@ -13,7 +13,14 @@ public class ToUpdateNewsServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		req.getRequestDispatcher("updateNews.jsp").forward(req, resp);
+		String s = req.getParameter("newsUpdateId");
+		if (!s.equals("")) {
+			System.out.println("update");
+			req.getRequestDispatcher("updateNews.jsp").forward(req, resp); 
+		} else if (!(s = req.getParameter("newsDeleteId")).equals("")) {
+			System.out.println("delete");
+			req.getRequestDispatcher("deleteNews").forward(req, resp); 
+		}
 	}
 
 	@Override

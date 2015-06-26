@@ -33,23 +33,26 @@
 		if (message != null) {
 			out.print("<font color=\"#FF0000\">" + message + "</font>");
 		}
+
+		int newsid = 0;
+		News news = new News();
+
+		try {
+			newsid = Integer.parseInt(request.getParameter("newsUpdateId"));
+			news = NewsService.getNewsById(newsid);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			response.sendRedirect("toError");
+		}
 	%>
 
 	<form action="updateNews" method="post">
-		<%
-		int newsid;
-		News news = new News();
-		
-			try {
-				newsid = Integer.parseInt(request.getParameter("newsid"));
-				news = NewsService.getNewsById(newsid);
-				request.setAttribute("newsid", newsid);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				response.sendRedirect("toError");
-			}
-		%>
 		<table>
+			<tr>
+				<td>新闻ID：</td>
+				<td><input type="text" name="newsId" 
+					value="<%=news.getId()%>" size="30" readonly="readonly"></td>
+			</tr>
 			<tr>
 				<td>新闻标题*：</td>
 				<td><input type="text" name="newsTitle" size="30"
@@ -111,7 +114,7 @@
 			</tr>
 			<tr>
 				<td>创建时间：</td>
-				<td><input type="text" name="newsCreateTime"
+				<td><input type="text" name="newsCreateTime" 
 					value="<%=news.getCreateTime()%>" size="30" readonly="readonly">
 				</td>
 			</tr>
@@ -125,10 +128,10 @@
 			</tr>
 		</table>
 		<font color="red">（其中*项为必填项）</font><br> 内容*：<br>
-		<textarea name="newsContent" rows="15" cols="80" "><%= news.getContent()%></textarea>
+		<textarea name="newsContent" rows="15" cols="80""><%=news.getContent()%></textarea>
 		<br> <input type="submit" name="check" value="确认更改">
 	</form>
-	<input type="submit" name="cancel" value="取消"
-		onClick="window.location.href='toEditor'">
+	<input type="submit" name="cancel" value="取消更改"
+		onClick="window.location.href='toMyNews'">
 </body>
 </html>

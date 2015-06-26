@@ -389,19 +389,45 @@ public class NewsDaolmpl implements NewsDao {
 	public boolean update(News news) throws AppException {
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement psmt = null;
-		String sql = "update t_news set user_id=" + news.getUserId()
-				+ ", newsType_id=" + news.getNewsTypeId() + ", title="
-				+ news.getTitle() + ", author=" + news.getTitle()
-				+ ", keywords=" + news.getKeywords() + ", source="
-				+ news.getSource() + ", content=" + news.getContent() + " where id=" + news.getId() + ";";
+		String sql = "update t_news set newsType_id=?, title=?, author=?, keywords=?, source=?, content=?, click=? where id=?;";
 		boolean flag = false;
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, news.getNewsTypeId());
+			psmt.setString(2, news.getTitle());
+			psmt.setString(3, news.getAuthor());
+			psmt.setString(4, news.getKeywords());
+			psmt.setString(5, news.getSource());
+			psmt.setString(6, news.getContent());
+			psmt.setInt(7, news.getClick());
+			psmt.setInt(8, news.getId());
 			psmt.execute();
 			flag = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new AppException("com.yrh.dao.NewsDaolmpl.update");
+		} finally {
+			// 关闭资源
+			DBUtil.closeStatement(psmt);
+			DBUtil.closeConnection(conn);
+		}
+		return flag;
+	}
+
+	@Override
+	public boolean delete(int id) throws AppException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement psmt = null;
+		String sql = "delete from t_news where id=?;";
+		boolean flag = false;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+			psmt.execute();
+			flag = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("com.yrh.dao.NewsDaolmpl.delete");
 		} finally {
 			// 关闭资源
 			DBUtil.closeStatement(psmt);

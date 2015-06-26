@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				您好：<%= name %>，欢迎使用新闻系统！<span>【<a href="index" target="_top">返回首页</a>】【<a href="login.jsp" target="_top">注销登录</a>】</span>
 			</div>
 			<h1>
-				<a href="index.htm" target="_top"><img src="images/logo.png" height="56" width="260" alt="新闻系统" /></a>
+				<a href="index" target="_top"><img src="images/logo.png" height="56" width="260" alt="新闻系统" /></a>
 			</h1>
 		</div>
 		<!-- header end -->

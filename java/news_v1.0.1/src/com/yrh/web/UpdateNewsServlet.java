@@ -6,10 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.yrh.model.News;
-import com.yrh.model.User;
 import com.yrh.service.NewsService;
 import com.yrh.service.NewsTypeService;
 import com.yrh.utils.AppException;
@@ -20,13 +17,18 @@ public class UpdateNewsServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+
 		resp.setContentType("text/html"); // 设置输出内容的类型
 		resp.setCharacterEncoding("UTF-8"); // 设置输出内容的编码
 		req.setCharacterEncoding("UTF-8");
-
 		News news = new News();
-		int id = (Integer) req.getAttribute("newsid");
+		int id = 0;
+		try {
+			id = Integer.parseInt(req.getParameter("newsId"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			resp.sendRedirect("toError");
+		}
 		String newsTitle = req.getParameter("newsTitle");
 		String newsKind = req.getParameter("newsKind");
 		String newsSource = req.getParameter("newsSource");
@@ -34,7 +36,7 @@ public class UpdateNewsServlet extends HttpServlet {
 		String newsCreateTime = req.getParameter("newsCreateTime");
 		String newsKeyword = req.getParameter("newsKeyword");
 		String newsContent = req.getParameter("newsContent");
-		
+
 		if (id <= 0) {
 			System.out.println("修改新闻失败：id错误");
 			req.getRequestDispatcher("toError").forward(req, resp);
@@ -66,18 +68,7 @@ public class UpdateNewsServlet extends HttpServlet {
 			req.getRequestDispatcher("toUpdate").forward(req, resp);
 			return;
 		}
-		if (newsSource != null) {
-			news.setSource(newsSource);
-		}
-		if (newsAuthor != null) {
-			news.setAuthor(newsAuthor);
-		}
-		if (newsCreateTime != null) {
-			news.setCreateTime(newsCreateTime);
-		}
-		if (newsKeyword != null) {
-			news.setKeywords(newsKeyword);
-		}
+		
 		if (newsContent != null && !newsContent.trim().equals("")) {
 			news.setContent(newsContent);
 		} else {
@@ -87,14 +78,28 @@ public class UpdateNewsServlet extends HttpServlet {
 			return;
 		}
 		
+		if (newsSource != null) {
+			news.setSource(newsSource);
+		}
+		
+		if (newsAuthor != null) {
+			news.setAuthor(newsAuthor);
+		}
+		
+		if (newsCreateTime != null) {
+			news.setCreateTime(newsCreateTime);
+		}
+		if (newsKeyword != null) {
+			news.setKeywords(newsKeyword);
+		}
+		
 		try {
 			if (NewsService.update(news)) {
 				System.out.println("修改新闻成功");
 				req.setAttribute("message", "修改成功！");
-				req.getRequestDispatcher("toUpdate").forward(req, resp);
+				req.getRequestDispatcher("toMyNews").forward(req, resp);
 			}
 		} catch (AppException e) {
-			e.printStackTrace();
 			System.out.println(e.getMessage());
 			req.getRequestDispatcher("toError").forward(req, resp);
 		}
