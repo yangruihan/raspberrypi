@@ -1,4 +1,13 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" import="java.util.*"
+	contentType="text/html; charset=UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,11 +21,11 @@
 		<!-- header start -->
 		<div class="header">
 			<div class="toplinks">
-				<span>【<a href="register.htm">注册</a>】【<a href="login.htm">登录</a>】</span>
+				<span>【<a href="toRegister">注册</a>】【<a href="toLogin">登录</a>】</span>
 			</div>
 
 			<h1>
-				<a href="index.htm"><img src="images/logo.png" width="260" height="56"
+				<a href="index"><img src="images/logo.png" width="260" height="56"
 						alt="新闻系统" /> </a>
 			</h1>
 		</div>
@@ -25,45 +34,29 @@
 		<!-- menu start -->
 		<div class="menu">
 			<ul>
-				<li>
-					<a href="index.htm"><span>主页</span> </a>
-				</li>
+			<li><a href="index"><span>主页</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>国际新闻</span> </a>
-				</li>
+			<li><a href="toNewsType?typeid=1"><span>国际新闻</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>国内新闻</span> </a>
-				</li>
+			<li><a href="toNewsType?typeid=2"><span>国内新闻</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>娱乐新闻</span> </a>
-				</li>
+			<li><a href="toNewsType?typeid=3"><span>娱乐新闻</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>体育新闻</span> </a>
-				</li>
+			<li><a href="toNewsType?typeid=4"><span>体育新闻</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>财经频道</span> </a>
-				</li>
+			<li><a href="toNewsType?typeid=5"><span>财经频道</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>汽车频道</span> </a>
-				</li>
+			<li><a href="toNewsType?typeid=6"><span>汽车频道</span> </a></li>
 
-				<li>
-					<a href="newsType.htm"><span>电子频道</span> </a>
-				</li>
-			</ul>
+			<li><a href="toNewsType?typeid=7"><span>电子频道</span> </a></li>
+		</ul>
 
-			<form action="" method="post">
+			<!--  <form action="" method="post">
 				<input type="hidden" name="newstypeId" value="0" />
 				<input name="name" type="text" class="search-keyword"
 					id="search-keyword" value="在这里搜索..." />
 				<input type="submit" class="search-submit" value="搜索" />
-			</form>
+			</form> -->
 		</div>
 		<!-- menu end -->
 

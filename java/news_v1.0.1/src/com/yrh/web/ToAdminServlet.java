@@ -13,7 +13,7 @@ public class ToAdminServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		req.getRequestDispatcher("adminFrame.htm").forward(req, resp);
+		req.getRequestDispatcher("adminFrame.jsp").forward(req, resp);
 	}
 	
 	@Override

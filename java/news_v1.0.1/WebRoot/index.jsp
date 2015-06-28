@@ -41,7 +41,6 @@
 				}
 			%>
 		</div>
-
 		<h1>
 			<a href="index"><img src="images/logo.png" width="260"
 				height="56" alt="新闻系统" /> </a>

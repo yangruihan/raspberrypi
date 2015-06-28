@@ -12,7 +12,7 @@ public class ToErrorServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		req.getRequestDispatcher("error.htm").forward(req, resp);
+		req.getRequestDispatcher("error.jsp").forward(req, resp);
 	}
 	
 	@Override

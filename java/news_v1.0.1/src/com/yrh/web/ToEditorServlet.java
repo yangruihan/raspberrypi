@@ -13,7 +13,7 @@ public class ToEditorServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		req.getRequestDispatcher("editorFrame.htm").forward(req, resp);
+		req.getRequestDispatcher("editorFrame.jsp").forward(req, resp);
 	}
 	
 	@Override

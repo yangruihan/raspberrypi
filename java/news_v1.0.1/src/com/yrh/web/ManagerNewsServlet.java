@@ -20,13 +20,13 @@ public class ManagerNewsServlet extends HttpServlet {
 
 		String[] passid = req.getParameter("passid").toString().trim()
 				.split(" ");
+		
+		int count = 0;
 		for (String s : passid) {
 			try {
 				int id = Integer.parseInt(s);
 				if (NewsService.setState(id, 1)) {
-					req.setAttribute("message", "审核成功");
-					req.getRequestDispatcher("toManagerNews")
-							.forward(req, resp);
+					count++;
 				} else {
 					req.setAttribute("message", "审核失败");
 					req.getRequestDispatcher("toManagerNews")
@@ -37,7 +37,15 @@ public class ManagerNewsServlet extends HttpServlet {
 				resp.sendRedirect("toError");
 			}
 		}
-
+		if (count > 0) {
+			if (count == passid.length) {
+				req.setAttribute("message", "全部审核成功");
+				req.getRequestDispatcher("toManagerNews").forward(req, resp);
+			} else if (count < passid.length) {
+				req.setAttribute("message", "部分审核成功");
+				req.getRequestDispatcher("toManagerNews").forward(req, resp);
+			}
+		}
 	}
 
 	@Override

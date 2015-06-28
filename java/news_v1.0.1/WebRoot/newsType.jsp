@@ -20,9 +20,27 @@
 
 <body>
 	<!-- header start -->
-	<div class="header">
+		<div class="header">
 		<div class="toplinks">
-			<span>【<a href="toRegister">注册</a>】【<a href="toLogin">登录</a>】</span>
+			<%
+				User user = (User) session.getAttribute("user");
+				if (user != null) {
+					if (user.getRole() == 1) {
+						out.print("您好："
+								+ user.getName()
+								+ "，欢迎使用新闻系统！<span>【<a href=\"toAdmin\" target=\"_top\">进入管理界面</a>】【<a href=\"logout\" target=\"_top\">注销登录</a>】</span>");
+					} else if (user.getRole() == 0) {
+						out.print("您好："
+								+ user.getName()
+								+ "，欢迎使用新闻系统！<span>【<a href=\"toEditor\" target=\"_top\">进入管理界面</a>】【<a href=\"logout\" target=\"_top\">注销登录</a>】</span>");
+					} else {
+						System.out.println("用户权限错误");
+						response.sendRedirect("toError");
+					}
+				} else {
+					out.print("<span>【<a href=\"toRegister\">注册</a>】【<a href=\"toLogin\">登录</a>】</span>");
+				}
+			%>
 		</div>
 
 		<h1>
@@ -30,6 +48,7 @@
 				height="56" alt="新闻系统" /> </a>
 		</h1>
 	</div>
+	
 	<!-- header end -->
 
 	<!-- menu start -->
