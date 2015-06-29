@@ -18,8 +18,8 @@ public class NewsDaolmpl implements NewsDao {
 	public boolean add(News news) throws AppException {
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement psmt = null;
-		String sql = "insert into t_news(id, user_id, newsType_id, title, author, keywords, source, content, createTime, click, state, del) "
-				+ "values(null,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into t_news(user_id, newsType_id, title, author, keywords, source, content, createTime, click, state, del) "
+				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		boolean flag = false;
 		try {
 			psmt = conn.prepareStatement(sql);
