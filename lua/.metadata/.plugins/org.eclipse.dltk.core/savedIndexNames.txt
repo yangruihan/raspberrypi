@@ -1,0 +1,2 @@
+C:\Users\Yrh\Workspace\GitHub\raspberrypi\lua\.metadata\.plugins\org.eclipse.dltk.core\3965069513.index
+C:\Users\Yrh\Workspace\GitHub\raspberrypi\lua\.metadata\.plugins\org.eclipse.dltk.core\463777293.index

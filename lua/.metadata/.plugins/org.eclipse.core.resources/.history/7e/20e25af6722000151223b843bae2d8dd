@@ -1,0 +1,6 @@
+-- Array
+arr = {1, 2, 3, 4, "Hello"}
+
+for key, var in pairs(arr) do
+	print(key, var)
+end
