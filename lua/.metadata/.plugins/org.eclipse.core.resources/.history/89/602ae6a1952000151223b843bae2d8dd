@@ -60,5 +60,4 @@ Man.sayHi = function (self)
 	print("Man say Hi "..self.name)
 end
 
-m = Man.new("lisi")
 m:sayHi()
