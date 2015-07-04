@@ -1,3 +1,1 @@
-C:\Users\Yrh\Workspace\GitHub\raspberrypi\lua\.metadata\.plugins\org.eclipse.dltk.core\3965069513.index
-C:\Users\Yrh\Workspace\GitHub\raspberrypi\lua\.metadata\.plugins\org.eclipse.dltk.core\463777293.index
-C:\Users\Yrh\Workspace\GitHub\raspberrypi\lua\.metadata\.plugins\org.eclipse.dltk.core\3850674825.index
+/Users/yangruihan/WorkSpace/GitHub/raspberrypi/lua/.metadata/.plugins/org.eclipse.dltk.core/170316378.index

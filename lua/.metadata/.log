@@ -501,3 +501,34 @@ Caused by: org.eclipse.swt.SWTException: Widget is disposed
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
 	... 88 more
+!SESSION 2015-07-04 22:20:06.831 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -keyring /Users/yangruihan/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/yangruihan/WorkSpace/GitHub/raspberrypi/lua -keyring /Users/yangruihan/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-04 22:20:12.052
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2015-07-04 22:21:13.323
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2015-07-04 22:21:13.323
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.dltk.ui.edit.text.script.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.dltk.ui.category.refactoring,Refactor - DLTK,DLTK Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11df2829,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.dltk.ui.scriptEditorScope,,cocoa,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.dltk.ui.edit.text.script.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.dltk.ui.category.refactoring,Refactor - DLTK,DLTK Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11df2829,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.dltk.ui.context.views,,cocoa,system)
