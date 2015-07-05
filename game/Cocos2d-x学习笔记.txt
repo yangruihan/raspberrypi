@@ -1,0 +1,33 @@
+Cocos2d-x 
+Action 的基本使用
+    移动到      -       CCMoveTo
+    移动        -       CCMoveBy
+    跳跃到      -       CCJumpTo
+    跳跃        -       CCJumpBy
+    贝塞尔      -       CCBezierBy
+    放大到      -       CCScaleTo
+    放大        -       CCScaleBy
+    旋转到      -       CCRotateTo
+    旋转        -       CCRotateBy
+    闪烁        -       CCBlink
+    色调变化到  -       CCTintTo
+    色调变换    -       CCTintBy
+    变暗到      -       CCFadeTo
+    有无变亮    -       CCFadeIn
+    由亮变无    -       CCFadeOut
+
+Action 特效
+    抖动效果    -       Shaky3D
+    波浪效果    -       Waves3D
+    翻转效果    -       FlipX3D等
+    凸镜效果    -       Lens3D
+    水波效果    -       Ripple3D
+    液体效果    -       Liquid
+    扭动旋转    -       Twirl
+    破碎效果    -       ShatteredTiles3D
+    瓷砖效果    -       ShuffleTiles
+    淡入淡出    -       FadeOutTRTiles等
+    方块消失    -       TurnOffTiles
+    分行消失    -       SplitRows等
+    翻页效果    -       PageTurn3D
+
