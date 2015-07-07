@@ -1,0 +1,6 @@
+Cocos2d-x常用功能
+    Cocos2d-x之Sprite
+    Cocos2d-x之Director、Scene、Layer
+    Cocos2d-x之Log
+    Cocos2d-x之MessageBox
+
