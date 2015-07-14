@@ -1,0 +1,10 @@
+Cocos2d-x动画:
+	Cocos2d-x场景切换
+	Cocos2d-x场景切换效果
+	Cocos2d-x动作
+	Cocos2d-x动作反转
+	Cocos2d-x动作重复
+	Cocos2d-x动作混合
+	Cocos2d-x动作序列
+	Cocos2d-x动作侦听
+	Cocos2d-x动画
