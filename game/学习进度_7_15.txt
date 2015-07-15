@@ -1,0 +1,7 @@
+Cocos2d-x常用功能-Cocos2d-x用户交互事件处理：触摸、传感器、物理按键
+	Cocos2d-x单点触摸
+	Cocos2d-x触摸目标判断
+	Cocos2d-x事件传递
+	Cocos2d-x多点触摸
+	Cocos2d-x加速度传感器
+	Cocos2d-x物理按键交互
