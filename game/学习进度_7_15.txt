@@ -1,7 +1,15 @@
 Cocos2d-x常用功能-Cocos2d-x用户交互事件处理：触摸、传感器、物理按键
-	Cocos2d-x单点触摸
-	Cocos2d-x触摸目标判断
-	Cocos2d-x事件传递
-	Cocos2d-x多点触摸
-	Cocos2d-x加速度传感器
-	Cocos2d-x物理按键交互
+> Cocos2d-x单点触摸
+> Cocos2d-x触摸目标判断
+> Cocos2d-x事件传递
+> Cocos2d-x多点触摸
+> Cocos2d-x加速度传感器
+> Cocos2d-x物理按键交互
+
+Cocos2d-x常用功能-Cocos2d-x常用工具：计时器、数据读写、文件读写 
+> Cocos2d-x计时器
+> Cocos2d-x首选项数据读写
+> Cocos2d-x文件读写
+> Cocos2d-x的plist文件操作
+> Cocos2d-x的xml数据操作
+> Cocos2d-x的json数据操作
