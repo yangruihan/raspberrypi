@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F3AB086C-886E-4254-B059-DF5C8BC5FF68</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>PeopleDatabase</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D9A46863E8BB1E22F97422658A3B24BDCF7FA1D3</key>
 		<string>http://www.github.com/yangruihan/raspberrypi.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Swift_ws/PeopleDatabase/PeopleDatabase.xcodeproj/project.xcworkspace</string>
+	<string>Swift_ws/PeopleDatabase/PeopleDatabase.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D9A46863E8BB1E22F97422658A3B24BDCF7FA1D3</key>
