@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -15,11 +16,26 @@ class ViewController: UIViewController {
     var count = 0
     var seconds = 0
     var timer = NSTimer()
+    var buttonBeep: AVAudioPlayer?
+    var secondBeep: AVAudioPlayer?
+    var backgroundMusic: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let buttonBeep = self.setupAudioPlayerWithFile("ButtonTap", type: "wav") {
+            self.buttonBeep = buttonBeep
+        }
+        if let secondBeep = self.setupAudioPlayerWithFile("SecondBeep", type: "wav") {
+            self.secondBeep = secondBeep
+        }
+        if let backgroundMusic = self.setupAudioPlayerWithFile("HallOfTheMountainKing", type: "mp3") {
+            self.backgroundMusic = backgroundMusic
+        }
         setupGame()
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_tile.png")!)
+        scoreLabel.backgroundColor = UIColor(patternImage: UIImage(named: "field_score.png")!)
+        timerLabel.backgroundColor = UIColor(patternImage: UIImage(named: "field_time.png")!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +46,7 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed() {
         count++
         scoreLabel.text = "Score \n\(count)"
+        buttonBeep?.play()
     }
     
     func setupGame() {
@@ -41,9 +58,13 @@ class ViewController: UIViewController {
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self,
             selector: Selector("subtractTime"), userInfo: nil, repeats: true)
+        
+        backgroundMusic?.volume = 0.3
+        backgroundMusic?.play()
     }
     
     func subtractTime() {
+        secondBeep?.play()
         seconds--
         timerLabel.text = "Time: \(seconds)"
         
@@ -58,6 +79,23 @@ class ViewController: UIViewController {
             presentViewController(alert, animated: true, completion: nil)
         }
     }
-
+    
+    func setupAudioPlayerWithFile(file: NSString, type: NSString) -> AVAudioPlayer? {
+        //1
+        let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
+        let url = NSURL.fileURLWithPath(path!)
+        
+        //2
+        var audioPlayer:AVAudioPlayer?
+        
+        //3
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+        } catch {
+            print("Player not available")
+        }
+        
+        return audioPlayer
+    }
 }
 
