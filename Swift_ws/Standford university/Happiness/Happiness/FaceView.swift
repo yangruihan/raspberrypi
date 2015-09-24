@@ -8,13 +8,23 @@
 
 import UIKit
 
+protocol FaceViewDataSource: class {
+    func smilinessForFaceView(sender: FaceView) -> Double?
+}
+
+@IBDesignable
 class FaceView: UIView {
 
     // 线宽
+    @IBInspectable
     var lineWidth: CGFloat = 3 { didSet { setNeedsDisplay()}}
+    
     // 颜色
+    @IBInspectable
     var color: UIColor = UIColor.blueColor() { didSet{ setNeedsDisplay()} }
+    
     // 变换
+    @IBInspectable
     var scale: CGFloat = 0.90 { didSet{ setNeedsDisplay()} }
     
     // 中心点
@@ -26,6 +36,8 @@ class FaceView: UIView {
     var faceRadius: CGFloat {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
+    
+    weak var dataSource: FaceViewDataSource?
     
     private struct Scaling {
         static let FaceRadiusToEyeRadiusRatio: CGFloat = 10
@@ -86,9 +98,18 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        let smiliness = -1.0
+        let smiliness = dataSource?.smilinessForFaceView(self) ?? 0.0
         let smilePath = bezierPathForSmile(smiliness)
         smilePath.stroke()
+    }
+    
+    func viewScaleChange(gesture: UIPinchGestureRecognizer) {
+        switch gesture.state {
+        case .Changed:
+            scale *= gesture.scale
+            gesture.scale = 1
+        default: break
+        }
     }
 
 }
