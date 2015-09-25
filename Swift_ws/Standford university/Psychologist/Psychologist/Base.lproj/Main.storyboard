@@ -101,10 +101,45 @@
             </objects>
             <point key="canvasLocation" x="-1170" y="-35"/>
         </scene>
-        <!--Happiness View Controller-->
+        <!--Text View Controller-->
+        <scene sceneID="kbr-0P-gGe">
+            <objects>
+                <viewController id="10B-SE-a33" customClass="TextViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fM3-Kl-kKW"/>
+                        <viewControllerLayoutGuide type="bottom" id="9An-FG-J9I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="obd-Es-6EI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VYb-iB-PbZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VYb-iB-PbZ" firstAttribute="top" secondItem="obd-Es-6EI" secondAttribute="top" id="7Mf-dh-6IO"/>
+                            <constraint firstItem="VYb-iB-PbZ" firstAttribute="leading" secondItem="obd-Es-6EI" secondAttribute="leading" id="Dmd-NC-odn"/>
+                            <constraint firstItem="VYb-iB-PbZ" firstAttribute="bottom" secondItem="9An-FG-J9I" secondAttribute="top" id="j12-Qc-2JG"/>
+                            <constraint firstAttribute="trailing" secondItem="VYb-iB-PbZ" secondAttribute="trailing" id="vmV-rH-nf7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="VYb-iB-PbZ" id="gSx-7y-ZeX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PP7-6g-kWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-502" y="470"/>
+        </scene>
+        <!--Diagnosed Happiness View Controller-->
         <scene sceneID="MS6-Fn-Jtv">
             <objects>
-                <viewController id="hCD-oy-xeJ" customClass="HappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hCD-oy-xeJ" customClass="DiagnosedHappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qcr-6g-CsE"/>
                         <viewControllerLayoutGuide type="bottom" id="wgo-Mz-Iin"/>
@@ -129,7 +164,15 @@
                             <outletCollection property="gestureRecognizers" destination="yg6-2e-VfY" appends="YES" id="Qkh-S9-gLV"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="RLr-w5-t1T"/>
+                    <navigationItem key="navigationItem" id="RLr-w5-t1T">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="lgR-Ta-R8x">
+                            <connections>
+                                <segue destination="10B-SE-a33" kind="popoverPresentation" identifier="showHistoryPopover" popoverAnchorBarButtonItem="lgR-Ta-R8x" id="sAm-7D-3tO">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="faceView" destination="Lc7-Ou-RlV" id="0Sv-gr-Avx"/>
                     </connections>
