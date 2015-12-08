@@ -28,7 +28,8 @@ def send_mail(to_list,sub,content):
         return False
 
 if __name__ == '__main__':
-    if send_mail(mailto_list,"hello","hello world！"):
+
+    if send_mail(mailto_list,"hello","你好"):
         print ("发送成功")
     else:
         print ("发送失败")
