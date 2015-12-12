@@ -1,17 +1,19 @@
-#前言
-- Mac OSX的ls是没有颜色的，下面是设置ls颜色的方法。
+# OS X下设置终端不同类型文件显示不同颜色方法
+
+##前言
+- Mac OSX的`ls`是没有颜色的，下面是设置`ls`颜色的方法。
 - 此方法在Mac OSX中试验过，但不清楚linux是否也可行。
 #设置颜色
-- 1 打开~目录下的.bash_profile（没有此文件的话新建一个）
-~~~shell
-$ vi ~/.bash_profile
-~~~
+- 1 打开~目录下的`.bash_profile`（没有此文件的话新建一个）
+    ~~~shell
+    $ vi ~/.bash_profile
+    ~~~
 
-- 2 在.bash_profile里添加下面两个语句：
-~~~shell
-export CLICOLOR=1
-export LSCOLORS=1212121212121212121212
-~~~
+- 2 在`.bash_profile`里添加下面两个语句：
+    ~~~shell
+    export CLICOLOR=1
+    export LSCOLORS=1212121212121212121212
+    ~~~
 
 - 3 LSCOLORS的具体设置：
 \- LSCOLORS的1对应前景色，2对应背景色。
@@ -52,6 +54,6 @@ export LSCOLORS=1212121212121212121212
         x     default foreground or background (透明)
 
 - 最后，我用的颜色设置为：
-~~~shell
-export LSCOLORS=bxfxhxhxgxhxhxgxgxbxbx 
-~~~
+    ~~~shell
+    export LSCOLORS=bxfxhxhxgxhxhxgxgxbxbx 
+    ~~~
