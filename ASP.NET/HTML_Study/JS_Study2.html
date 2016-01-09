@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery Study2</title>
+    <script src="jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#link").change(function () {
+            window.location = $(this).val()
+        })
+    })
+
+    </script>
+</head>
+<body>
+<select id="link">
+    <option>Please Select</option>
+    <option value="http://www.baidu.com">Baidu</option>
+    <option value="http://www.qq.com">QQ</option>
+    <option value="http://www.163.com">NetEase</option>
+</select>
+</body>
+</html>
