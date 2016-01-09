@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML 示例</title>
+</head>
+<body bgcolor="silver">
+<center>
+    <!-- h 标签 -->
+    <h1 align="right">欢迎</h1>
+    <h2>欢迎</h2>
+    <h3>欢迎</h3>
+    <h4>欢迎</h4>
+    <h5>欢迎</h5>
+    <h6>欢迎</h6>
+
+    <!-- font 标签 -->
+    <font size="6" face="黑体" color="blue">欢迎光临我的主页</font>
+    <br/>
+    <font style="font-family:宋体;
+                font-size:40pt;
+                color:red">欢迎光临我的主页</font>
+
+    <!-- label 标签 -->
+    <br/>
+    <label for="username">用户名</label>
+	<input type="text" id="username" name="username"/>
+	
+	<!-- 格式标签 -->
+	<br/>
+	<b>粗体</b>
+	<br/>
+	<i>斜体</i>
+	<br/>
+	<u>下划线</u>
+	<br/>
+	<strike>删除线</strike>
+	<br/>
+	<strong>强调</strong>
+	<br/>
+	下标<sub>abc</sub>
+	<br/>
+	上标<sup>2</sup>
+	
+	<!-- span 标签 -->
+	<br/>
+	<label for="password">密码</label>
+	<input type="text" id="password" name="password"></input>
+	<span style="color:red">*</span>
+	
+	<!--  段落标签 -->
+	<!-- 换行 --> <br>
+	<!-- 段落 --> <p align="left">今天是个好天气</p>
+	
+	<!-- div 分组标签 -->
+	<br>
+	体育频道
+	<div id="sports">
+		<a href="">足球</a>
+		<a href="">篮球</a>
+	</div>
+	财经频道
+	<div id="finance">
+		<a href="">股票</a>
+		<a href="">基金</a>
+	</div>
+	
+	<!-- 图像标签 -->
+	<br>
+	<img src="url" alt="无法载入图像时说明"></img>
+	
+	<!-- 超链接 -->
+	<br>
+	<a href="http://www.baidu.com">百度</a>
+	
+	<!-- 列表 -->
+	<ul align="left">
+		<li>苹果</li>
+		<li>橘子</li>
+		<li>柠檬</li>
+		<li>香蕉</li>
+	</ul>
+	
+	<!-- 表格 -->
+	<table border=1 width=600 height=100>
+	<caption>学生名单</caption>
+	<tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>院系</th>
+	</tr>
+	<tr>
+		<td>2004001</td>
+		<td>张无忌</td>
+		<td>计算机学院</td>
+	</tr>
+	</table>
+	
+	<!-- 特殊标签 -->
+	<br>
+	空格 &nbsp;
+	<br>
+	引号" &quot;
+	<br>
+	小于号 &lt;
+	<br>
+	大于号 &gt;
+	<br>
+	取地址符& &amp;
+	
+	<!-- 表单 -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action="" method="get">
+		这是一个表单
+		<div id="username">
+			<label for="username">用户名</label>
+			<input type="text" id="username" name="username"></input>
+			<span style="color:red">*</span>
+		</div>
+		<div id="password">
+			<label for="password">密&nbsp;&nbsp;&nbsp;码</label>
+			<input type="text" id="password" name="password"></input>
+			<span style="color:red">*</span>
+		</div>
+		<font size="2">说明：用户名和密码必填</font>
+		
+		<!-- 单选框 -->
+		<br>
+		性别：
+		<input type="radio" name="sex" value="male" checked="checked">男</input>
+		<input type="radio" name="sex" value="female">女</input>
+		
+		<!-- 复选框 -->
+		<br>
+		爱好：
+		<input type="checkbox" name="hobby" value="football">足球</input>
+		<input type="checkbox" name="hobby" value="basketball">篮球</input>
+		
+		<!-- 列表框 -->
+		<br>
+		专业：
+		<select id="major" size="5" multiple="multiple">
+			<option value="cs">计算机科学与技术</option>
+			<option value="se">软件工程</option>
+			<option value="ne">网络工程</option>
+			<option value="ar">艺术</option>
+			<option value="mu">音乐</option>
+			<option value="pa">绘画</option>
+		</select>
+		
+		<!-- 文件域 -->
+		<br>
+		附件：
+		<input type="file" id="filename"></input>
+		
+		<!-- 文本域 -->
+		<br>
+		简历：
+		<textarea name="resume" cols="50" rows="10">请填写个人简历</textarea>
+		
+		<!-- 一般按钮 -->
+		<br>
+		<input type="button" id="btn1" value="请点击这个按钮" onclick="alert('你点击了按钮')"></input>
+		
+		<!-- 分组 -->
+		<br>
+		<fieldset style="width:270px">
+			<legend>登录</legend>
+			用户名：<input type="text"></input>
+			<br>
+			密码：<input type="password"></input>
+		</fieldset>
+		
+		<br>
+		<input type="submit" value="提交">
+		<input type="reset" value="重填">
+		
+	</form>
+	
+</center>
+</body>
+</html>

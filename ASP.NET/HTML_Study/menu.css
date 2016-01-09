@@ -1,0 +1,14 @@
+* {
+	font-size: 16pt;
+	text-align: center;
+}
+
+#menu {
+	width: 800px;
+	margin: 40px auto 0 auto;
+}
+
+#menu li {
+	display: inline;
+	list-style-type: none;
+}
