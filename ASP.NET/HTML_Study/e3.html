@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+<style type="text/css">
+    #btn {
+        font-size: 20px
+    }
+</style>
+<script type="text/javascript">
+    function reset () {
+        $("document").ready(function () {
+            $("#id").val("");
+       });
+    }
+</script>
+</head>
+<body>
+<div id="content">
+    学号：<input type="text" id="id">
+    <br/>
+    <input type="button" id="btn" onclick="reset()" value="重填">
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+
+<script type="text/javascript">
+    $("document").ready(function () {
+        $("#id").focus(function () {
+            $("#tip").html("学号必填").css("color", "red");
+        }); 
+    });
+</script>
+</head>
+<body>
+<div id="content">
+    编号：<input type="text" id="id"/> <span id="tip"></span>
+</div>
+</body>
+</html>
