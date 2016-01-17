@@ -1,8 +1,0 @@
---注释
--- print("Hello Lua")
-
--- 全局变量
-num = 100
-
--- 局部变量
-local num_local = 100

@@ -1,1 +1,0 @@
-/Users/yangruihan/WorkSpace/GitHub/raspberrypi/lua/.metadata/.plugins/org.eclipse.dltk.core/170316378.index

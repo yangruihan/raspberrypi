@@ -1,8 +1,0 @@
-Config = {}
-Config.words = "Hello"
-Config.num = 100
-Config["name"] = "zhangsan"
-
-print(Config.words)
-print(Config["words"])
-print(Config.name)
