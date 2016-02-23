@@ -1,0 +1,20 @@
+#MyEclipse Hibernate Properties
+#Tue Feb 23 16:39:33 CST 2016
+genBasicCompId=false
+sessionFactoryName=com.yrh.util.HibernateSessionFactory
+profile=
+daoSFId=
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/ReplyRobot/src/hibernate.cfg.xml
+createConfigFile=true
