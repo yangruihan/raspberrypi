@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="test" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="auth" class="com.yrh.interceptor.AuthInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="auth"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<action name="LoginAction" class="com.yrh.action.LoginAction" method="login">
+			<result>manage.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		
+		<action name="LogoutAction" class="com.yrh.action.LogoutAction" method="logout">
+			<result>index.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		
+		
+		<action name="ManageAction">
+			<result>manage.jsp</result>
+			<result name="error">index.jsp</result>
+			<interceptor-ref name="myStack"></interceptor-ref>
+		</action>
+	</package>
+</struts>    
