@@ -4,35 +4,27 @@
 from bs4 import BeautifulSoup
 import requests
 import json
-from email.mime.text import MIMEText
-import smtplib
+import math
+import pymongo
 
 
-class Crawler(object):
+class Spider(object):
     ERROR_PAGE_TITLE = ['页面不存在 - 百度云', '百度云 网盘-链接不存在', '百度云升级']
 
-    def __init__(self, max_deep=5):
+    def __init__(self, max_deep=30, max_item_num=0):
         self.user_count = 0  # 一共获取的用户数
         self.item_count = 0  # 一共获取的资源数
         self.share_every_page_num = 60  # 每页显示的分享数目
         self.follow_every_page_num = 24  # 每页显示的订阅者数目
-        self.max_deep = max_deep
+        self.max_deep = max_deep  # 爬取的最大深度
+        self.max_item_num = max_item_num  # 爬取的最大人数
+        self.visited_user = []  # 爬取过的人的uk记录list
 
     def get_info(self, uk, deep):
-        if deep > self.max_deep:
+        if self.max_item_num == 0 and deep > self.max_deep:
             return
-
-        # # 构建请求头数据
-        # headers = {
-        #     "Host": "hm.baidu.com",
-        #     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0",
-        #     "Accept": "image/png,image/*;q=0.8,*/*;q=0.5",
-        #     "Accept-Language": "zh-CN,en-US;q=0.7,en;q=0.3",
-        #     "Accept-Encoding": "gzip, deflate",
-        #     "Referer": "http://pan.baidu.com/share/home?uk=" + uk + "&view=follow",
-        #     "Cookie": "BAIDUID=EC00FDBBA2C26B3D4F66ADFF1FE60A7C:FG=1; BIDUPSID=EC00FDBBA2C26B3D4F66ADFF1FE60A7C; PSTM=1456714824; PANWEB=1; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1456748444; bdshare_firstime=1456748445696; PANPSC=17785268564342168302%3AV4xYP%2BguMp7fLM6jM73WzVN59bxoJEX1MMKOMtLkW73MtF6cdpAYPq6XwoDlj7S8fbZ%2FbYW506Yrh7mwRYuAFryHDAnhPhMzXW37a4TinLU%2F3LIl4sLPEoVYF2gE8DiGyMwwOTBV9B8hNwW%2F7DX2I7AdDI4jCRTlYfOQu1Ukkq9gRjm%2F7z4P5fvqPIbe4OQ9bU%2FOYWFuCwM%3D; Hm_lvt_adf736c22cd6bcc36a1d27e5af30949e=1456749856; H_PS_PSSID=1467_15053_12177_10634; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1456767011; Hm_lpvt_adf736c22cd6bcc36a1d27e5af30949e=1456767011; BDRCVFR[Ups602knC30]=mk3SLVN4HKm",
-        #     "Connection": "keep-alive",
-        # }
+        elif self.item_count >= self.max_item_num:
+            return
 
         headers = {
             "Accept": "image/webp,image/*,*/*;q=0.8",
@@ -48,15 +40,25 @@ class Crawler(object):
 
         info_url = 'http://pan.baidu.com/pcloud/user/getinfo?bdstoken=null&query_uk=' + uk + '&channel=chunlei&clienttype=0&web=1'
 
-        js = json.loads(requests.get(info_url, headers=headers).text)
-        pubshare_count = js['user_info']['pubshare_count']  # 获得分享文件数
-        follower_count = js['user_info']['follow_count']  # 获得订阅人数
+        try:
+            js = json.loads(requests.get(info_url, headers=headers).text)
+            pubshare_count = js['user_info']['pubshare_count']  # 获得分享文件数
+            follower_count = js['user_info']['follow_count']  # 获得订阅人数
+            fans_count = js['user_info']['fans_count']  # 获得粉丝人数，决定权重
 
-        # 获得该用户的资源
-        self._get_share_info(uk, pubshare_count, headers)
+            if uk in self.visited_user:
+                return
+            else:
+                self.visited_user.append(uk)
 
-        # 遍历该用户的订阅者资源
-        self._get_follower_info(uk, follower_count, headers, deep)
+            # 获得该用户的资源
+            self._get_share_info(uk, pubshare_count, fans_count, headers)
+
+            # 遍历该用户的订阅者资源
+            self._get_follower_info(uk, follower_count, headers, deep)
+        except Exception as e:
+            print('[ERROR]获取用户信息错误')
+            return
 
     def _get_follower_info(self, uk, follower_count, headers, deep):
         """
@@ -92,16 +94,21 @@ class Crawler(object):
                 print(e)
                 return
 
-    def _get_share_info(self, uk, pubshare_count, headers):
+    def _get_share_info(self, uk, pubshare_count, fans_count, headers):
         """
+        :param uk: 该用户的uk编号
         :param pubshare_count: 分享文件数量
         :param headers: 请求头
         """
         if int(pubshare_count) == 0:
             return
 
+        # 计算该用户资源权重
+        resource_weight = int(math.sqrt(int(fans_count)))
+
         self.user_count += 1  # 获得的用户数+1
-        print("正在获得第" + str(self.user_count) + "用户的资源信息：")
+        print("正在获得第" + str(self.user_count) + "用户的资源信息(http://pan.baidu.com/share/home?uk=" + str(
+            uk) + "&view=share#category/type=0)：")
         get_share_count = 0  # 记录获得的资源的数量
 
         share_urls = []
@@ -120,74 +127,37 @@ class Crawler(object):
                 share_list = js['list']
                 share_item_info = []
                 for i in share_list:
+                    if i['shorturl'] == '':
+                        get_share_count += 1  # 当前用户资源数加一
+                        print("--[ERROR]该用户第" + str(get_share_count) + "个资源信息无效")
+                        continue
+
                     share_item_url = 'http://pan.baidu.com/s/' + i['shorturl']
                     share_item_title = i['typicalPath'].split('/')[-1]
-                    share_item_info.append(share_item_title + "|" + share_item_url)
-                    get_share_count += 1
-                    print("\t获取第" + str(get_share_count) + "个资源信息：" +
-                          share_item_title + "|" + share_item_url)
+                    # share_item_info.append(share_item_title + "|" + share_item_url)
+                    share_item_info.append({'title': share_item_title,
+                                            'url': share_item_url,
+                                            'score': resource_weight})
+                    get_share_count += 1  # 当前用户资源数加一
+                    self.item_count += 1  # 获取的资源数加一
+                    print("--[SUC]获取总第" + str(self.item_count) + "个资源，该用户第" + str(get_share_count) + "个资源信息：" +
+                          share_item_title + "|" + share_item_url + "|" + str(resource_weight))
 
-                    # # 解决乱码问题
-                    # r = requests.get(share_item_url, headers=headers)
-                    # r.encoding = 'utf-8'
-                    #
-                    # soup = BeautifulSoup(r.text, "lxml")
-                    # item_name = str(soup.title.string)
-                    # if item_name not in Crawler.ERROR_PAGE_TITLE:
-                    #     share_item_info.append(item_name.split("_免费高速下载|百度云 网盘-分享无限制")[0] + "||" + share_item_url)
-                    #     get_share_count += 1
-                    #     print("\t获取第" + str(get_share_count) + "个资源信息：" +
-                    #           item_name.split("_免费高速下载|百度云 网盘-分享无限制")[0] + "||" + share_item_url)
-                    # else:
-                    #     get_share_count += 1
-                    #     print("\t第" + str(get_share_count) + "资源信息无效，跳过")
+                # 写如文件
+                # with open("item_names", "a") as f:
+                #     for name in share_item_info:
+                #         f.write(name + "\n")
+                #     share_item_info.clear()
 
-                with open("item_names", "a") as f:
-                    for name in share_item_info:
-                        f.write(name + "\n")
-                        self.item_count += 1  # 获取的资源数加一
-                    share_item_info.clear()
+                # 写入数据库
+                conn = pymongo.MongoClient()
+                baiduyun_db = conn.BaiduyunDB2
+                collection = baiduyun_db.baiduyun_resource
+                for item in share_item_info:
+                    collection.insert(item)
+
             except Exception as e:
                 print(e)
                 return
 
         print("-----信息写入完成-----")
-
-
-mail_to_list = list()
-mail_host = 'smtp.qq.com'  # 设置服务器
-mail_user = '770362426'  # 用户名
-mail_pass = ''  # 密码
-mail_postfix = 'qq.com'  # 发件箱后缀
-
-
-def send_mail(to_list, sub, content):
-    me = '<' + mail_user + "@" + mail_postfix + '>'
-    msg = MIMEText(content, _subtype='plain', _charset='utf8')
-    msg['Subject'] = sub
-    msg['From'] = me
-    msg['To'] = ";".join(to_list)
-    try:
-        server = smtplib.SMTP()
-        server.connect(mail_host)
-        server.login(mail_user, mail_pass)
-        server.sendmail(me, to_list, msg.as_string())
-        server.close()
-        return True
-    except Exception as e:
-        print(e)
-        return False
-
-
-if __name__ == '__main__':
-    crawler = Crawler(20)
-    crawler.get_info(uk='2569666980', deep=0)
-
-    mail_to_list.append("yangruihan@vip.qq.com")
-    content = '-----资源爬取结果-----\n' + \
-              '\t成功爬取' + str(crawler.item_count) + "个资源\n" + \
-              "\t共访问" + str(crawler.user_count) + "个用户"
-    if send_mail(mail_to_list, '百度云资源爬取', content):
-        print(u'\n邮件发送成功')
-    else:
-        print(u'\n邮件发送失败')
