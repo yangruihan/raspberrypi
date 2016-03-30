@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - sharingcar@localhost" uuid="31244857-03fc-482e-af02-4ca95c386f95">
+    <database-info product="MySQL" version="5.1.73-community" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="sharingcar"/>
+      <table id="2" parent="1" name="car"/>
+      <table id="3" parent="1" name="city2cityinfo"/>
+      <table id="4" parent="1" name="complain"/>
+      <table id="5" parent="1" name="drievaluation"/>
+      <table id="6" parent="1" name="driver"/>
+      <table id="7" parent="1" name="pasevaluation"/>
+      <table id="8" parent="1" name="passenger"/>
+      <table id="9" parent="1" name="sharingcarapply"/>
+      <table id="10" parent="1" name="sharingcarconfirm"/>
+      <table id="11" parent="1" name="sharingcarinfo"/>
+      <table id="12" parent="1" name="user"/>
+      <table id="13" parent="1" name="users"/>
+      <column id="14" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="2" name="driverID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="16" parent="2" name="licensePlateNumber">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="17" parent="2" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="18" parent="2" name="seatNumber">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="19" parent="2" name="haveAirCondition">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="20" parent="2" name="FK_have2">
+        <columns>driverID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="21" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="22" parent="2" name="FK_have2">
+        <columns>driverID</columns>
+        <ref-key>~.driver.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="23" parent="3" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="24" parent="3" name="start">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="25" parent="3" name="end">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="26" parent="3" name="mileage">
+        <mandatory>1</mandatory>
+        <data-type>float</data-type>
+      </column>
+      <column id="27" parent="3" name="spendTime">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="28" parent="3" name="oilCost">
+        <mandatory>1</mandatory>
+        <data-type>float</data-type>
+      </column>
+      <column id="29" parent="3" name="roadToll">
+        <mandatory>1</mandatory>
+        <data-type>float</data-type>
+      </column>
+      <key id="30" parent="3" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="31" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="32" parent="4" name="passid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="33" parent="4" name="drivid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="34" parent="4" name="content">
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="35" parent="4" name="type">
+        <comment>0:乘客对司机的投诉
+1:司机对乘客的投诉</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="36" parent="4" name="state">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="37" parent="4" name="passName">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="38" parent="4" name="drivName">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="39" parent="4" name="time">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="40" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="41" parent="5" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="42" parent="5" name="pasID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="43" parent="5" name="driverID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="44" parent="5" name="time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="45" parent="5" name="score">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="46" parent="5" name="leaveMsg">
+        <data-type>text</data-type>
+      </column>
+      <index id="47" parent="5" name="FK_to3">
+        <columns>driverID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="48" parent="5" name="FK_to7">
+        <columns>pasID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="49" parent="5" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="50" parent="5" name="FK_to3">
+        <columns>driverID</columns>
+        <ref-key>~.driver.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="51" parent="5" name="FK_to7">
+        <columns>pasID</columns>
+        <ref-key>~.passenger.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="52" parent="6" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="53" parent="6" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="54" parent="6" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="55" parent="6" name="drivingYears">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="56" parent="6" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="57" parent="6" name="phoneNum">
+        <mandatory>1</mandatory>
+        <data-type>varchar(11)</data-type>
+      </column>
+      <column id="58" parent="6" name="score">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;80&apos;</default-expression>
+      </column>
+      <column id="59" parent="6" name="evaluateNum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="60" parent="6" name="username_UNIQUE">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="61" parent="6" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <key id="62" parent="6" name="username_UNIQUE">
+        <columns>username</columns>
+        <underlying-index>username_UNIQUE</underlying-index>
+      </key>
+      <column id="63" parent="7" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="64" parent="7" name="pasID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="65" parent="7" name="driverID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="66" parent="7" name="time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="67" parent="7" name="score">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="68" parent="7" name="leaveMsg">
+        <data-type>text</data-type>
+      </column>
+      <index id="69" parent="7" name="FK_to">
+        <columns>pasID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="70" parent="7" name="FK_to5">
+        <columns>driverID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="71" parent="7" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="72" parent="7" name="FK_to">
+        <columns>pasID</columns>
+        <ref-key>~.passenger.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="73" parent="7" name="FK_to5">
+        <columns>driverID</columns>
+        <ref-key>~.driver.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="74" parent="8" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="75" parent="8" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="76" parent="8" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="77" parent="8" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="78" parent="8" name="phoneNum">
+        <mandatory>1</mandatory>
+        <data-type>varchar(11)</data-type>
+      </column>
+      <column id="79" parent="8" name="score">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;80&apos;</default-expression>
+      </column>
+      <column id="80" parent="8" name="evaluateNum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="81" parent="8" name="username_UNIQUE">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="82" parent="8" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <key id="83" parent="8" name="username_UNIQUE">
+        <columns>username</columns>
+        <underlying-index>username_UNIQUE</underlying-index>
+      </key>
+      <column id="84" parent="9" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="85" parent="9" name="pasID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="86" parent="9" name="price">
+        <mandatory>1</mandatory>
+        <data-type>float</data-type>
+      </column>
+      <column id="87" parent="9" name="carType">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="88" parent="9" name="sharingCarType">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="89" parent="9" name="start">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="90" parent="9" name="end">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="91" parent="9" name="time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <index id="92" parent="9" name="FK_apply">
+        <columns>pasID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="93" parent="9" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="94" parent="9" name="FK_apply">
+        <columns>pasID</columns>
+        <ref-key>~.passenger.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="95" parent="10" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="96" parent="10" name="pasID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="97" parent="10" name="driverID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="98" parent="10" name="carApply">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="99" parent="10" name="carInfo">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="100" parent="10" name="confirm">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="101" parent="10" name="driv_safe_time">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="102" parent="10" name="driv_safe_num">
+        <data-type>varchar(11)</data-type>
+      </column>
+      <column id="103" parent="10" name="pass_safe_time">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="104" parent="10" name="pass_safe_num">
+        <data-type>varchar(11)</data-type>
+      </column>
+      <column id="105" parent="10" name="driv_confirm">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="106" parent="10" name="pass_confirm">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="107" parent="10" name="driverConfirm">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="108" parent="10" name="pasConfirm">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="109" parent="10" name="Fk_car_info_idx">
+        <columns>carInfo</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="110" parent="10" name="Fk_sharing_car_idx">
+        <columns>carApply</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="111" parent="10" name="FK_trigger2">
+        <columns>pasID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="112" parent="10" name="FK_trigger3_idx">
+        <columns>driverID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="113" parent="10" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="114" parent="10" name="Fk_car_apply">
+        <columns>carApply</columns>
+        <ref-key>~.sharingcarapply.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="115" parent="10" name="Fk_car_info">
+        <columns>carInfo</columns>
+        <ref-key>~.sharingcarinfo.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="116" parent="10" name="FK_trigger2">
+        <columns>pasID</columns>
+        <ref-key>~.passenger.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="117" parent="10" name="FK_trigger3">
+        <columns>driverID</columns>
+        <ref-key>~.driver.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="118" parent="11" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="119" parent="11" name="driverID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="120" parent="11" name="totalDistance">
+        <mandatory>1</mandatory>
+        <data-type>float</data-type>
+      </column>
+      <column id="121" parent="11" name="start">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="122" parent="11" name="end">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="123" parent="11" name="time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="124" parent="11" name="state">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="125" parent="11" name="carType">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="126" parent="11" name="gasolineCosts">
+        <data-type>float</data-type>
+      </column>
+      <column id="127" parent="11" name="onewayCosts">
+        <data-type>float</data-type>
+      </column>
+      <column id="128" parent="11" name="maxPasNum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="129" parent="11" name="nowPasNum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="130" parent="11" name="addedInfo">
+        <data-type>text</data-type>
+      </column>
+      <index id="131" parent="11" name="fk_driver_idx">
+        <columns>driverID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="132" parent="11" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="133" parent="11" name="fk_driver">
+        <columns>driverID</columns>
+        <ref-key>~.driver.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="134" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="135" parent="12" name="name">
+        <data-type>varchar(12)</data-type>
+      </column>
+      <column id="136" parent="12" name="password">
+        <data-type>varchar(12)</data-type>
+      </column>
+      <index id="137" parent="12" name="name_UNIQUE">
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="138" parent="12" name="name_UNIQUE">
+        <columns>name</columns>
+        <underlying-index>name_UNIQUE</underlying-index>
+      </key>
+      <key id="139" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="140" parent="13" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="141" parent="13" name="NAME">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="142" parent="13" name="PASSWORD">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="143" parent="13" name="TELEPHONE">
+        <data-type>varchar(15)</data-type>
+      </column>
+      <column id="144" parent="13" name="USERNAME">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="145" parent="13" name="ISADMIN">
+        <data-type>varchar(5)</data-type>
+      </column>
+      <key id="146" parent="13" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
