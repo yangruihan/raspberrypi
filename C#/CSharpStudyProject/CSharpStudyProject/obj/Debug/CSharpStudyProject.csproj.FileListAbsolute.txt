@@ -1,0 +1,6 @@
+D:\WorkSpace\C#_ws\CSharpStudyProject\CSharpStudyProject\bin\Debug\CSharpStudyProject.exe.config
+D:\WorkSpace\C#_ws\CSharpStudyProject\CSharpStudyProject\obj\Debug\CSharpStudyProject.csprojResolveAssemblyReference.cache
+D:\WorkSpace\C#_ws\CSharpStudyProject\CSharpStudyProject\bin\Debug\CSharpStudyProject.exe
+D:\WorkSpace\C#_ws\CSharpStudyProject\CSharpStudyProject\bin\Debug\CSharpStudyProject.pdb
+D:\WorkSpace\C#_ws\CSharpStudyProject\CSharpStudyProject\obj\Debug\CSharpStudyProject.exe
+D:\WorkSpace\C#_ws\CSharpStudyProject\CSharpStudyProject\obj\Debug\CSharpStudyProject.pdb
