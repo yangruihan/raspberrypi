@@ -10,7 +10,7 @@
 
 
     <properties>
-        <struts.version>2.3.16</struts.version>
+        <struts.version>2.5.30</struts.version>
         <spring.version>4.1.6.RELEASE</spring.version>
         <hibernate.version>4.1.7.Final</hibernate.version>
     </properties>
